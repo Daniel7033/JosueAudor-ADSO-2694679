@@ -7,6 +7,7 @@
     <title>Departamento</title>
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/global.css'> -->
     <script src='../js/Departamento.js'></script>
+    <script src="../Js/Acciones/navbar.js"></script>
 
     <!-- Librerias -->
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
@@ -16,6 +17,15 @@
 </head>
 
 <body>
+    <style>
+        .table-dark {
+            text-align: auto;
+        }
+    </style>
+    <script>
+        var sidebarContent = navbarConten();
+        document.write(sidebarContent);
+    </script>
     <div class="container">
         <div id="inputData">
             <form>
@@ -37,9 +47,10 @@
 
                     <label class="col-sm-2 col-form-label">País</label>
                     <div class="col-sm-10">
-                        <!-- La llave  foraneo-->
-                        <input type="text" class="form-control" name="pais_id" id="pais_id" value=""
-                            placeholder="Ingrese el id del pais">
+                        <select class="form-select" id="paisId">
+                            <option value="" selected disabled>--Seleccione--</option>
+                        </select>
+                        <br>
                     </div>
 
                     <label class="col-sm-2 col-form-label">Estado</label>
@@ -66,6 +77,8 @@
                     <tr class="table-dark">
                         <th>Codigo</th>
                         <th>Nombre</th>
+                        <th>País</th>
+                        <th>Continente</th>
                         <th>Estado</th>
                         <th colspan="2">Acciones</th>
                     </tr>
@@ -81,4 +94,5 @@
 </html>
 <script>
     loadData();
+    loadPais();
 </script>

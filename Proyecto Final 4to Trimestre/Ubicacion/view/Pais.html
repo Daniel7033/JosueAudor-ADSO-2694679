@@ -7,6 +7,7 @@
     <title>Pais</title>
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/global.css'> -->
     <script src='../js/Pais.js'></script>
+    <script src="../Js/Acciones/navbar.js"></script>
 
     <!-- Librerias -->
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
@@ -16,6 +17,15 @@
 </head>
 
 <body>
+    <style>
+        .table-dark {
+            text-align: auto;
+        }
+    </style>
+    <script>
+        var sidebarContent = navbarConten();
+        document.write(sidebarContent);
+    </script>
     <div class="container">
         <div id="inputData">
             <form>
@@ -36,10 +46,10 @@
 
                     <label class="col-sm-2 col-form-label">Continente</label>
                     <div class="col-sm-10">
-                        
-                        <select class="form-select" id="continente_id">
+
+                        <select class="form-select" id="continenteId">
                             <option value="" selected disabled>--Seleccione--</option>
-                            
+
                         </select>
                         <br>
                     </div>
@@ -59,7 +69,7 @@
         <div id="buttonData">
             <br>
             <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
-    
+
         </div>
         <div id="outputData">
 
@@ -69,6 +79,7 @@
                     <tr class="table-dark">
                         <th>Codigo</th>
                         <th>Nombre</th>
+                        <th>Continente</th>
                         <th>Estado</th>
                         <th colspan="2">Acciones</th>
                     </tr>

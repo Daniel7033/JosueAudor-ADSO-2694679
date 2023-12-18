@@ -7,15 +7,27 @@
     <title>Ciudad</title>
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/global.css'> -->
     <script src='../js/Ciudad.js'></script>
+    <script src="../Js/Acciones/navbar.js"></script>
 
     <!-- Librerias -->
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
 
     <!-- ajax jquery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
 </head>
 
+
 <body>
+    <style>
+        .table-dark {
+            text-align: auto;
+        }
+    </style>
+    <script>
+        var sidebarContent = navbarConten();
+        document.write(sidebarContent);
+    </script>
     <div class="container">
         <div id="inputData">
             <form>
@@ -37,9 +49,10 @@
 
                     <label class="col-sm-2 col-form-label">Departamento</label>
                     <div class="col-sm-10">
-                        <!-- La llave  foraneo-->
-                        <input type="text" class="form-control" name="departamento_id" id="departamento_id" value=""
-                            placeholder="Ingresel el id del departamento">
+                        <select class="form-select" id="departamentoId">
+                            <option value="" selected disabled>--Seleccione--</option>
+                        </select>
+                        <br>
                     </div>
 
                     <label class="col-sm-2 col-form-label">Estado</label>
@@ -67,6 +80,9 @@
                     <tr class="table-dark">
                         <th>Codigo</th>
                         <th>Nombre</th>
+                        <th>Departamento</th>
+                        <th>País</th>
+                        <th>Continente</th>
                         <th>Estado</th>
                         <th colspan="2">Acciones</th>
                     </tr>
@@ -82,4 +98,5 @@
 </html>
 <script>
     loadData();
+    loadDepartamento();
 </script>

@@ -1,9 +1,35 @@
+function loadDepartamento() {
+  // Realizar la solicitud AJAX
+  $.ajax({
+      url: 'http://localhost:9000/v1/api/departamento',
+      method: 'GET',
+      dataType: 'json',
+      success: function (data) {
+          // Limpiar el selector antes de agregar nuevas opciones
+          $('#departamentoId').empty();
+
+          // Crear opciones para el selector
+          for (var i = 0; i < data.length; i++) {
+              var option = document.createElement('option');
+              option.value = data[i].id;
+              option.text = data[i].id + ". " + data[i].nombre;
+              $('#departamentoId').append(option);
+          }
+      },
+      error: function (error) {
+          console.error('Error al obtener los datos:', error);
+      }
+  });
+}
+
 function save() {
     // Construir el objeto data
     var data = {
       'codigo': $('#codigo').val(),
       'nombre': $('#nombre').val(),
-      'departamento_id': parseInt($('#departamento_id').val()),
+      'departamentoId': {
+        'id': parseInt($('#departamentoId').val()),
+      },
       'estado': parseInt($('#estado').val()),
     };
   
@@ -30,7 +56,9 @@ function save() {
     var data = {
       'codigo': $('#codigo').val(),
       'nombre': $('#nombre').val(),
-      'departamento_id': parseInt($('#departamento_id').val()),
+      'departamentoId': {
+        'id': parseInt($('#departamentoId').val()),
+      },
       'estado': parseInt($('#estado').val()),
     };
     var id = $("#id").val();
@@ -67,8 +95,10 @@ function save() {
           html += `<tr>
                   <td>`+ item.codigo + `</td>
                   <td>`+ item.nombre + `</td>
-                  <td>`+ item.departamento_id + `</td>
-                  <td>`+ (item.estado == true ? 'Activio' : 'Inactivo') + `</td>
+                  <td>`+ item.departamentoId.nombre + `</td>
+                  <td>`+ item.departamentoId.paisId.nombre + `</td>
+                  <td>`+ item.departamentoId.paisId.continenteId.nombre + `</td>
+                  <td>`+ (item.estado == true ? 'Activo' : 'Inactivo') + `</td>
                   <th><img src="../asset/icon/pencil-square.svg" alt="" onclick="findById(`+ item.id + `)"></th>
                   <th><img src="../asset/icon/trash3.svg" alt="" onclick="deleteById(`+ item.id + `)"></th>
               </tr>`;
@@ -92,7 +122,7 @@ function save() {
         $('#id').val(data.id);
         $('#codigo').val(data.codigo);
         $('#nombre').val(data.nombre);
-        $('#departamento_id').val(data.departamento_id);
+        $('#departamentoId').val(data.departamentoId.id);
         $('#estado').val(data.estado == true ? 1 : 0);
   
         //Cambiar boton.
@@ -125,7 +155,7 @@ function save() {
     $('#id').val('');
     $('#codigo').val('');
     $('#nombre').val('');
-    $('#departamento_id').val('');
+    $('#departamentoId').val('');
     $('#estado').val('');
   }
   
