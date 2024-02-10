@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UbicacionApplication",
+            "request": "launch",
+            "mainClass": "com.sena.ubicacion.UbicacionApplication",
+            "projectName": "ubicacion"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-CarritoCompraApplication<carrito-compra (2)>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
