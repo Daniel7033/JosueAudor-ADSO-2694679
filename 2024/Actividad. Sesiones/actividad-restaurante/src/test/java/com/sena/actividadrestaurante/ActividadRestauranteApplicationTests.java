@@ -1,10 +1,10 @@
-package com.sena.restaurantebackend;
+package com.sena.actividadrestaurante;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestauranteBackendApplicationTests {
+class ActividadRestauranteApplicationTests {
 
 	@Test
 	void contextLoads() {
