@@ -14,4 +14,15 @@ public class PersonController extends ABaseController<Person,IPersonService>{
 	public PersonController(IPersonService service) {
         super(service, "Person");
     }
+
+    @GetMapping("/list-person")
+    public ResponseEntity<ApiResponseDto<List<IPersonDto>>> show() {
+        try {
+            List<IPersonDto> entity = service.getListPerson();
+            return ResponseEntity.ok(new ApiResponseDto<List<IPersonDto>>("Registro encontrado", entity, true));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(new ApiResponseDto<List<IPersonDto>>(e.getMessage(), null, false));
+        }
+    }
+
 }

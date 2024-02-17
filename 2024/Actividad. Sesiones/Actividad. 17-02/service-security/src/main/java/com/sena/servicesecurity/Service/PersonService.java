@@ -18,4 +18,10 @@ public class PersonService extends ABaseService<Person> implements IPersonServic
 	
 	@Autowired
 	private IPersonRepository repository;	
+
+	
+	@Override
+	public List<IPersonDto> getListPerson() {
+		return repository.getListPerson();
+	}
 }
