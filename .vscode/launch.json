@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ServiceSecurityApplication",
+            "request": "launch",
+            "mainClass": "com.sena.servicesecurity.ServiceSecurityApplication"
+        },
+        {
+            "type": "java",
             "name": "UbicacionApplication",
             "request": "launch",
             "mainClass": "com.sena.ubicacion.UbicacionApplication",
