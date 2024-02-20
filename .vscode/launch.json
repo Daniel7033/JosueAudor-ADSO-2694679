@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ActividadRestauranteApplication",
+            "request": "launch",
+            "mainClass": "com.sena.actividadrestaurante.ActividadRestauranteApplication",
+            "projectName": "com.sena-actividad-restaurante"
+        },
+        {
+            "type": "java",
             "name": "ServiceSecurityApplication",
             "request": "launch",
             "mainClass": "com.sena.servicesecurity.ServiceSecurityApplication"

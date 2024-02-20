@@ -20,10 +20,10 @@ public class RestauranteService implements IRestauranteService{
         return repository.findAll();
     }
 
+    @SuppressWarnings("null")
     @Override
     public Optional<Restaurante> findById(Long id) {
-        return repository.findById(id);
-    }
+        return repository.findById(id); }
 
     @Override
     public Restaurante save(Restaurante restaurante) {
@@ -31,6 +31,7 @@ public class RestauranteService implements IRestauranteService{
         return repository.save(restaurante);
     }
 
+    @SuppressWarnings("null")
     @Override
     public void update(Restaurante restaurante, Long id) {
         //Consultar si existe el registro
@@ -51,11 +52,13 @@ public class RestauranteService implements IRestauranteService{
         }
     }
 
+    @SuppressWarnings("null")
     @Override
     public void delete(Long id) {
         repository.deleteById(id);
     }
 
+    @SuppressWarnings("null")
     @Override
     public void deletedAt(Long id) {
         //Consultar si existe el registro

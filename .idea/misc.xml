@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/2023/Proyecto Final 4to Trimestre/Backend/ubicacion/pom.xml" />
+        <option value="$PROJECT_DIR$/2023/Proryecto. Actividad carrito compras/carrito-compra/pom.xml" />
+        <option value="$PROJECT_DIR$/2024/Actividad. Sesiones/Actividad. 9-02/restaurante-backend/restaurante-backend/pom.xml" />
+        <option value="$PROJECT_DIR$/2024/Actividad. Sesiones/Actividad. 9-02/actividad-restaurante/pom.xml" />
+        <option value="$PROJECT_DIR$/2024/Actividad. Sesiones/Actividad. 16-02/service-security/pom.xml" />
+        <option value="$PROJECT_DIR$/2024/Actividad. Sesiones/Actividad. 17-02/service-security/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -23,7 +23,7 @@ public class RestauranteController {
     @Autowired
     private IRestauranteService service;
 
-    @GetMapping("{id}")
+    @GetMapping
     public List<Restaurante> findAll() {
         return service.findAll();
     }
@@ -48,7 +48,7 @@ public class RestauranteController {
         service.deletedAt(id);
     }
     
-    @DeleteMapping("{id}")
+    @DeleteMapping
     public void delete(@PathVariable Long id){
         service.delete(id);
     }
