@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Archivo CSS -->
+    <link rel='stylesheet' type='text/css' media='screen' href='../asset/css/global.css'>
+
+    <!-- Archivo JavaScript -->
+    <script src='../js/restaurante.js'></script>
+
+    <!-- Librerias -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Para la vista de los iconos 
+    <link rel="website icon" type="png" href='../asset/icon/cliente.png'> -->
+
+    <!-- ajax jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <title>Restaurante</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="inputData">
+            <form>
+                <fieldset>
+                    <legend></legend>
+                    <div class="form-group row">
+                        <!-- ------------------------------------------------------------ -->
+                        <label class="col-sm-2 col-form-label">Nombre</label>
+                        <div class="col-sm-10">
+                            <br />
+                            <input type="hidden" name="id" id="id">
+                            <input type="text" class="form-control" name="nombre" id="nombre"
+                                placeholder="Nombre del restaurante">
+                        </div>
+                        <!-- ------------------------------------------------------------ -->
+                        <label class="col-sm-2 col-form-label">Dirección</label>
+                        <div class="col-sm-10">
+                            <br />
+                            <input type="text" class="form-control" name="direccion" id="direccion"
+                                placeholder="Dirección del restaurante">
+                        </div>
+                        <!-- ------------------------------------------------------------ -->
+                        <label class="col-sm-2 col-form-label">Tipo de cocina</label>
+                        <div class="col-sm-10">
+                            <br />
+                            <input type="text" class="form-control" name="tipo_cocina" id="tipo_cocina"
+                                placeholder="tipo de comida que se prepare">
+                        </div>
+                        <!-- ------------------------------------------------------------ -->
+                        <label class="col-sm-2 col-form-label">Menú</label>
+                        <div class="col-sm-10">
+                            <br />
+                            <input type="text" class="form-control" name="menu" id="menu" placeholder="Platillos">
+                        </div>
+                        <!-- ------------------------------------------------------------ -->
+                        <label class="col-sm-2 col-form-label">Horario de atencion</label>
+                        <div class="col-sm-10">
+                            <br />
+                            <label class="col-sm-2 col-form-label"></label>
+                            <input type="time" class="form-control" name="horario_atencion" id="horario_atencion">
+                        </div>
+                        <!-- ------------------------------------------------------------ -->
+                        <div class="col-sm-10">
+                            <br />
+                            <label class="col-sm-2 col-form-label">Capacidad</label>
+                            <input type="number" class="form-control" name="capacidad" id="capacidad"
+                                placeholder="Máx. de gente a entrar">
+                        </div>
+                        <!-- ------------------------------------------------------------ -->
+                        <label class="col-sm-2 col-form-label">Estado</label>
+                        <div class="col-sm-10">
+                            </br>
+                            <select class="form-select" id="estado">
+                                <option selected>--Seleccione--</option>
+                                <option value="1">Activo</option>
+                                <option value="0">Inactivo</option>
+                            </select>
+                        </div>
+                        <!-- ------------------------------------------------------------ -->
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="buttonData">
+            <br>
+            <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
+        </div>
+        <div id="outputData">
+            <!-- Aquí llegan los datos de la bd -->
+            </br>
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Cocina</th>
+                        <th>Menú</th>
+                        <th>Horario</th>
+                        <th>Capacidad</th>
+                        <th>Estado</th>
+                        <th colspan="2">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="resultData" style="text-align: center;">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- Ejecutar JS -->
+<script>
+    loadData();
+</script>
+<!-- ----------- -->

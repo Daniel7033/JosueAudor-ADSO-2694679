@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "9db0e0e3-46b4-4bd3-a045-bfa6fa091220",
+		"name": "actividad-restaurante",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31409465"
+	},
+	"item": [
+		{
+			"name": "restaurante",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/api/restuarante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"api",
+								"restuarante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/api/restaurante/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"api",
+								"restaurante",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estado\":true,\r\n    \"nombre\":\"Gaspacho\",\r\n    \"direccion\":\"Calle 51\",\r\n    \"tipoCocina\":\"Italiana\",\r\n    \"menu\":\"Paella de pescado\",\r\n    \"capacidad\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/v1/api/restuarante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"api",
+								"restuarante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"estado\":true,\r\n    \"nombre\":\"\",\r\n    \"direccion\":\"\",\r\n    \"tipoCocina\":\"\",\r\n    \"menu\":\"\",\r\n    \"horarioAtencion\":\"\",\r\n    \"capacidad\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/v1/api/restaurante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"api",
+								"restaurante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAt",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/api/restaurante/deleted-at/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"api",
+								"restaurante",
+								"deleted-at",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/v1/api/restaurante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"v1",
+								"api",
+								"restaurante"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

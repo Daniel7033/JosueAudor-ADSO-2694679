@@ -4,6 +4,12 @@
             "type": "java",
             "name": "ActividadRestauranteApplication",
             "request": "launch",
+            "mainClass": "com.sena.actividadrestaurante.ActividadRestauranteApplication"
+        },
+        {
+            "type": "java",
+            "name": "ActividadRestauranteApplication",
+            "request": "launch",
             "mainClass": "com.sena.actividadrestaurante.ActividadRestauranteApplication",
             "projectName": "com.sena-actividad-restaurante"
         },

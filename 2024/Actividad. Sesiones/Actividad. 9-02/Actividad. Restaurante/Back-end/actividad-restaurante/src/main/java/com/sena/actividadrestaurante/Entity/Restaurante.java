@@ -3,7 +3,7 @@ package com.sena.actividadrestaurante.Entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import java.util.Date;
+import java.sql.Time;
 
 @Entity
 @Table(name = "restaurante")
@@ -22,7 +22,7 @@ public class Restaurante extends ABaseEntity{
     private String menu;
     
     @Column(name = "horario_atencion", length = 50, nullable = false)
-    private Date horarioAtencion;
+    private Time horarioAtencion;
     
     @Column(name = "capacidad", nullable = false)
     private Integer capacidad;
