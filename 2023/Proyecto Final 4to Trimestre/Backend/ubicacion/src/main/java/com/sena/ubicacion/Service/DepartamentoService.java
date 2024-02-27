@@ -23,6 +23,7 @@ public class DepartamentoService implements IDepartamentoService{
 		return repository.findAll();
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Optional<Departamento> findById(Long id) {
 		return repository.findById(id);
@@ -34,6 +35,7 @@ public class DepartamentoService implements IDepartamentoService{
 		return repository.save(departamento);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void update(Departamento departamento, Long id) {
 		//Consultar si existe el registro
@@ -53,6 +55,7 @@ public class DepartamentoService implements IDepartamentoService{
 				}
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void deletedAt(Long id) {
 		//Consultar si existe el registro
@@ -68,6 +71,7 @@ public class DepartamentoService implements IDepartamentoService{
 		
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void delete(Long id) {
 		repository.deleteById(id);	

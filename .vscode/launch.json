@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UbicacionApplication",
+            "request": "launch",
+            "mainClass": "com.sena.ubicacion.UbicacionApplication",
+            "projectName": "com.sena-ubicacion"
+        },
+        {
+            "type": "java",
             "name": "ActividadRestauranteApplication",
             "request": "launch",
             "mainClass": "com.sena.actividadrestaurante.ActividadRestauranteApplication"

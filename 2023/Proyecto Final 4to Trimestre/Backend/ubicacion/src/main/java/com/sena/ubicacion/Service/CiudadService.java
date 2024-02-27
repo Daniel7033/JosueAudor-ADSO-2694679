@@ -22,6 +22,7 @@ public class CiudadService implements ICiudadService{
 		return repository.findAll();
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Optional<Ciudad> findById(Long id) {
 		return repository.findById(id);
@@ -33,6 +34,7 @@ public class CiudadService implements ICiudadService{
 		return repository.save(ciudad);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void update(Ciudad ciudad, Long id) {
 		//Consultar si existe el registro
@@ -52,6 +54,7 @@ public class CiudadService implements ICiudadService{
 				}
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void deletedAt(Long id) {
 		//Consultar si existe el registro
@@ -67,6 +70,7 @@ public class CiudadService implements ICiudadService{
 		
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void delete(Long id) {
 		repository.deleteById(id);	

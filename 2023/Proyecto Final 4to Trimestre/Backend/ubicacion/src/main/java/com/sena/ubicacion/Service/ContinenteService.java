@@ -22,6 +22,7 @@ public class ContinenteService implements IContinenteService{
 		return repository.findAll();
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Optional<Continente> findById(Long id) {
 		return repository.findById(id);
@@ -33,6 +34,7 @@ public class ContinenteService implements IContinenteService{
 		return repository.save(continente);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void update(Continente continente, Long id) {
 		//Consultar si existe el registro
@@ -51,6 +53,7 @@ public class ContinenteService implements IContinenteService{
 				}
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void deletedAt(Long id) {
 		//Consultar si existe el registro
@@ -66,6 +69,7 @@ public class ContinenteService implements IContinenteService{
 		
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void delete(Long id) {
 		repository.deleteById(id);	

@@ -5,8 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "module")
-public class Module extends ABaseEntity{
+@Table(name = "view")
+public class View extends ABaseEntity{
     @Column(name = "name", nullable = false, unique = true)
     private String name;
     

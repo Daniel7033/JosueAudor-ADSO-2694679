@@ -14,7 +14,7 @@
 	<name>actividad-restaurante</name>
 	<description>Establecimiento donde se preparan y sirven alimentos y bebidas para ser consumidos en el lugar.</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>20</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

@@ -1,7 +1,7 @@
 package com.sena.servicesecurity.Entity;
 
 import java.time.LocalDateTime;
-
+import java.lang.Long;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
