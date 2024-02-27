@@ -22,16 +22,19 @@ public class DetalleFacturaService implements IDetalleFacturaService{
         return repository.findAll();
     }
 
+		@SuppressWarnings("null")
     @Override
     public Optional<DetalleFactura> findById(Long id) {
         return repository.findById(id);
     }
 
+		@SuppressWarnings("null")
     @Override
     public DetalleFactura save(DetalleFactura df) {
         return repository.save(df);
     }
 
+		@SuppressWarnings("null")
     @Override
     public void update(DetalleFactura df, Long id) {
         Optional<DetalleFactura> op = repository.findById(id);
@@ -52,11 +55,13 @@ public class DetalleFacturaService implements IDetalleFacturaService{
         
     }
 
+		@SuppressWarnings("null")
     @Override
     public void delete(Long id) {
         repository.deleteById(id);;
     }
 
+    @SuppressWarnings("null")
     @Override
     public void deletedAt(Long id) {
         Optional<DetalleFactura> op = repository.findById(id);

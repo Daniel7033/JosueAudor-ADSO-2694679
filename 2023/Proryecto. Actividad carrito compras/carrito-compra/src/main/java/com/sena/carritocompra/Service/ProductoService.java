@@ -22,6 +22,7 @@ public class ProductoService implements IProductoService{
 		return repository.findAll();
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public Optional<Producto> findById(Long id) {
 		return repository.findById(id);
@@ -33,6 +34,7 @@ public class ProductoService implements IProductoService{
 		return repository.save(producto);
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public void update(Producto producto, Long id) {
 		//Consultar si existe el registro
@@ -53,11 +55,13 @@ public class ProductoService implements IProductoService{
 		}		
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public void delete(Long id) {
 		repository.deleteById(id);		
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public void deletedAt(Long id) {
 		Optional<Producto> op = repository.findById(id);

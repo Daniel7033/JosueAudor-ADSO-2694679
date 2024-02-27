@@ -22,6 +22,7 @@ public class ClienteService implements IClienteService{
 		return repository.findAll();
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public Optional<Cliente> findById(Long id) {
 		return repository.findById(id);
@@ -33,6 +34,7 @@ public class ClienteService implements IClienteService{
 		return repository.save(cliente);
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void update(Cliente cliente, Long id) {
 		//Consultar si existe el registro
@@ -53,7 +55,8 @@ public class ClienteService implements IClienteService{
 				}	
 		
 	}
-	
+
+	@SuppressWarnings("null")	
 	@Override
 	public void deletedAt(Long id) {
 		//Consultar si existe el registro
@@ -69,6 +72,7 @@ public class ClienteService implements IClienteService{
 		
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void delete(Long id) {
 		repository.deleteById(id);	

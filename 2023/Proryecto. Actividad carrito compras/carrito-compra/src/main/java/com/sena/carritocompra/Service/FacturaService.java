@@ -22,16 +22,19 @@ public class FacturaService implements IFacturaService{
 		return repository.findAll();
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public Optional<Factura> findById(Long id) {
 		return repository.findById(id);
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public Factura save(Factura factura) {
 		return repository.save(factura);
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public void update(Factura factura, Long id) {
 		//Consultar si existe el registro
@@ -52,7 +55,8 @@ public class FacturaService implements IFacturaService{
 				}	
 		
 	}
-	
+
+		@SuppressWarnings("null")	
 	@Override
 	public void deletedAt(Long id) {
 		//Consultar si existe el registro
@@ -68,6 +72,7 @@ public class FacturaService implements IFacturaService{
 		
 	}
 
+		@SuppressWarnings("null")
 	@Override
 	public void delete(Long id) {
 		repository.deleteById(id);	

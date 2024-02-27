@@ -48,6 +48,7 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
      * @return An Optional containing the entity, or empty if not found.
      * @throws Exception If an error occurs while retrieving the entity.
      */
+    @SuppressWarnings("null")
     @Override
     public Optional<T> findById(Long id) throws Exception {
         Optional<T> op = getRepository().findById(id);
@@ -82,6 +83,8 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
      * @param entity The updated entity.
      * @throws Exception If an error occurs while updating the entity.
      */
+    
+	@SuppressWarnings("null")
     @Override
     public void update(Long id, T entity) throws Exception {
         Optional<T> op = getRepository().findById(id);
@@ -106,6 +109,7 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
      * @param id The ID of the entity to delete.
      * @throws Exception If an error occurs while deleting the entity.
      */
+	@SuppressWarnings("null")
     @Override
     public void delete(Long id) throws Exception {
         Optional<T> op = getRepository().findById(id);
