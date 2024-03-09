@@ -18,13 +18,13 @@ public abstract class ABaseEntity {
     @Column(name = "state", nullable = false)
     private Boolean state;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = true)
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at", nullable = true)
     private LocalDateTime updatedAt;
 
-    @Column(name = "deleted_at", nullable = false)
+    @Column(name = "deleted_at", nullable = true)
     private LocalDateTime deletedAt;
 
 	@Column(name="created_by", nullable = true)
