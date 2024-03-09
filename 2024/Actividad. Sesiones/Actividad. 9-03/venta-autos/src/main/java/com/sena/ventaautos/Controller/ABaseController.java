@@ -1,4 +1,4 @@
-package com.sena.servicesecurity.Controller;
+package com.sena.ventaautos.Controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,38 +11,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.sena.servicesecurity.DTO.ApiResponseDto;
-import com.sena.servicesecurity.Entity.ABaseEntity;
-import com.sena.servicesecurity.IService.IBaseService;
+import com.sena.ventaautos.DTO.ApiResponseDto;
+import com.sena.ventaautos.Entity.ABaseEntity;
+import com.sena.ventaautos.IService.IBaseService;
 
-import jakarta.persistence.MappedSuperclass;
-
-/**
- * Abstract base controller providing common CRUD endpoints for entities.
- * @param <T> The type of entity extending ABaseEntity.
- * @param <S> The type of service implementing IBaseService for the entity.
- */
-@MappedSuperclass
-public class ABaseController<T extends ABaseEntity, S extends IBaseService<T>> {
+public class ABaseController<T extends ABaseEntity, S extends IBaseService<T>>{
     
     protected S service;
     protected String entityName;
-    
-    /**
-     * Constructor for ABaseController.
-     * @param service The service for the entity.
-     * @param entityName The name of the entity.
-     */
-    protected ABaseController(S service, String entityName) {
+
+    protected ABaseController(S service, String entityName){
         this.service = service;
         this.entityName = entityName;
     }
-    
-    /**
-     * Retrieves all entities with state set to true.
-     * @return A ResponseEntity containing ApiResponseDto with list of entities if successful,
-     *         or error message if unsuccessful.
-     */
+
     @GetMapping
     public ResponseEntity<ApiResponseDto<List<T>>> findByStateTrue() {
         try {
@@ -51,13 +33,7 @@ public class ABaseController<T extends ABaseEntity, S extends IBaseService<T>> {
             return ResponseEntity.internalServerError().body(new ApiResponseDto<List<T>>(e.getMessage(), null, false));
         }
     }
-    
-    /**
-     * Retrieves an entity by its ID.
-     * @param id The ID of the entity to retrieve.
-     * @return A ResponseEntity containing ApiResponseDto with the entity if found,
-     *         or error message if not found.
-     */
+
     @GetMapping("{id}")
     public ResponseEntity<ApiResponseDto<Optional<T>>> show(@PathVariable Long id) {
         try {
@@ -68,12 +44,6 @@ public class ABaseController<T extends ABaseEntity, S extends IBaseService<T>> {
         }
     }
     
-    /**
-     * Saves an entity.
-     * @param entity The entity to save.
-     * @return A ResponseEntity containing ApiResponseDto with the saved entity if successful,
-     *         or error message if unsuccessful.
-     */
     @PostMapping
     public ResponseEntity<ApiResponseDto<T>> save(@RequestBody T entity) {
         try {
@@ -83,13 +53,6 @@ public class ABaseController<T extends ABaseEntity, S extends IBaseService<T>> {
         }
     }
     
-    /**
-     * Updates an existing entity by its ID.
-     * @param id The ID of the entity to update.
-     * @param entity The updated entity.
-     * @return A ResponseEntity containing ApiResponseDto with success message if successful,
-     *         or error message if unsuccessful.
-     */
     @PutMapping("{id}")
     public ResponseEntity<ApiResponseDto<T>> update(@PathVariable Long id, @RequestBody T entity) {
         try {
@@ -100,12 +63,6 @@ public class ABaseController<T extends ABaseEntity, S extends IBaseService<T>> {
         }
     }
 
-    /**
-     * Deletes an entity by its ID.
-     * @param id The ID of the entity to delete.
-     * @return A ResponseEntity containing ApiResponseDto with success message if successful,
-     *         or error message if unsuccessful.
-     */
     @DeleteMapping("{id}")
     public ResponseEntity<ApiResponseDto<T>> delete(@PathVariable Long id) {
         try {

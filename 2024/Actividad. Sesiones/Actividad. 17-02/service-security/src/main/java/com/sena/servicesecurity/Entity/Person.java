@@ -6,7 +6,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Entity
+@Entity	
 @Table(name = "person")
 public class Person extends ABaseEntity {
     
@@ -22,7 +22,7 @@ public class Person extends ABaseEntity {
     @Column(name = "phone", length = 15, nullable = false)
     private String phone;
     
-    @Column(name = "date_of_birth", nullable = false)
+    @Column(name = "date_of_birth", nullable = true)
     private LocalDate dateOfBirth;
     
     @Column(name = "gender", length = 10, nullable = false)

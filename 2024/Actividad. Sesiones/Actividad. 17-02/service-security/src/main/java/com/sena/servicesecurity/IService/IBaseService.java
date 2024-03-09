@@ -5,10 +5,13 @@ import java.util.Optional;
 
 import com.sena.servicesecurity.Entity.ABaseEntity;
 
+import jakarta.persistence.MappedSuperclass;
+
 /**
  * This interface defines the contract for a generic base service.
  * @param <T> The type of entity extending ABaseEntity.
  */
+@MappedSuperclass
 public interface IBaseService<T extends ABaseEntity> {
 
     /**

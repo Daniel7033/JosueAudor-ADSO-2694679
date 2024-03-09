@@ -10,10 +10,13 @@ import com.sena.servicesecurity.Entity.ABaseEntity;
 import com.sena.servicesecurity.IRepository.IBaseRepository;
 import com.sena.servicesecurity.IService.IBaseService;
 
+import jakarta.persistence.MappedSuperclass;
+
 /**
  * Abstract base service providing common CRUD operations for entities.
  * @param <T> The type of entity extending ABaseEntity.
  */
+@MappedSuperclass
 public abstract class ABaseService<T extends ABaseEntity> implements IBaseService<T> {
 
     /**

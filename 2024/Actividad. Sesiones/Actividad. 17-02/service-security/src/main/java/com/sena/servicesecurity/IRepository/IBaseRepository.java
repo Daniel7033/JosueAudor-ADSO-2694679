@@ -5,6 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.sena.servicesecurity.Entity.ABaseEntity;
 
+import jakarta.persistence.MappedSuperclass;
+
+@MappedSuperclass
 @Repository
 public interface IBaseRepository<T extends ABaseEntity, ID> extends JpaRepository<T, Long>{
 

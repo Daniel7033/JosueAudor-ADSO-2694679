@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ActividadRestauranteApplication",
+            "request": "launch",
+            "mainClass": "ActividadRestauranteApplication",
+            "projectName": "JosueAudor-ADSO-2694679_d3c21629"
+        },
+        {
+            "type": "java",
+            "name": "ServiceSecurityApplication",
+            "request": "launch",
+            "mainClass": "ServiceSecurityApplication",
+            "projectName": "JosueAudor-ADSO-2694679_d3c21629"
+        },
+        {
+            "type": "java",
             "name": "UbicacionApplication",
             "request": "launch",
             "mainClass": "com.sena.ubicacion.UbicacionApplication",
