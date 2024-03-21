@@ -5,34 +5,7 @@
             "name": "VentaAutosApplication",
             "request": "launch",
             "mainClass": "com.sena.ventaautos.VentaAutosApplication",
-            "projectName": "com.sena-venta-autos"
-        },
-        {
-            "type": "java",
-            "name": "ActividadRestauranteApplication",
-            "request": "launch",
-            "mainClass": "ActividadRestauranteApplication",
-            "projectName": "JosueAudor-ADSO-2694679_d3c21629"
-        },
-        {
-            "type": "java",
-            "name": "ServiceSecurityApplication",
-            "request": "launch",
-            "mainClass": "ServiceSecurityApplication",
-            "projectName": "JosueAudor-ADSO-2694679_d3c21629"
-        },
-        {
-            "type": "java",
-            "name": "UbicacionApplication",
-            "request": "launch",
-            "mainClass": "com.sena.ubicacion.UbicacionApplication",
-            "projectName": "com.sena-ubicacion"
-        },
-        {
-            "type": "java",
-            "name": "ActividadRestauranteApplication",
-            "request": "launch",
-            "mainClass": "com.sena.actividadrestaurante.ActividadRestauranteApplication"
+            "projectName": "com.sena.venta-autos"
         },
         {
             "type": "java",

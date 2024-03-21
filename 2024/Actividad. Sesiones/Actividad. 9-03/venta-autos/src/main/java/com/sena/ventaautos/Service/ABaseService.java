@@ -24,7 +24,7 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
         return getRepository().findAll();
     }
 
-    
+    @SuppressWarnings("null")
     @Override
     public Optional<T> findById(Long id) throws Exception {
         Optional<T> op =  getRepository().findById(id);
@@ -45,6 +45,7 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
         }
     }
 
+    @SuppressWarnings("null")
     @Override
     public void update(Long id, T entity) throws Exception {
         Optional<T> op = getRepository().findById(id);
@@ -61,6 +62,7 @@ public abstract class ABaseService<T extends ABaseEntity> implements IBaseServic
         getRepository().save(entityUpdate);
     }
     
+    @SuppressWarnings("null")
     @Override
     public void delete(Long id) throws Exception {
         Optional<T> op = getRepository().findById(id);
