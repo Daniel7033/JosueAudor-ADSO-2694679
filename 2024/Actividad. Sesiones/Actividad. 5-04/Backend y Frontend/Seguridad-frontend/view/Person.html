@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person</title>
+     <!-- librerias -->
+     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+     <!-- ajax -->
+     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+     <!-- Script -->
+     <script src='../js/Person.js'></script>
+</head>
+<body>
+    <div class="container">
+        <div id="inputData">
+            <form>
+                <fieldset>
+                    <legend>Person Details</legend>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">First Name</label>
+                        <div class="col-sm-10">
+                            <input type="hidden" name="id" id="id" value="">
+                            <input type="text" class="form-control" name="firstName" id="firstName" value="" placeholder="First Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Last Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="lastName" id="lastName" value="" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email" id="email" value="" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Phone</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="phone" id="phone" value="" placeholder="Phone">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Date of Birth</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth" value="" placeholder="Date of Birth">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Gender</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" name="gender" id="gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Avion">Avion</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="address" id="address" value="" placeholder="Address">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Type Document</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="typeDocument" id="typeDocument" value="" placeholder="Type Document">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Document</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="document" id="document" value="" placeholder="Document">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">City</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" id="city">
+                                <option selected>--Seleccione mano--</option>
+                                <!-- Aquí puedes cargar las ciudades desde el backend -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-10">
+                        <br>
+                        <select class="form-select" id="state">
+                            <option selected>--Seleccione--</option>
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="buttonData">
+            <br>
+            <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
+        </div>
+
+        <div id="outputData">
+            <br>
+            <thead>
+            <table class="table table-hover">
+                <tr class="table-dark">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Type Document</th>
+                    <th>Document</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="resultData">
+            </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    loadData();
+    loadCity(); 
+</script>
+</html>
