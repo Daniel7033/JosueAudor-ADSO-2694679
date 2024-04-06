@@ -12,8 +12,22 @@
      <script src='../js/Employed.js'></script>
 </head>
 <body>
-    <div class="container">
-        <div id="inputData">
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Cabezera del Modal -->
+        <div class="modal-header">
+          <!-- Titulo del Modal -->
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Ciudad</h1>
+          <!-- Boton de cerrar Modal "X" -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Cuerpo del Modal -->
+        <div class="modal-body">
+          <div id="inputData">
+            <!-- Formulario -->
+            
             <form>
                 <fieldset>
                     <legend>Employed Details</legend>
@@ -49,7 +63,7 @@
                         <label class="col-sm-2 col-form-label">Position</label>
                         <div class="col-sm-10">
                             <select class="form-select" id="position">
-                                <option selected>--Seleccione mano--</option>
+                                <option selected>--Seleccione--</option>
                                 <!-- Aquí puedes cargar las ciudades desde el backend -->
                             <!-- </select>
                         </div>
@@ -65,11 +79,22 @@
                     </div>
                 </fieldset>
             </form>
+            <!-- Final formulario -->
+          </div>
         </div>
-        <div id="buttonData">
-            <br>
-            <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
+        <!-- Final cuerpo Modal -->
+        <div class="modal-footer">
+          <!-- Botones de acciones del Modal -->
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
         </div>
+      </div>
+    </div>
+    </div>
+    <!-- Final Modal -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
 
         <div id="outputData">
             <br>
@@ -88,7 +113,7 @@
             </tbody>
             </table>
         </div>
-    </div>
+
 </body>
 <script>
     loadData();

@@ -4,5 +4,5 @@ public enum TipoDocumentoEnum {
     TI,
     CC,
     PS,
-    RC
+    RC;
 }
