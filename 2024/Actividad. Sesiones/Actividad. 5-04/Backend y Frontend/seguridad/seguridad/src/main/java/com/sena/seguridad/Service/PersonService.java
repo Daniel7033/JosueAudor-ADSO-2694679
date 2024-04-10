@@ -14,20 +14,15 @@ import com.sena.seguridad.IService.IPersonService;
 
 @Service
 public class PersonService extends ABaseService<Person> implements IPersonService{
-	@Override
-	protected IBaseRepository<Person, Long> getRepository() {
-		return repository;
-	}
 	
 	@Autowired
 	private IPersonRepository repository;
 
-	
     @Override
-    public void delete(Long id) {
-        repository.deleteById(id);
-    }
-
+	protected IBaseRepository<Person, Long> getRepository() {
+		return repository;
+	}
+	
     @Override
     public List<IPersonDto> getList() {
         return repository.getList();
@@ -37,9 +32,5 @@ public class PersonService extends ABaseService<Person> implements IPersonServic
 	public List<IPersonDto> getDocumentByType(String typeDocument) throws Exception {
 	    return repository.getDocumentByType(typeDocument);
 	}
-    
-
-	
-	
 	
 }

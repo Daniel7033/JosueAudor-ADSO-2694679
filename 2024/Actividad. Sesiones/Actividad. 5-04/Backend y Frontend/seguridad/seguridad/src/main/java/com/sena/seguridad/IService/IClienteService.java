@@ -9,6 +9,8 @@ import com.sena.seguridad.Entity.Person;
 public interface IClienteService extends IBaseService<Cliente>{
     
 	List<IClienteDTO> searchClientData(String term);
+
 	public String GenerateCodeCliente(Long personId) throws Exception;
+	
 	public Cliente savePersonCustomer(Person entity) throws Exception;
 }

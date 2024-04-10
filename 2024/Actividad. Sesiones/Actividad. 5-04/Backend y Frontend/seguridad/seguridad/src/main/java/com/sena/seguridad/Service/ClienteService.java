@@ -20,13 +20,7 @@ import com.sena.seguridad.IService.IPersonService;
 @Service
 public class ClienteService extends ABaseService<Cliente> implements IClienteService{
 
-	@Override
-    public void delete(Long id) {
-        repository.deleteById(id);
-    }
-	
 	@Autowired
-	
 	private IClienteRepository repository;
 	
 	@Autowired
