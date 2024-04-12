@@ -108,8 +108,9 @@ function loadData() {
         }
     });
 }
+function loadCity() {
+    console.log("Ejecutando loadCity");
 
-function loadCity(){
     $.ajax({
         url: 'http://localhost:9000/seguridad/v1/api/city',
         method: "GET",
@@ -119,50 +120,46 @@ function loadCity(){
                 var cities = response.data.map(function(city) {
                     return {
                         label: city.name,
-                        value: city.id 
+                        value: city.id
                     };
                 });
-                
-                
+
                 $('#city').autocomplete({
-                    source : function(request, response){
-                        var results = $.ui.autocomplete.filter(cities, request.term);
-                        if (!results.length){
-                            results = [{label : 'No se encontraron resultados', value: null}];
-                        }
-                        response(results);
-                    },
-                    select: function(event, ui){
+                    source: cities, // Provide the array of cities as the source
+                    select: function(event, ui) {
+                        console.log("ejecutadnod");
                         $("#city_id").val(ui.item.value);
                         $("#city").val(ui.item.label);
-                        console.log("ID de empresa seleccionada: " + ui.item.value);
-                        return false;
+                        console.log("ID de la ciudad seleccionada: " + ui.item.value);
+                        return false; // Evita la actualización del valor del input después de la selección.
                     }
-    });
-} else {
-    console.error("No se obtuvo la lista de personas.");
-}
+                });
+            } else {
+                console.error("No se obtuvo la lista de ciudades.");
+            }
         },
-        error : function(error){
-            console.error("Error de la solicitur: ",error);
+        error: function(error) {
+            console.error("Error en la solicitud: ", error);
         }
     });
 }
 
 
-function Enum(){
+
+
+function Enum() {
     cargarTiposDocumento();
 }
 function cargarTiposDocumento() {
-    
+
     var tiposDocumento = ['DNI', 'CC', 'TI', 'PS', 'RC'];
-    
+
     var tipoDocumentoOptions = '';
-    tiposDocumento.forEach(function(tipoDocumento) {
+    tiposDocumento.forEach(function (tipoDocumento) {
         tipoDocumentoOptions += `<option value="${tipoDocumento}">${tipoDocumento}</option>`;
     });
 
-    
+
     $('#typeDocument').html(tipoDocumentoOptions);
 }
 

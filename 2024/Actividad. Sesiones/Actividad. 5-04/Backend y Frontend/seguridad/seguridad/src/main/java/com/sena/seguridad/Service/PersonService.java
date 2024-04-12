@@ -28,9 +28,15 @@ public class PersonService extends ABaseService<Person> implements IPersonServic
         return repository.getList();
     }
 
-    @Override
+	@Override
 	public List<IPersonDto> getDocumentByType(String typeDocument) throws Exception {
-	    return repository.getDocumentByType(typeDocument);
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'getDocumentByType'");
 	}
+
+    // @Override
+	// public List<IPersonDto> getDocumentByType(String typeDocument) throws Exception {
+	//     return repository.getDocumentByType(typeDocument);
+	// }
 	
 }

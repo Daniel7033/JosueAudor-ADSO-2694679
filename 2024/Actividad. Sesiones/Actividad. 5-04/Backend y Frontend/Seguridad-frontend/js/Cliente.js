@@ -14,16 +14,7 @@ function save() {
             'state': parseInt($('#state').val())
         };
 
-        var dataCliente = {
-            'code': $('#code').val(),
-            'personId': {
-                'id': parseInt($('#spersonId').val())
-            },
-            'state': parseInt($('#state').val())
-        };
-
         var jsonDataPerson = JSON.stringify(dataPerson);
-        var jsonDataCliente = JSON.stringify(dataCliente);
 
         $.ajax({
             url: 'http://localhost:9000/seguridad/v1/api/person',
@@ -43,25 +34,11 @@ function save() {
             }
         });
 
-        $.ajax({
-            url: 'http://localhost:9000/seguridad/v1/api/cliente',
-            method: 'POST',
-            dataType: 'json',
-            contentType: 'application/json',
-            data: jsonDataCliente,
-            success: function (dataCliente) {
-                alert("Registro guardado.");
-                loadData();
-                clearData();
-            },
-            error: function (error) {
-                alert(`La persona: ${parseInt($("#personId").val())} ya cuenta con una cuenta de usuario`);
-            }
-        });
     } catch (error) {
         console.error('Error al guardar: ', error);
     }
 }
+
 
 function loadPerson() {
     $.ajax({
@@ -72,38 +49,31 @@ function loadPerson() {
             if (response.status && Array.isArray(response.data)) {
                 var persons = response.data.map(function(person) {
                     return {
-                        label: `${person.firstName} ${person.lastName} - ${person.document}`,
-                        value: person.document,
-                        id: person.id,
-                        nombre: person.firstName
+                        label: `${person.firstName} ${person.lastName}`,
+                        value: person.id
                     };
                 });
 
-                $('#tags').autocomplete({
-                    source: function(request, response) {
-                        var term = request.term.toLowerCase();
-                        var filtered = persons.filter(function(person) {
-                            return person.value.toLowerCase().startsWith(term);
-                        });
-                        response(filtered);
-                    },
+                $('#personId').autocomplete({
+                    source: persons, // Provide the array of cities as the source
                     select: function(event, ui) {
-                        $('#tags').val(ui.item.value); // Llena el número de documento
-                        $('#name').val(ui.item.nombre); // Llena el nombre de la persona
-                        $("#personId").val(ui.item.id);
-                        return false;
+                        console.log("ejecutadnod");
+                        $("#personId").val(ui.item.value);
+                        $("#personId").val(ui.item.label);
+                        console.log("ID de la persona seleccionada: " + ui.item.value);
+                        return false; // Evita la actualización del valor del input después de la selección.
                     }
                 });
-                
             } else {
-                console.error("No se obtuvo la lista de personas.");
+                console.error("No se obtuvo la lista de ciudades.");
             }
         },
         error: function(error) {
-            console.error("Error de la solicitud: ", error);
+            console.error("Error en la solicitud: ", error);
         }
     });
 }
+
 
 function loadData() {
     $.ajax({
@@ -136,7 +106,6 @@ function loadData() {
     });
 }
 
-//autocomplete
 
 function loadPersonDocumento() {
     $.ajax({
@@ -178,6 +147,9 @@ function loadPersonDocumento() {
             console.error("Error de la solicitud: ", error);
         }
     });
+}
+function Enum() {
+    return loadTypeDocument(), loadGender();
 }
 
 function loadTypeDocument() {
@@ -229,7 +201,6 @@ function findById(id) {
         dataType: 'json',
         success: function (data) {
             $('#id').val(data.data.id);
-            $('#code').val(data.data.code);
             $('#personId').val(data.data.personId.id);
             $('#state').val(data.data.state === true ? 1 : 0);
 
@@ -244,7 +215,10 @@ function findById(id) {
     });
 }
 
+//autocomplete
 function loadCity() {
+    console.log("Ejecutando loadCity");
+
     $.ajax({
         url: 'http://localhost:9000/seguridad/v1/api/city',
         method: "GET",
@@ -253,39 +227,31 @@ function loadCity() {
             if (response.status && Array.isArray(response.data)) {
                 var cities = response.data.map(function(city) {
                     return {
-                        label: city.name, // Usar el nombre de la ciudad como etiqueta
-                        value: city.name, // Usar el nombre de la ciudad como valor
-                        id: city.id // Mantener el ID de la ciudad para usarlo si es necesario
+                        label: city.name,
+                        value: city.id
                     };
                 });
 
                 $('#city').autocomplete({
-                    source: function(request, response) {
-                        var term = request.term.toLowerCase();
-                        var filtered = cities.filter(function(city) {
-                            return city.label.toLowerCase().includes(term); // Usar includes en lugar de startsWith para permitir coincidencias en cualquier parte del nombre
-                        });
-                        response(filtered);
-                    },
-                    minLength: 0, // Establecer la longitud mínima a 0 para mostrar todas las opciones al hacer clic en el campo
+                    source: cities, // Provide the array of cities as the source
                     select: function(event, ui) {
-                        $('#city_id').val(ui.item.id); // Establecer el ID de la ciudad seleccionada
-                        $('#city').val(ui.item.label); // Establecer el nombre de la ciudad seleccionada
-                        return false;
+                        console.log("ejecutadnod");
+                        $("#city_id").val(ui.item.value);
+                        $("#city").val(ui.item.label);
+                        console.log("ID de la ciudad seleccionada: " + ui.item.value);
+                        return false; // Evita la actualización del valor del input después de la selección.
                     }
-                }).focus(function() {
-                    // Al enfocar el campo, mostrar todas las opciones
-                    $(this).autocomplete("search", "");
                 });
             } else {
                 console.error("No se obtuvo la lista de ciudades.");
             }
         },
         error: function(error) {
-            console.error("Error de la solicitud: ", error);
+            console.error("Error en la solicitud: ", error);
         }
     });
 }
+
 
 function deleteById(id) {
     $.ajax({
@@ -308,6 +274,5 @@ function clearData() {
     $('#lastName').val('');
     $('#typeDocument').val('');
     $('#document').val('');
-    $('#code').val('');
     $('#state').val('');
 }
