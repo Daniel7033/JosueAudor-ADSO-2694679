@@ -8,5 +8,6 @@ public interface IPersonDto extends IGenericDto{
     String getDocument();
 	String getFirstName();
 	String getLastName();
+	String getPersonId();
 	String getPerson();
 }

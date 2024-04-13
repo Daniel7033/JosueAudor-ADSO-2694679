@@ -1,5 +1,6 @@
 package com.sena.seguridad.IService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.sena.seguridad.DTO.IClienteDTO;
@@ -10,7 +11,7 @@ public interface IClienteService extends IBaseService<Cliente>{
     
 	List<IClienteDTO> searchClientData(String term);
 
-	public String GenerateCodeCliente(Long personId) throws Exception;
+	public String GenerateCodeCliente(Long personId, String typeDocument, String document, LocalDateTime date) throws Exception;
 	
 	public Cliente savePersonCustomer(Person entity) throws Exception;
 }
