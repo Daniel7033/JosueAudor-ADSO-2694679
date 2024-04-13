@@ -2,3 +2,16 @@
     margin: auto;
     height: auto;
 }
+
+table{
+    border-color: 3px gray;
+}
+
+.modal-button{
+    margin-left: 1350px;
+    margin-top: 50px;
+}
+
+th.actions{
+    align-content: center;
+} 

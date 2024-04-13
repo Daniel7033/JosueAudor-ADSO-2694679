@@ -1,90 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libro</title>
     <!-- librerias -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="../asset/css/global.css">
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
     <!-- ajax -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Script -->
     <script src='../js/Libro.js'></script>
 </head>
+
 <body>
-    <div class="container">
-        <div id="inputData">
-            <form>
-                <fieldset>
-                    <legend>Libro</legend>
-                   
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">autor</label>
-                    <div class="col-sm-10"></div>
-                    <select class="form-select" id="autorId">
-                        <option selected>--Seleccione--</option>
-                    </select>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Cabezera del Modal -->
+                <div class="modal-header">
+                    <!-- Titulo del Modal -->
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Préstramo de libros</h1>
+                    <!-- Boton de cerrar Modal "X" -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <!-- Cuerpo del Modal -->
+                <div class="modal-body">
+                    <div id="inputData">
+                        <!-- Formulario -->
+                        <form>
+                            <fieldset>
+                                <div name="legend"><legend>Libro</legend></div>
+                                <div class="form-group row">
+                                    <br>
+                                    <label class="col-sm-2 col-form-label">autor</label>
+                                    <div class="col-sm-10"></div>
+                                    <select class="form-select" id="autorId">
+                                        <option selected>--Seleccione--</option>
+                                    </select>
+                                </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">codigo</label>
-                    <div class="col-sm-10"></div>
-                    <input type="text" class="form-control" name="codigo" id="codigo"  placeholder="ingrese su fecha_nacimiento">
-                </div>
-                
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">titulo</label>
-                    <div class="col-sm-10"></div>
-                    <input type="text" class="form-control" name="titulo" id="titulo" value="" placeholder="ingrese su fecha_nacimiento">
-                </div>
+                                <div class="form-group row">
+                                    <br>
+                                    <label class="col-sm-2 col-form-label">codigo</label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="text" class="form-control" name="codigo" id="codigo"
+                                        placeholder="ingrese su fecha_nacimiento">
+                                </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Ejemplares disponibles</label>
-                    <div class="col-sm-10"></div>
-                    <input type="number" class="form-control" name="ejemplares" id="ejemplares" value="" placeholder="ingrese su fecha_nacimiento">
-                </div>
+                                <div class="form-group row">
+                                    <br>
+                                    <label class="col-sm-2 col-form-label">titulo</label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="text" class="form-control" name="titulo" id="titulo" value=""
+                                        placeholder="ingrese su fecha_nacimiento">
+                                </div>
 
-                <div class="col-sm-10">
-                </br>
-                <label>Estado</label>
-                <select class="form-select" id="state">
-                    <option selected>--Seleccione--</option>
-                    <option value="1">Activo</option>
-                    <option value="0">Inactivo</option>
-                </select>
+                                <div class="form-group row">
+                                    <br>
+                                    <label class="col-sm-2 col-form-label">Ejemplares disponibles</label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="number" class="form-control" name="ejemplares" id="ejemplares" value=""
+                                        placeholder="ingrese su fecha_nacimiento">
+                                </div>
+
+                                <div class="form-group row">
+                                    <br>
+                                    <label>Estado</label>
+                                    <select class="form-select" id="state">
+                                        <option selected>--Seleccione--</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <!-- Botones de acciones del Modal -->
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
+                            </fieldset>
+                        </form>
+                        <!-- Final formulario -->
+                    </div>
+                </div>
+                <!-- Final cuerpo Modal -->
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
-                </fieldset>
-            </form>
     </div>
-    <div id="buttonData">
-        <br>
-        <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
-    </div>
+    <!-- Final Modal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
     <div id="outputData">
         <br>
         <table class="table table-hover">
             <thead>
                 <tr class="table-dark">
-                    <th>titulo</th>
-                    <th>codigo</th>
-                    <th>Ejemplares</th>
-                    <th>autor</th>
-                    <th>State</th>
-                    <th colspan="2">Actions</th>
+                    <th>TÍTULO</th>
+                    <th>CÓDIGO</th>
+                    <th>EJEMPLARES</th>
+                    <th>AUTOR</th>
+                    <th>STATE</th>
+                    <th class="actions" colspan="2">ACTIONS</th>
                 </tr>
             </thead>
             <tbody id="resultData">
             </tbody>
         </table>
     </div>
-   </div>
-    
+    </div>
+    <!-- Boton de acceso al Modal de -->
+    <div class="btnNuevo">
+        <button class="btn btn-primary modal-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Nuevo <img
+                src="../asset/icon/plus-circle.svg"></button>
+    </div>
+
 </body>
 
 <script>
     loadData();
     loadAutor();
-    </script>
+</script>
+
 </html>
