@@ -22,7 +22,7 @@ public class Libro extends ABaseEntity{
 
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "autor_id", nullable = false, unique = true)
-	private Autor autor;
+	private Autor autorId;
 
 	public String getCodigo() {
 		return codigo;
@@ -47,13 +47,16 @@ public class Libro extends ABaseEntity{
 	public void setEjemplares(Integer ejemplares) {
 		this.ejemplares = ejemplares;
 	}
-	
-    
 
-	
+	public Autor getAutorId() {
+		return autorId;
+	}
 
+	public void setAutorId(Autor autorId) {
+		this.autorId = autorId;
+	}
 	
-	
+    	
 	
 	
 	

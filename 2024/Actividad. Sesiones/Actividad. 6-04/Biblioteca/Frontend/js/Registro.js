@@ -73,7 +73,7 @@ function loadData(){
                     <td>${item.fechaInicio}</td>
                     <td>${item.fechaFin}</td>
                     <td>${item.libroId.titulo}</td>
-                    <td>${item.lectorId}</td>
+                    <td>${item.lectorId.personaId.nombre}</td>
                     <td>${item.state === true ? "<img src='../asset/icon/icons8-emoji-circulo-verde-48.png'>" : "<img src='../asset/icon/icons8-emoji-circulo-rojo-48.png'>"}</td>
                     <td><button onclick="findById(${item.id})"><img src="../asset/icon/pencil-square.svg"></button></td>
                     <td><button onclick="deleteById(${item.id})"><img src="../asset/icon/trash3-fill.svg"></button></td>
@@ -123,7 +123,7 @@ function loadLector(){
 
             if(response.status && Array.isArray(response.data)){
                 response.data.forEach(function(item){
-                    options += `<option value="${item.id}">${item.nombre}</option>`;
+                    options += `<option value="${item.id}">${item.personaId.nombre}</option>`;
                 });
                 $('#lectorId').html(options);
             } else {

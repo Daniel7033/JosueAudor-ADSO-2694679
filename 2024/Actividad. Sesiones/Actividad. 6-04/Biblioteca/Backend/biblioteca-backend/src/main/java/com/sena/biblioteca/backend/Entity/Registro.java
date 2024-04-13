@@ -19,11 +19,11 @@ public class Registro extends ABaseEntity{
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "lector_id", nullable = false, unique = true)
-    private Lector lector;
+    private Lector lectorId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "libro_id", nullable = false, unique = true)
-    private Libro libro;
+    private Libro libroId;
 
     public String getFechaInicio() {
         return fechaInicio;
@@ -41,24 +41,21 @@ public class Registro extends ABaseEntity{
         this.fechaFin = fechaFin;
     }
 
-    public Lector getLector() {
-        return lector;
+    public Lector getLectorId() {
+        return lectorId;
     }
 
-    public void setLector(Lector lector) {
-        this.lector = lector;
+    public void setLectorId(Lector lectorId) {
+        this.lectorId = lectorId;
     }
 
-    public Libro getLibro() {
-        return libro;
+    public Libro getLibroId() {
+        return libroId;
     }
 
-    public void setLibro(Libro libro) {
-        this.libro = libro;
+    public void setLibroId(Libro libroId) {
+        this.libroId = libroId;
     }
-
-    
-
 
     
 }

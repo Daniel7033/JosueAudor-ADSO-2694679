@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autor</title>
+    <title>Libro</title>
     <!-- librerias -->
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
     <!-- ajax -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Script -->
-    <script src='../js/Autor.js'></script>
+    <script src='../js/Libro.js'></script>
 </head>
 <body>
     <div class="container">
         <div id="inputData">
             <form>
                 <fieldset>
-                    <legend>Autor</legend>
+                    <legend>Libro</legend>
                    
 
                 <div class="form-group row">
@@ -28,19 +28,22 @@
                 </div>
 
                 <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">codigo</label>
+                    <div class="col-sm-10"></div>
+                    <input type="text" class="form-control" name="codigo" id="codigo"  placeholder="ingrese su fecha_nacimiento">
+                </div>
+                
+                <div class="form-group row">
                     <label class="col-sm-2 col-form-label">titulo</label>
                     <div class="col-sm-10"></div>
                     <input type="text" class="form-control" name="titulo" id="titulo" value="" placeholder="ingrese su fecha_nacimiento">
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">codigo</label>
+                    <label class="col-sm-2 col-form-label">Ejemplares disponibles</label>
                     <div class="col-sm-10"></div>
-                    <input type="text" class="form-control" name="codigo id="codigo value="" placeholder="ingrese su fecha_nacimiento">
+                    <input type="number" class="form-control" name="ejemplares" id="ejemplares" value="" placeholder="ingrese su fecha_nacimiento">
                 </div>
-                
-                
-                
 
                 <div class="col-sm-10">
                 </br>
@@ -66,6 +69,7 @@
                 <tr class="table-dark">
                     <th>titulo</th>
                     <th>codigo</th>
+                    <th>Ejemplares</th>
                     <th>autor</th>
                     <th>State</th>
                     <th colspan="2">Actions</th>

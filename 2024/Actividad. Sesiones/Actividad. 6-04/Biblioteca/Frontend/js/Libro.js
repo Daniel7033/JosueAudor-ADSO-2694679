@@ -2,7 +2,8 @@ function save() {
     var data = {
         'titulo': $('#titulo').val(),
         'codigo': $('#codigo').val(),
-        'autorId': {'id': $('#autorId').val(),}, 
+        'ejemplares': $('#ejemplares').val(),
+        'autorId': {'id': parseInt($('#autorId').val())}, 
         'state': parseInt($('#state').val())
     };
 
@@ -29,7 +30,8 @@ function update() {
     var data = {
         'titulo': $('#titulo').val(),
         'codigo': $('#codigo').val(),
-        'autorId': $('#autorId').val(),
+        'ejemplares': $('#ejemplares').val(),
+        'autorId': { 'id': parseInt($('#autorId').val())},
         'state': parseInt($('#state').val())
     };
     var id = $('#id').val(); 
@@ -71,7 +73,8 @@ function loadData(){
                     html += `<tr>
                     <td>${item.titulo}</td>
                     <td>${item.codigo}</td>
-                    <td>${item.personaId.autorId.nombre}</td>
+                    <td>${item.ejemplares}</td>
+                    <td>${item.autorId.personaId.nombre}</td>
                     <td>${item.state === true ? 'Activo': 'Inactivo'}</td>
                     <td><button onclick="findById(${item.id})">Editar</button></td>
                     <td><button onclick="deleteById(${item.id})">Eliminar</button></td>
@@ -99,7 +102,7 @@ function loadAutor(){
 
             if(response.status && Array.isArray(response.data)){
                 response.data.forEach(function(item){
-                    options += `<option value="${item.id}">${item.nombre}</option>`;
+                    options += `<option value="${item.id}">${item.personaId.nombre}</option>`;
                 });
                 $('#autorId').html(options);
             } else {
@@ -107,7 +110,7 @@ function loadAutor(){
             }
         },
         error : function(error){
-            console.error('Error al cargar las ciudades: ',error);
+            console.error('Error al cargar las autores: ',error);
         }
     });
 }
@@ -154,6 +157,7 @@ function deleteById(id) {
 function clearData(){
     $('#titulo').val('');
     $('#codigo').val('');
+    $('#ejemplares').val('');
     $('#autorId').val('');
     $('#state').val('');
 }
