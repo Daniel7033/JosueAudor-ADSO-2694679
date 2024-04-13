@@ -7,25 +7,33 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.sena.seguridad.DTO.IClienteDTO;
+import com.sena.seguridad.DTO.IPersonDto;
 import com.sena.seguridad.Entity.Cliente;
 
 @Repository
 public interface IClienteRepository extends IBaseRepository<Cliente, Long> {
+        @Query(value = "SELECT "
+                + "c.id, "
+                + "c.code, "
+                + "CONCAT(p.first_name, ' ', p.last_name) AS name, "
+                + "p.type_document AS typeDocument, "
+                + "p.document, "
+                + "p.id AS personId, "
+                + "c.state "
+                + "FROM "
+                + "cliente c "
+                + "INNER JOIN person AS p ON p.id = c.person_id", nativeQuery = true)
+        List<IClienteDTO> getList();
 
-        @Query(value = " SELECT "
-                        + " person.document, "
-                        + " person.type_document "
-                        + " FROM seguridad.person"
-                        + " WHERE id = :id", nativeQuery = true)
-        String getDocument(@Param("id") Long id);
+        @Query(value = " SELECT  "
+                        + " type_document, "
+                        + " document "
+                        + "	FROM  "
+                        + "	person "
+                        + "	WHERE  "
+                        + " id = :id", nativeQuery = true)
+        IPersonDto getDocument(@Param("id") Long id);
 
-        @Query(value = " SELECT "
-                        + " c.code AS code, "
-                        + " p.first_name AS firstName, "
-                        + " p.last_name AS lastName, " 
-                        + " p.document AS Document "
-                        + " FROM cliente c "
-                        + " INNER JOIN person p ON c.person_id = p.id "
-                        + " WHERE c.code LIKE %:term% OR p.first_name LIKE %:term% OR p.last_name OR p.document LIKE %:term%", nativeQuery = true)
-        List<IClienteDTO> searchClientData(@Param("term") String term);
+        @Query(value = "SELECT * FROM cliente c WHERE c.person_id = : personId", nativeQuery = true)
+        Cliente findByPersonId(@Param("personId") Long personId);
 }

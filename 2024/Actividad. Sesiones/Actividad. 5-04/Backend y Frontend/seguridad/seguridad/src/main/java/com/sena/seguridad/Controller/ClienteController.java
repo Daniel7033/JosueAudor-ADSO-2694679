@@ -17,7 +17,6 @@ import com.sena.seguridad.Entity.Person;
 import com.sena.seguridad.IService.IClienteService;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @CrossOrigin(origins = "*")
@@ -33,12 +32,16 @@ public class ClienteController extends ABaseController<Cliente,IClienteService>{
 	@Autowired
     private IClienteService clienteService;
 	
-	@GetMapping("/data")
-    public ResponseEntity<?> searchClientData(@RequestParam("term") String term) {
-        List<IClienteDTO> clientData = clienteService.searchClientData(term);
-        return ResponseEntity.ok().body(clientData);
-    }
-	
+	@GetMapping("/list")
+    public ResponseEntity<ApiResponseDto<List<IClienteDTO>>> show() {
+        try {
+            List<IClienteDTO> entity = clienteService.getList();
+            return ResponseEntity.ok(new ApiResponseDto<List<IClienteDTO>>("Registro encontrado", entity, true));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(new ApiResponseDto<List<IClienteDTO>>(e.getMessage(), null, false));
+        }
+		}
+
 	
 	@PostMapping("/personCliente")
 	public ResponseEntity<ApiResponseDto<Cliente>> save(@RequestBody Person entity) {

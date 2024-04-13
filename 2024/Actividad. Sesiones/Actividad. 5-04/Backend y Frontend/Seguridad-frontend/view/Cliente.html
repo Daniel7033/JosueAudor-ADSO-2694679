@@ -23,39 +23,42 @@
 </head>
 
 <body>
+    <!-- Formulario Cliente -->
     <form>
         <fieldset>
             <div class="form-group row">
-                <label for="typeDocument" class="col-sm-2 col-form-label">Type Document</label>
+                <label class="col-sm-2 col-form-label" for="typeDocumentCliente">type_document</label>
                 <div class="col-sm-10">
-                    <select class="form-select" id="typeDocument" name="typeDocument">
+                    <select class="form-select" id="typeDocumentCliente" required>
+                        <option selected disabled value="">--select--</option>
                     </select>
                 </div>
-            </div>
 
-            <div class="form-group row">
-                <label for="persoId" class="col-sm-2 col-form-label">Document</label>
-                <div class="col-sm-10">
-                    <input type="hidden" id="selectedPerson" name="selectedPerson">
-                    <input type="text" list="personId" class="form-control" name="selectedPerson" id="selectedPerson"
-                        value="" placeholder="Document">
+                <div class="form-group row">
+                    <label for="persoId" class="col-sm-2 col-form-label">Document</label>
+                    <div class="col-sm-10">
+                        <input type="hidden" id="selectedPerson" name="selectedPerson">
+                        <input type="text" list="personId" class="form-control" name="selectedPerson"
+                            id="selectedPerson" value="" placeholder="Document">
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nombre</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="firstName lastName" id="firstName lastName" value=""
-                        placeholder="nombre">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="firstName lastName" id="firstName lastName"
+                            value="" placeholder="nombre">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn btn-primary" onclick="save()">Guardar</button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" onclick="save()">Guardar</button>
+                    </div>
                 </div>
-            </div>
         </fieldset>
     </form><br>
+    <!-- Final formulario -->
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -63,7 +66,7 @@
                 <!-- Cabezera del Modal -->
                 <div class="modal-header">
                     <!-- Titulo del Modal -->
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Ciudad</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Cliente</h1>
                     <!-- Boton de cerrar Modal "X" -->
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -74,99 +77,104 @@
                         <form>
                             <fieldset>
                                 <legend>Person Details</legend>
+
                                 <div class="form-group row">
-                                    <label for="typeDocument" class="col-sm-2 col-form-label">Type Document</label>
+                                    <label class="col-sm-2 col-form-label" for="typeDocumentPerson">type document</label>
                                     <div class="col-sm-10">
-                                        <select class="form-select" id="typeDocument" name="typeDocument">
-                                            <option value="TI">Tarjeta identidad</option>
-                                            <option value="CC">Cédula ciudadania</option>
-                                            <option value="PS">Pasaporte</option>
-                                            <option value="RC">RC</option>
+                                        <select class="form-select" id="typeDocumentPerson" required>
+                                            <option selected disabled value="">--select--</option>
                                         </select>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Document</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" maxlength="10" class="form-control" name="document"
-                                            id="document" value="" placeholder="Document">
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Document</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" maxlength="10" class="form-control" name="document"
+                                                id="document" value="" placeholder="Document">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">First Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="hidden" name="id" id="id" value="">
-                                        <input type="text" class="form-control" name="firstName" id="firstName" value=""
-                                            placeholder="First Name">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">First Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="hidden" name="id" id="id" value="">
+                                            <input type="text" class="form-control" name="firstName" id="firstName"
+                                                value="" placeholder="First Name">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Last Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="lastName" id="lastName" value=""
-                                            placeholder="Last Name">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Last Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="lastName" id="lastName"
+                                                value="" placeholder="Last Name">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" name="email" id="email" value=""
-                                            placeholder="Email">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" name="email" id="email" value=""
+                                                placeholder="Email">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Phone</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="phone" id="phone" value=""
-                                            placeholder="Phone">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Phone</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="phone" id="phone" value=""
+                                                placeholder="Phone">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Date of Birth</label>
-                                    <div class="col-sm-10">
-                                        <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth"
-                                            value="" placeholder="Date of Birth">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Date of Birth</label>
+                                        <div class="col-sm-10">
+                                            <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth"
+                                                value="" placeholder="Date of Birth">
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <label for="gender" class="col-sm-2 col-form-label">Gender</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" id="gender" name="gender">
-                                        </select>
+                                    <div class="form-group row">
+                                        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" id="gender" name="gender">
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
 
 
-                                <label class="col-sm-2 col-form-label">address</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control1" name="description" id="description"
-                                        value="" required placeholder="enter Description">
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">City</label>
+                                    <label class="col-sm-2 col-form-label">address</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="city" placeholder="city">
-                                        <input type="hidden" id="city_id" name="city_id">
-                                    </div>
-                                </div>
+                                        <select class="form-control" id="address" name="address"></select>
+                                        <input type="number" class="form-control" name="numeral" id="numeral" value=""
+                                            required placeholder="Enter #">
+                                        <p>-</p>
+                                        <input type="text" class="form-control" name="numeral2" id="numeral2" value=""
+                                            required placeholder="Enter #">
 
-                                <div class="col-sm-10">
-                                    <br>
-                                    <label>Estado</label>
-                                    <select class="form-select" id="state">
-                                        <option selected>--Seleccione--</option>
-                                        <option value="1">Activo</option>
-                                        <option value="0">Inactivo</option>
-                                    </select>
-                                </div>
+                                        <p>-</p>
+                                        <input type="text" class="form-control" name="description" id="description"
+                                            value="" required placeholder="Enter description">
+
+
+                                        <label class="col-sm-2 col-form-label" for="city_id">city: </label>
+                                        <div class="col-sm-10">
+                                            <input type="hidden" id="selected_city_id" name="selected_city_id" value="">
+                                            <input type="text" list="city_id" class="form-control" name="city_id"
+                                                id="city_id">
+                                        </div>
+
+                                        <div class="col-sm-10">
+                                            <br>
+                                            <label>Estado</label>
+                                            <select class="form-select" id="state">
+                                                <option selected>--Seleccione--</option>
+                                                <option value="1">Activo</option>
+                                                <option value="0">Inactivo</option>
+                                            </select>
+                                        </div>
                             </fieldset>
                         </form>
                         <!-- Final formulario -->
@@ -193,12 +201,13 @@
             <table class="table table-hover">
                 <tr class="table-dark">
                     <th>Code</th>
+                    <th>Type Document</th>
                     <th>Document</th>
                     <th>Name</th>
                     <th>State</th>
                     <th colspan="2">Actions</th>
                 </tr>
-            </thead>
+        </thead>
         <tbody id="resultData">
         </tbody>
         </table>

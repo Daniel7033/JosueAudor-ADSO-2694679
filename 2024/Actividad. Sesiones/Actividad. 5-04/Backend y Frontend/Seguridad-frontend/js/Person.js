@@ -1,74 +1,93 @@
 function save() {
-    var data = {
-        'firstName': $('#firstName').val(),
-        'lastName': $('#lastName').val(),
-        'email': $('#email').val(),
-        'phone': $('#phone').val(),
-        'dateOfBirth': $('#dateOfBirth').val(),
-        'gender': $('#gender').val(),
-        'address': $('#address').val(),
-        'city': { 'id': $('#city_id').val() },
-        'typeDocument': $('#typeDocument').val(),
-        'document': $('#document').val(),
-        'state': $('#state').val() == 1 ? true : false
-    };
-
-    var jsonData = JSON.stringify(data);
-
-    $.ajax({
-        url: 'http://localhost:9000/seguridad/v1/api/person',
-        method: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: jsonData,
-        success: function (data) {
-            alert("Registro guardado.");
-            loadData();
-            clearData();
-        },
-        error: function (error) {
-            console.error('Error al guardar: ', error);
+    try {
+        var selectedCityId = parseInt($("#selected_city_id").val());
+        if (isNaN(selectedCityId) || selectedCityId === null) {
+            console.error("ID de ciudad no válido");
+            return;
         }
-    });
+        var data = {
+            'firstName': $('#firstName').val(),
+            'lastName': $('#lastName').val(),
+            'email': $('#email').val(),
+            'phone': $('#phone').val(),
+            'dateOfBirth': $('#dateOfBirth').val(),
+            'gender': $('#gender').val(),
+            "address": $("#address").val() + ' No ' + $("#numeral").val() + ' - ' + $("#numeral2").val() + ' - ' + $("#description").val(),
+            'city': { 'id': selectedCityId },
+            'typeDocument': $('#typeDocument').val(),
+            'document': $('#document').val(),
+            'state': $('#state').val() == 1 ? true : false
+        };
+
+        var jsonData = JSON.stringify(data);
+
+        $.ajax({
+            url: 'http://localhost:9000/seguridad/v1/api/person',
+            method: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            data: jsonData,
+            success: function (data) {
+                alert("Registro guardado.");
+                loadData();
+                clearData();
+            },
+            error: function (error) {
+                console.error('Error al guardar: ', error);
+            }
+        });
+    } catch (error) {
+
+    }
 }
 
 function update() {
-    var data = {
-        'firstName': $('#firstName').val(),
-        'lastName': $('#lastName').val(),
-        'email': $('#email').val(),
-        'phone': $('#phone').val(),
-        'dateOfBirth': $('#dateOfBirth').val(),
-        'gender': $('#gender').val(),
-        'address': $('#address').val(),
-        'city': { 'id': $('#city_id').val() },
-        'typeDocument': $('#typeDocument').val(),
-        'document': $('#document').val(),
-        'state': parseInt($('#state').val())
-    };
+    try {
 
-    var id = $('#id').val();
-    var jsonData = JSON.stringify(data);
-
-    $.ajax({
-        url: 'http://localhost:9000/seguridad/v1/api/person/' + id,
-        method: "PUT",
-        dataType: 'json',
-        contentType: 'application/json',
-        data: jsonData,
-        success: function (result) {
-            alert("Actualizado.");
-            loadData();
-            clearData();
-
-            var btnAgregar = $('button[name="btnAgregar"]');
-            btnAgregar.text('Agregar');
-            btnAgregar.attr('onclick', 'save()');
-        },
-        error: function (error) {
-            console.error('Error al actualizar: ', error);
+        var selectedCityId = parseInt($("#selected_city_id").val());
+        if (isNaN(selectedCityId) || selectedCityId === null) {
+            console.error("ID de ciudad no válido");
+            return;
         }
-    });
+        var data = {
+            'firstName': $('#firstName').val(),
+            'lastName': $('#lastName').val(),
+            'email': $('#email').val(),
+            'phone': $('#phone').val(),
+            'dateOfBirth': $('#dateOfBirth').val(),
+            'gender': $('#gender').val(),
+            "address": $("#address").val() + ' No ' + $("#numeral").val() + ' - ' + $("#numeral2").val() + ' - ' + $("#description").val(),
+            'city': { 'id': selectedCityId },
+            'typeDocument': $('#typeDocument').val(),
+            'document': $('#document').val(),
+            'state': parseInt($('#state').val())
+        };
+
+        var id = $('#id').val();
+        var jsonData = JSON.stringify(data);
+
+        $.ajax({
+            url: 'http://localhost:9000/seguridad/v1/api/person/' + id,
+            method: "PUT",
+            dataType: 'json',
+            contentType: 'application/json',
+            data: jsonData,
+            success: function (result) {
+                alert("Actualizado.");
+                loadData();
+                clearData();
+
+                var btnAgregar = $('button[name="btnAgregar"]');
+                btnAgregar.text('Agregar');
+                btnAgregar.attr('onclick', 'save()');
+            },
+            error: function (error) {
+                console.error('Error al actualizar: ', error);
+            }
+        });
+    } catch (error) {
+
+    }
 }
 
 function loadData() {
@@ -90,11 +109,11 @@ function loadData() {
                     <td>${item.dateOfBirth}</td>
                     <td>${item.gender}</td>
                     <td>${item.address}</td>
-                    <td>${item.city.name}</td>
                     <td>${item.typeDocument}</td>
                     <td>${item.document}</td>
+                    <td>${item.city.name}</td>
                     <td>${item.state === true ? 'Activo' : 'Inactivo'}</td>
-                    <td><button onclick="findById(${item.id})">Editar</button></td>
+                    <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="findById(${item.id})">Editar</button></td>
                     <td><button onclick="deleteById(${item.id})">Eliminar</button></td>
                     </tr>`;
                 });
@@ -108,6 +127,8 @@ function loadData() {
         }
     });
 }
+
+//autocomplete
 function loadCity() {
     console.log("Ejecutando loadCity");
 
@@ -115,21 +136,27 @@ function loadCity() {
         url: 'http://localhost:9000/seguridad/v1/api/city',
         method: "GET",
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             if (response.status && Array.isArray(response.data)) {
-                var cities = response.data.map(function(city) {
+                var cities = response.data.map(function (city) {
                     return {
                         label: city.name,
                         value: city.id
                     };
                 });
 
-                $('#city').autocomplete({
-                    source: cities, // Provide the array of cities as the source
-                    select: function(event, ui) {
+                $('#city_id').autocomplete({
+                    source: function (request, response) {
+                        var results = $.ui.autocomplete.filter(cities, request.term);
+                        if (!results.length) {
+                            results = [{ label: 'No se encontraron resultados', value: null }];
+                        }
+                        response(results);
+                    },
+                    select: function (event, ui) {
                         console.log("ejecutadnod");
-                        $("#city_id").val(ui.item.value);
-                        $("#city").val(ui.item.label);
+                        $("#selected_city_id").val(ui.item.value);
+                        $("#city_id").val(ui.item.label);
                         console.log("ID de la ciudad seleccionada: " + ui.item.value);
                         return false; // Evita la actualización del valor del input después de la selección.
                     }
@@ -138,14 +165,11 @@ function loadCity() {
                 console.error("No se obtuvo la lista de ciudades.");
             }
         },
-        error: function(error) {
+        error: function (error) {
             console.error("Error en la solicitud: ", error);
         }
     });
 }
-
-
-
 
 function Enum() {
     cargarTiposDocumento();
@@ -194,23 +218,22 @@ function findById(id) {
         method: 'GET',
         dataType: 'json',
         success: function (data) {
-            $('#id').val(data.data.id);
-            $('#firstName').val(data.data.firstName);
-            $('#lastName').val(data.data.lastName);
-            $('#email').val(data.data.email);
-            $('#phone').val(data.data.phone);
-            $('#dateOfBirth').val(data.data.dateOfBirth);
-            $('#gender').val(data.data.gender);
-            $('#address').val(data.data.address);
-            $('#city').val(data.data.city.id);
-            $('#typeDocument').val(data.data.typeDocument);
-            $('#document').val(data.data.document);
-            $('#state').val(data.data.state === true ? 1 : 0);
-            $('#calle').val(data.data.address.calle);
-            $('#carrera').val(data.data.address.carrera);
-            $('#transversal').val(data.data.address.transversal);
-            $('#bis').val(data.data.address.bis);
-            $('#state').val(data.data.state === true ? 1 : 0);
+            $('#id').val(data.id);
+            $('#firstName').val(data.firstName);
+            $('#lastName').val(data.lastName);
+            $('#email').val(data.email);
+            $('#phone').val(data.phone);
+            $('#dateOfBirth').val(data.dateOfBirth);
+            $('#gender').val(data.gender);
+            $('#address').val(data.address);
+            $('#city').val(data.city.id);
+            $('#typeDocument').val(data.typeDocument);
+            $('#document').val(data.document);
+            $('#calle').val(data.address.calle);
+            $('#carrera').val(data.address.carrera);
+            $('#transversal').val(data.address.transversal);
+            $('#bis').val(data.address.bis);
+            $('#state').val(data.state === true ? 1 : 0);
 
             var btnAgregar = $('button[name="btnAgregar"]');
             btnAgregar.text('Actualizar');

@@ -27,7 +27,8 @@
                     <!-- Titulo del Modal -->
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Ciudad</h1>
                     <!-- Boton de cerrar Modal "X" -->
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="clearData()"></button>
                 </div>
                 <!-- Cuerpo del Modal -->
                 <div class="modal-body">
@@ -38,96 +39,101 @@
                                 <legend>Person Details</legend>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">First Name</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-9">
                                         <input type="hidden" name="id" id="id" value="">
                                         <input type="text" class="form-control" name="firstName" id="firstName" value=""
                                             placeholder="First Name">
                                     </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Last Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="lastName" id="lastName" value=""
-                                            placeholder="Last Name">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Email</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" name="email" id="email" value=""
-                                            placeholder="Email">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Phone</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="phone" id="phone" value=""
-                                            placeholder="Phone">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Date of Birth</label>
-                                    <div class="col-sm-10">
-                                        <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth"
-                                            value="" placeholder="Date of Birth">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Gender</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" name="gender" id="gender">
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Address</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="address" id="address" value=""
-                                            placeholder="Address">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Type Document</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-select" id="typeDocument" name="typeDocument">
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Document</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="document" id="document" value=""
-                                            placeholder="Document">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">City</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="city" placeholder="city">
-                                        <input type="hidden" id="city_id" name="city_id">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-10">
                                     <br>
-                                    <label>Estado</label>
-                                    <select class="form-select" id="state">
-                                        <option selected>--Seleccione--</option>
-                                        <option value="1">Activo</option>
-                                        <option value="0">Inactivo</option>
-                                    </select>
-                                </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="lastName" id="lastName"
+                                                value="" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" name="email" id="email" value=""
+                                                placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Phone</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="phone" id="phone" value=""
+                                                placeholder="Phone">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Date of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth"
+                                                value="" placeholder="Date of Birth">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Gender</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-select" name="gender" id="gender">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group-row">
+                                        <label class="col-sm-2 col-form-label">address</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="address" name="address"></select><br>
+                                            <input type="number" class="form-control row-sm-2" name="numeral" id="numeral"
+                                                value="" required placeholder="Enter #"><p>#</p>
+                                            <input type="text" class="form-control" name="numeral2" id="numeral2"
+                                                value="" required placeholder="Enter #">
+                                            <p>-</p>
+                                            <input type="text" class="form-control" name="description" id="description"
+                                                value="" required placeholder="Enter description">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Type Document</label>
+                                        <div class="col-sm-9"><br>
+                                            <select class="form-select" id="typeDocument" name="typeDocument">
+                                            </select><br>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Document</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="document" id="document"
+                                                value="" placeholder="Document">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <label class="col-sm-2 col-form-label" for="city_id">city: </label>
+                                    <div class="col-sm-9">
+                                        <input type="hidden" id="selected_city_id" name="selected_city_id" value="">
+                                        <input type="text" list="city_id" class="form-control" name="city_id"
+                                            id="city_id">
+                                    </div>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <br>
+                                        <label>Estado</label>
+                                        <select class="form-select" id="state">
+                                            <option selected>--Seleccione--</option>
+                                            <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
+                                        </select>
+                                    </div>
+                                    <br>
                             </fieldset>
                         </form>
                         <!-- Final formulario -->
@@ -136,7 +142,8 @@
                 <!-- Final cuerpo Modal -->
                 <div class="modal-footer">
                     <!-- Botones de acciones del Modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="clearData()">Cancelar</button>
                     <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
                 </div>
             </div>
