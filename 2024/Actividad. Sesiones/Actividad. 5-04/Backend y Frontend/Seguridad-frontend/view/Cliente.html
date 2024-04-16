@@ -27,29 +27,30 @@
     <form>
         <fieldset>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="typeDocumentCliente">type_document</label>
+                <label class="col-sm-2 col-form-label" for="typeDocumentCliente">Type document</label>
                 <div class="col-sm-10">
                     <select class="form-select" id="typeDocumentCliente" required>
                         <option selected disabled value="">--select--</option>
                     </select>
                 </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Document</label>
+                    <div class="col-sm-10">
+                        <input type="hidden" id="tags" name="tags">
+                        <input type="text" class="form-control" name="name" id="name"
+                            value="" placeholder="Document">
+                    </div>
+                </div>
 
                 <div class="form-group row">
-                    <label for="persoId" class="col-sm-2 col-form-label">Document</label>
+                    <label for="persoId" class="col-sm-2 col-form-label" for="personId">Name</label>
                     <div class="col-sm-10">
                         <input type="hidden" id="selectedPerson" name="selectedPerson">
-                        <input type="text" list="personId" class="form-control" name="selectedPerson"
-                            id="selectedPerson" value="" placeholder="Document">
+                        <input type="text" list="personId" class="form-control" name="personId"
+                            id="personId" value="" placeholder="Name">
                     </div>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Nombre</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="firstName lastName" id="firstName lastName"
-                            value="" placeholder="nombre">
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-md-12">
                         <button class="btn btn-primary" onclick="save()">Guardar</button>
@@ -79,13 +80,14 @@
                                 <legend>Person Details</legend>
 
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label" for="typeDocumentPerson">type document</label>
+                                    <label class="col-sm-2 col-form-label" for="typeDocumentPerson">type
+                                        document</label>
                                     <div class="col-sm-10">
                                         <select class="form-select" id="typeDocumentPerson" required>
                                             <option selected disabled value="">--select--</option>
                                         </select>
                                     </div>
-
+                                </div>
 
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Document</label>
@@ -158,23 +160,23 @@
                                         <input type="text" class="form-control" name="description" id="description"
                                             value="" required placeholder="Enter description">
 
-
+                                    </div>
+                                    <div class="col-sm-9">
                                         <label class="col-sm-2 col-form-label" for="city_id">city: </label>
-                                        <div class="col-sm-10">
-                                            <input type="hidden" id="selected_city_id" name="selected_city_id" value="">
-                                            <input type="text" list="city_id" class="form-control" name="city_id"
-                                                id="city_id">
-                                        </div>
+                                        <input type="hidden" id="selected_city_id" name="selected_city_id" value="">
+                                        <input type="text" list="city_id" class="form-control" name="city_id"
+                                            id="city_id">
+                                    </div>
 
-                                        <div class="col-sm-10">
-                                            <br>
-                                            <label>Estado</label>
-                                            <select class="form-select" id="state">
-                                                <option selected>--Seleccione--</option>
-                                                <option value="1">Activo</option>
-                                                <option value="0">Inactivo</option>
-                                            </select>
-                                        </div>
+                                    <div class="col-sm-10">
+                                        <br>
+                                        <label>Estado</label>
+                                        <select class="form-select" id="state">
+                                            <option selected>--Seleccione--</option>
+                                            <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
+                                        </select>
+                                    </div>
                             </fieldset>
                         </form>
                         <!-- Final formulario -->
@@ -183,7 +185,8 @@
                 <!-- Final cuerpo Modal -->
                 <div class="modal-footer">
                     <!-- Botones de acciones del Modal -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="clearData()">Cancelar</button>
                     <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
                 </div>
             </div>
@@ -219,8 +222,7 @@
 </body>
 <script>
     loadData();
-    loadCity();
-    loadPerson();
+    autocomplete();
     Enum();
 </script>
 

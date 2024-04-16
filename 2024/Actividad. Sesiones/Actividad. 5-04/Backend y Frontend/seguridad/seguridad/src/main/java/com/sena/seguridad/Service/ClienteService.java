@@ -47,7 +47,7 @@ public class ClienteService extends ABaseService<Cliente> implements IClienteSer
 	    String codeCliente = GenerateCodeCliente(person.getId(), entity.getTypeDocument(), person.getDocument());
 	    entityCliente.setCode(codeCliente);
 	    entityCliente.setPersonId(person);
-	    entityCliente.setState(true);
+	    entityCliente.setState(entity.getState());
 	    entityCliente.setCreatedAt(LocalDateTime.now());
 	    entityCliente.setCreatedBy((long) 1);
 	    Cliente cliente = repository.save(entityCliente);

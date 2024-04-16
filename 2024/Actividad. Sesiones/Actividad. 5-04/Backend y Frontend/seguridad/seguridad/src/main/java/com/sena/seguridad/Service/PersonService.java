@@ -1,13 +1,10 @@
 package com.sena.seguridad.Service;
 
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import com.sena.seguridad.DTO.IClienteDTO;
 import com.sena.seguridad.DTO.IPersonDto;
 import com.sena.seguridad.Entity.Cliente;
 import com.sena.seguridad.Entity.Person;
@@ -44,33 +41,13 @@ public class PersonService extends ABaseService<Person> implements IPersonServic
 		throw new UnsupportedOperationException("Unimplemented method 'getDocumentByType'");
 	}
 
-	/* 
-	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	@Override
-	public Cliente saveCliente(Long personId, Cliente entity) throws Exception {
-		try {
-			Optional<IClienteDTO> opCliente = serviceCliente.findById(entity.getId());
-			Person person = repository.save(opCliente);
-			String codeCustomer = serviceCliente.GenerateCodeCliente(personId, person.getTypeDocument(),
-					person.getDocument());
-			Cliente customer = serviceCliente.findByPersonId(personId);
-			customer.setCode(codeCustomer);
-			serviceCliente.save(customer);
-		} catch (Exception e) {
-			// Captura la excepción
-			throw new Exception("Error al guardar la entidad: " + e.getMessage());
-		}
-	}
-	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	*/
-	
-	@Override
-	public void updatePersonCliente(Long personId, Person person) throws Exception {
+	public void updatePersonCliente(Long id, Person person) throws Exception {
 
 		repository.save(person);
-		String codeCustomer = serviceCliente.GenerateCodeCliente(personId, person.getTypeDocument(),
+		String codeCustomer = serviceCliente.GenerateCodeCliente(id, person.getTypeDocument(),
 				person.getDocument());
-		Cliente customer = serviceCliente.findByPersonId(personId);
+		Cliente customer = serviceCliente.findByPersonId(id);
 		customer.setCode(codeCustomer);
 		serviceCliente.update(customer.getId(), customer);
 	}

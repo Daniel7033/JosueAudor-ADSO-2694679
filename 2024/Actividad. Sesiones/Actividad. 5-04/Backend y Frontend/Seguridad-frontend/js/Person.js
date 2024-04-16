@@ -16,7 +16,7 @@ function save() {
             'city': { 'id': selectedCityId },
             'typeDocument': $('#typeDocument').val(),
             'document': $('#document').val(),
-            'state': $('#state').val() == 1 ? true : false
+            'state': parseInt($('#state').val())
         };
 
         var jsonData = JSON.stringify(data);
@@ -67,7 +67,7 @@ function update() {
         var jsonData = JSON.stringify(data);
 
         $.ajax({
-            url: 'http://localhost:9000/seguridad/v1/api/person/' + id,
+            url: 'http://localhost:9000/seguridad/v1/api/person/personCliente/' + id,
             method: "PUT",
             dataType: 'json',
             contentType: 'application/json',
@@ -171,45 +171,71 @@ function loadCity() {
     });
 }
 
+//Enums
 function Enum() {
-    cargarTiposDocumento();
+    return loadTypeDocumentCliente(), loadGender(), loadNomenclaturas();
 }
-function cargarTiposDocumento() {
-
-    var tiposDocumento = ['DNI', 'CC', 'TI', 'PS', 'RC'];
-
-    var tipoDocumentoOptions = '';
-    tiposDocumento.forEach(function (tipoDocumento) {
-        tipoDocumentoOptions += `<option value="${tipoDocumento}">${tipoDocumento}</option>`;
-    });
-
-
-    $('#typeDocument').html(tipoDocumentoOptions);
-}
-
-function cargarNomeclaturas() {
-    var nomeclaturas = {
-        "calle": "Calle",
-        "carrera": "Carrera",
-        "transversal": "Transversal",
-        "bis": "Bis"
-    };
-
-    var addressInput = '';
-
-    for (var key in nomeclaturas) {
-        if (nomeclaturas.hasOwnProperty(key)) {
-            addressInput += `<div class="form-group row">
-                                <label class="col-sm-2 col-form-label">${nomeclaturas[key]}</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="${key}" id="${key}" placeholder="${nomeclaturas[key]}">
-                                </div>
-                            </div>`;
+function loadTypeDocumentCliente() {
+    // Realizar una llamada AJAX para obtener los tipos de documento desde el backend
+    $.ajax({
+        url: "http://localhost:9000/seguridad/v1/api/enum/tipo_documento",
+        method: "GET",
+        dataType: "json",
+        success: function (response) {
+          console.log(response);
+          var html = "";
+          response.forEach(function (item) {
+            // Construir el HTML para cada objeto
+            html += `<option value="${item}">${item}</option>`;
+          });
+          $("#typeDocument").html(html);
+        },
+        error: function (error) {
+          // Función que se ejecuta si hay un error en la solicitud
+          console.error("Error en la solicitud:", error);
+        },
+      });
+};
+function loadGender() {
+    // Realizar una llamada AJAX para obtener los tipos de documento desde el backend
+    $.ajax({
+        url: 'http://localhost:9000/seguridad/v1/api/enum/genero',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            // Iterar sobre los tipos de documento y agregarlos al select
+            response.forEach(function (item) {
+                $('#gender').append($('<option>', {
+                    value: item,
+                    text: item
+                }));
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error('Error al obtener los tipos de documento:', error);
         }
-    }
-
-    $("#inputs").append(addressInput);
-}
+    });
+};
+function loadNomenclaturas() {
+    // Realizar una llamada AJAX para obtener los tipos de documento desde el backend
+    $.ajax({
+        url: 'http://localhost:9000/seguridad/v1/api/enum/nomenclatura',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            // Iterar sobre los tipos de documento y agregarlos al select
+            response.forEach(function (item) {
+                $('#address').append($('<option>', {
+                    value: item,
+                    text: item
+                }));
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error('Error al obtener los tipos de documento:', error);
+        }
+    });
+};
 
 
 function findById(id) {
@@ -218,22 +244,18 @@ function findById(id) {
         method: 'GET',
         dataType: 'json',
         success: function (data) {
-            $('#id').val(data.id);
-            $('#firstName').val(data.firstName);
-            $('#lastName').val(data.lastName);
-            $('#email').val(data.email);
-            $('#phone').val(data.phone);
-            $('#dateOfBirth').val(data.dateOfBirth);
-            $('#gender').val(data.gender);
-            $('#address').val(data.address);
-            $('#city').val(data.city.id);
-            $('#typeDocument').val(data.typeDocument);
-            $('#document').val(data.document);
-            $('#calle').val(data.address.calle);
-            $('#carrera').val(data.address.carrera);
-            $('#transversal').val(data.address.transversal);
-            $('#bis').val(data.address.bis);
-            $('#state').val(data.state === true ? 1 : 0);
+            $('#id').val(data.data.id);
+            $('#firstName').val(data.data.firstName);
+            $('#lastName').val(data.data.lastName);
+            $('#email').val(data.data.email);
+            $('#phone').val(data.data.phone);
+            $('#dateOfBirth').val(data.data.dateOfBirth);
+            $('#gender').val(data.data.gender);
+            $('#address').val(data.data.address);
+            $('#city').val(data.data.selectedCityId);
+            $('#typeDocument').val(data.data.typeDocument);
+            $('#document').val(data.data.document);
+            $('#state').val(data.data.state === true ? 1 : 0);
 
             var btnAgregar = $('button[name="btnAgregar"]');
             btnAgregar.text('Actualizar');

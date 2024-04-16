@@ -1,6 +1,7 @@
 package com.sena.seguridad.IRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -34,6 +35,6 @@ public interface IClienteRepository extends IBaseRepository<Cliente, Long> {
                         + " id = :id", nativeQuery = true)
         IPersonDto getDocument(@Param("id") Long id);
 
-        @Query(value = "SELECT * FROM cliente c WHERE c.person_id = : personId", nativeQuery = true)
-        Cliente findByPersonId(@Param("personId") Long personId);
+        @Query(value = "SELECT c.* FROM cliente c INNER JOIN person p ON c.person_id = p.id", nativeQuery = true)
+        Cliente findByPersonId(@Param("person_id") Long personId);
 }

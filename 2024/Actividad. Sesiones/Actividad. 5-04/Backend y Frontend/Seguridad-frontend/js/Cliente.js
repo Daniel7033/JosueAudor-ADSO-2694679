@@ -17,7 +17,7 @@ function save() {
             'gender': $('#gender').val(),
             "address": $("#address").val() + ' No ' + $("#numeral").val() + ' - ' + $("#numeral2").val() + ' - ' + $("#description").val(),
             'city': { 'id': selectedCityId },
-            'state': parseInt($('#state').val())
+            'state': parseInt($('#state').val() === true ? 1 : 0)
         };
 
 
@@ -35,7 +35,6 @@ function save() {
                 alert("Registro guardado.");
                 loadData();
                 clearData();
-                location.reload();
             },
             error: function (error) {
                 console.error('Error al guardar: ', error);
@@ -56,28 +55,26 @@ function update() {
     }
     try {
         var data = {
-            "firstName": $("#firstName").val(),
-            "lastName": $("#lastName").val(),
-            "typeDocument": $("#typeDocumentPerson").val(),
-            "document": $("#document").val(),
-            "email": $("#email").val(),
-            "phone": $("#phone").val(),
-            "dateOfBirth": $("#dateOfBirth").val(),
-            "gender": $("#gender").val(),
-            "address": $("#address").val() + ' No. ' + $("#numeral").val() + ' - ' + $("#numeral2").val() + ' - ' + $("#description").val(),
-            "city": {
-                "id": selectedCityId
+            'firstName': $("#firstName").val(),
+            'lastName': $("#lastName").val(),
+            'typeDocument': $("#typeDocumentPerson").val(),
+            'document': $("#document").val(),
+            'email': $("#email").val(),
+            'phone': $("#phone").val(),
+            'dateOfBirth': $("#dateOfBirth").val(),
+            'gender': $("#gender").val(),
+            'address': $("#address").val() + ' No. ' + $("#numeral").val() + ' - ' + $("#numeral2").val() + ' - ' + $("#description").val(),
+            'city': {
+                'id': selectedCityId
             },
-            "state": parseInt($('#state').val())
+            'state': parseInt($("#state").val())
         };
 
-        console.log(data);
-
-        var id = $("#id").val();
+        var id = $('#id').val();
         var jsonData = JSON.stringify(data);
 
         $.ajax({
-            url: "http://localhost:9000/service-security/v1/api/cliente/personCliente" + id,
+            url: 'http://localhost:9000/seguridad/v1/api/cliente/personCliente/' + id,
             data: jsonData,
             method: "PUT",
             headers: {
@@ -87,7 +84,6 @@ function update() {
             alert("Registro actualizado con éxito");
             loadData();
             clearData();
-            location.reload();
             //actualzar boton
             var btnAgregar = $('button[name="btnAgregar"]');
             btnAgregar.text("Agregar");
@@ -104,42 +100,6 @@ function update() {
         btnAgregar.attr("onclick", "save()");
     }
 }
-
-
-function loadPerson() {
-    $.ajax({
-        url: 'http://localhost:9000/seguridad/v1/api/person',
-        method: "GET",
-        dataType: 'json',
-        success: function (response) {
-            if (response.status && Array.isArray(response.data)) {
-                var persons = response.data.map(function (person) {
-                    return {
-                        label: `${person.firstName} ${person.lastName}`,
-                        value: person.id
-                    };
-                });
-
-                $('#personId').autocomplete({
-                    source: persons, // Provide the array of cities as the source
-                    select: function (event, ui) {
-                        console.log("ejecutadnod");
-                        $("#personId").val(ui.item.value);
-                        $("#personId").val(ui.item.label);
-                        console.log("ID de la persona seleccionada: " + ui.item.value);
-                        return false; // Evita la actualización del valor del input después de la selección.
-                    }
-                });
-            } else {
-                console.error("No se obtuvo la lista de ciudades.");
-            }
-        },
-        error: function (error) {
-            console.error("Error en la solicitud: ", error);
-        }
-    });
-}
-
 
 function loadData() {
     $.ajax({
@@ -172,6 +132,145 @@ function loadData() {
     });
 }
 
+//Busqueda por Id
+function findById(id) {
+    $.ajax({
+        url: 'http://localhost:9000/seguridad/v1/api/cliente/list/' + id,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            $('#id').val(data.data.id);
+            $('#firstName').val(data.data.personId.firstName);
+            $('#lastName').val(data.data.personId.lastName);
+            $('#typeDocument').val(data.data.personId.typeDocument);
+            $('#document').val(data.data.personId.document);
+            $('#email').val(data.data.personId.email);
+            $('#phone').val(data.data.personId.phone);
+            $('#dateOfBirth').val(data.data.personId.dateOfBirth);
+            $('#gender').val(data.data.personId.gender);
+            $('#address').val(data.data.personId.address);
+            $('#city').val(data.data.personId.city.name);
+            $('#state').val(data.data.state == true ? 1 : 0);
+            var btnAgregar = $('button[name="btnAgregar"]');
+            btnAgregar.text('Actualizar');
+            btnAgregar.attr('onclick', 'update()');
+
+        },
+        error: function (error) {
+            console.error('Error al encontrar: ', error);
+        }
+    });
+}
+
+//Borrado por id
+function deleteById(id) {
+    $.ajax({
+        url: 'http://localhost:9000/seguridad/v1/api/cliente/list' + id,
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).done(function (result) {
+        alert("Registro eliminado exitoso");
+        loadData();
+        clearData();
+    }).fail(function (xhr, status, error) {
+        console.error("Error al eliminar el registro:", error);
+    });
+}
+
+//Limpiar datos de formulario
+function clearData() {
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#email').val('');
+    $('#phone').val('');
+    $('#dateOfBirth').val('');
+    $('#gender').val('');
+    $('#address').val('');
+    $('#city').val('');
+    $('#typeDocument').val('');
+    $('#document').val('');
+    $('#state').val('');
+}
+
+//autocomplete
+function autocomplete() {
+    return loadCity(), loadPerson(), loadPersonDocumento();
+}
+function loadCity() {
+    console.log("Ejecutando loadCity");
+
+    $.ajax({
+        url: 'http://localhost:9000/seguridad/v1/api/city',
+        method: "GET",
+        dataType: 'json',
+        success: function (response) {
+            if (response.status && Array.isArray(response.data)) {
+                var cities = response.data.map(function (city) {
+                    return {
+                        label: city.name,
+                        value: city.id
+                    };
+                });
+
+                $('#city_id').autocomplete({
+                    source: function (request, response) {
+                        var results = $.ui.autocomplete.filter(cities, request.term);
+                        if (!results.length) {
+                            results = [{ label: 'No se encontraron resultados', value: null }];
+                        }
+                        response(results);
+                    },
+                    select: function (event, ui) {
+                        $("#selected_city_id").val(ui.item.value);
+                        $("#city_id").val(ui.item.label);
+                        console.log("ID de la ciudad seleccionada: " + ui.item.value);
+                        return false; // Evita la actualización del valor del input después de la selección.
+                    }
+                });
+            } else {
+                console.error("No se obtuvo la lista de ciudades.");
+            }
+        },
+        error: function (error) {
+            console.error("Error en la solicitud: ", error);
+        }
+    });
+}
+
+function loadPerson() {
+    $.ajax({
+        url: 'http://localhost:9000/seguridad/v1/api/person',
+        method: "GET",
+        dataType: 'json',
+        success: function (response) {
+            if (response.status && Array.isArray(response.data)) {
+                var persons = response.data.map(function (person) {
+                    return {
+                        label: `${person.firstName} ${person.lastName}`,
+                        value: person.id
+                    };
+                });
+
+                $('#personId').autocomplete({
+                    source: persons, // Provide the array of cities as the source
+                    select: function (event, ui) {
+                        $("#selectedPerson").val(ui.item.value);
+                        $("#personId").val(ui.item.label);
+                        console.log("ID de la persona seleccionada: " + ui.item.value);
+                        return false; // Evita la actualización del valor del input después de la selección.
+                    }
+                });
+            } else {
+                console.error("No se obtuvo la lista de ciudades.");
+            }
+        },
+        error: function (error) {
+            console.error("Error en la solicitud: ", error);
+        }
+    });
+}
 function loadPersonDocumento() {
     $.ajax({
         url: 'http://localhost:9000/seguridad/v1/api/person',
@@ -181,10 +280,8 @@ function loadPersonDocumento() {
             if (response.status && Array.isArray(response.data)) {
                 var persons = response.data.map(function (person) {
                     return {
-                        label: `${person.firstName} ${person.lastName} - ${person.document}`,
+                        label: `${person.document}`,
                         value: person.document,
-                        id: person.id,
-                        nombre: person.firstName
                     };
                 });
 
@@ -214,10 +311,10 @@ function loadPersonDocumento() {
     });
 }
 
+//Enums (datos quemados)
 function Enum() {
-    return loadTypeDocumentCliente(), loadGender();
+    return loadTypeDocumentCliente(), loadGender(), loadNomenclaturas();
 }
-
 function loadTypeDocumentCliente() {
     // Realizar una llamada AJAX para obtener los tipos de documento desde el backend
     $.ajax({
@@ -240,7 +337,6 @@ function loadTypeDocumentCliente() {
         },
       });
 };
-
 function loadGender() {
     // Realizar una llamada AJAX para obtener los tipos de documento desde el backend
     $.ajax({
@@ -261,98 +357,23 @@ function loadGender() {
         }
     });
 };
-
-function findById(id) {
+function loadNomenclaturas() {
+    // Realizar una llamada AJAX para obtener los tipos de documento desde el backend
     $.ajax({
-        url: 'http://localhost:9000/seguridad/v1/api/cliente/' + id,
-        method: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            $("#id").val(data.id);
-            $("#firstName").val(data.firstName);
-            $("#lastName").val(data.lastName);
-            $("#typeDocument").val(data.typeDocument);
-            $("#document").val(data.document);
-            $('#email').val(data.email);
-            $('#phone').val(data.phone);
-            $('#dateOfBirth').val(data.dateOfBirth);
-            $('#gender').val(data.gender);
-            $('#address').val(data.address);
-            $("#selected_city_id").val(data.city.id);
-            $("#state").val(data.data.state == true ? 1 : 0);
-            var btnAgregar = $('button[name="btnAgregar"]');
-            btnAgregar.text('Actualizar');
-            btnAgregar.attr('onclick', 'update()');
-
-        },
-        error: function (error) {
-            console.error('Error al encontrar: ', error);
-        }
-    });
-}
-
-//autocomplete
-function loadCity() {
-    $.ajax({
-        url: 'http://localhost:9000/seguridad/v1/api/city',
-        method: "GET",
+        url: 'http://localhost:9000/seguridad/v1/api/enum/nomenclatura',
+        type: 'GET',
         dataType: 'json',
         success: function (response) {
-            if (response.status && Array.isArray(response.data)) {
-                var cities = response.data.map(function (city) {
-                    return {
-                        label: city.name,
-                        value: city.id
-                    };
-                });
-
-                $('#city_id').autocomplete({
-                    source: function (request, response) {
-                        var results = $.ui.autocomplete.filter(cities, request.term);
-                        if (!results.length) {
-                            results = [{ label: 'No se encontraron resultados', value: null }];
-                        }
-                        response(results);
-                    },
-                    select: function (event, ui) {
-                        console.log("ejecutadnod");
-                        $("#selected_city_id").val(ui.item.value);
-                        $("#city_id").val(ui.item.label);
-                        console.log("ID de la ciudad seleccionada: " + ui.item.value);
-                        return false; // Evita la actualización del valor del input después de la selección.
-                    }
-                });
-            } else {
-                console.error("No se obtuvo la lista de ciudades.");
-            }
+            // Iterar sobre los tipos de documento y agregarlos al select
+            response.forEach(function (item) {
+                $('#address').append($('<option>', {
+                    value: item,
+                    text: item
+                }));
+            });
         },
-        error: function (error) {
-            console.error("Error en la solicitud: ", error);
+        error: function (xhr, status, error) {
+            console.error('Error al obtener los tipos de documento:', error);
         }
     });
-}
-
-
-function deleteById(id) {
-    $.ajax({
-        url: 'http://localhost:9000/seguridad/v1/api/cliente/list' + id,
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).done(function (result) {
-        alert("Registro eliminado exitoso");
-        loadData();
-        clearData();
-    }).fail(function (xhr, status, error) {
-        console.error("Error al eliminar el registro:", error);
-    });
-}
-
-function clearData() {
-    $('#firstName').val('');
-    $('#lastName').val('');
-    $('#typeDocument').val('');
-    $('#document').val('');
-    $('#state').val('');
-}
+};

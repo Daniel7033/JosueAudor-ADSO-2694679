@@ -25,7 +25,7 @@
                 <!-- Cabezera del Modal -->
                 <div class="modal-header">
                     <!-- Titulo del Modal -->
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Ciudad</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Person</h1>
                     <!-- Boton de cerrar Modal "X" -->
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         onclick="clearData()"></button>
@@ -37,6 +37,24 @@
                         <form>
                             <fieldset>
                                 <legend>Person Details</legend>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="typeDocument">type
+                                        document</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" id="typeDocument" required>
+                                            <option selected disabled value="">--select--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Document</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="document" id="document"
+                                            value="" placeholder="Document">
+                                    </div>
+                                </div>
+                                <br>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">First Name</label>
                                     <div class="col-sm-9">
@@ -77,15 +95,15 @@
                                         </div>
                                     </div>
                                     <br>
+                                    
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Gender</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-select" name="gender" id="gender">
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
+                                        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" id="gender" name="gender">
                                             </select>
                                         </div>
                                     </div>
+
                                     <br>
                                     <div class="form-group-row">
                                         <label class="col-sm-2 col-form-label">address</label>
@@ -101,24 +119,8 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Type Document</label>
-                                        <div class="col-sm-9"><br>
-                                            <select class="form-select" id="typeDocument" name="typeDocument">
-                                            </select><br>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Document</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="document" id="document"
-                                                value="" placeholder="Document">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <label class="col-sm-2 col-form-label" for="city_id">city: </label>
                                     <div class="col-sm-9">
+                                        <label class="col-sm-2 col-form-label" for="city_id">city: </label>
                                         <input type="hidden" id="selected_city_id" name="selected_city_id" value="">
                                         <input type="text" list="city_id" class="form-control" name="city_id"
                                             id="city_id">
@@ -204,8 +206,7 @@
 
     loadCity();
     loadData();
-    cargarNomeclaturas();
-    cargarTiposDocumento();
+    Enum();
 
 </script>
 
