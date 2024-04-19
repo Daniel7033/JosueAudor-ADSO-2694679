@@ -18,7 +18,7 @@ public class Autor extends ABaseEntity{
 	
 	@Column(name = "fecha_muerte", length = 50, nullable = true)
 	private Date fechaMuerte;
-
+    
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "persona_id", nullable = false, unique = true)
     private Persona personaId;

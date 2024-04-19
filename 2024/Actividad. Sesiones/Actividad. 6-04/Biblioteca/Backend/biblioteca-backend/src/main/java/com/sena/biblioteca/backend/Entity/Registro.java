@@ -18,11 +18,11 @@ public class Registro extends ABaseEntity{
 	private String fechaFin;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "lector_id", nullable = false, unique = true)
+    @JoinColumn(name = "lector_id", nullable = false)
     private Lector lectorId;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "libro_id", nullable = false, unique = true)
+    @JoinColumn(name = "libro_id", nullable = false)
     private Libro libroId;
 
     public String getFechaInicio() {

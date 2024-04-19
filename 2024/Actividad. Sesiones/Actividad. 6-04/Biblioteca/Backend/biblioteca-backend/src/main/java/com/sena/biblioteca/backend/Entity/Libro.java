@@ -21,7 +21,7 @@ public class Libro extends ABaseEntity{
 	private Integer ejemplares;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "autor_id", nullable = false, unique = true)
+    @JoinColumn(name = "autor_id", nullable = false, unique = false)
 	private Autor autorId;
 
 	public String getCodigo() {

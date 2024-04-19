@@ -1,4 +1,9 @@
 function save() {
+    var selectedPersonaId = parseInt($("#selectedPersonaId").val());
+    if (isNaN(selectedPersonaId) || selectedPersonaId === null) {
+        console.error("ID de ciudad no válido");
+        return;
+    }
     var data = {
         'codigo': $('#codigo').val(),
         'personaId': { 'id' : parseInt($('#personaId').val())},
@@ -25,6 +30,11 @@ function save() {
 }
 
 function update() {
+    var selectedPersonaId = parseInt($("#selectedPersonaId").val());
+    if (isNaN(selectedPersonaId) || selectedPersonaId === null) {
+        console.error("ID de ciudad no válido");
+        return;
+    }
     var data = {
         
         'codigo':$('#codigo').val(),
@@ -91,29 +101,6 @@ function loadData(){
     });
 }
 
-function loadPersona(){
-    $.ajax({
-        url : 'http://localhost:9000/biblioteca-backend/v1/api/persona',
-        method: "GET",
-        dataType: 'json',
-        success : function(response){
-            var options = '';
-
-            if(response.status && Array.isArray(response.data)){
-                response.data.forEach(function(item){
-                    options += `<option value="${item.id}">${item.nombre}</option>`;
-                });
-                $('#personaId').html(options);
-            } else {
-                console.error('La estructura no es la esperada: ', response);
-            }
-        },
-        error : function(error){
-            console.error('Error al cargar las ciudades: ',error);
-        }
-    });
-}
-
 function findById(id){
     $.ajax({
         url: 'http://localhost:9000/biblioteca-backend/v1/api/lector/' + id,
@@ -156,4 +143,44 @@ function clearData(){
     $('#codigo').val('');
     $('#personaId').val('');
     $('#state').val('');
+}
+
+//autocomplete
+function loadPersona() {
+
+    $.ajax({
+        url: 'http://localhost:9000/biblioteca-backend/v1/api/persona',
+        method: "GET",
+        dataType: 'json',
+        success: function (response) {
+            if (response.status && Array.isArray(response.data)) {
+                var cities = response.data.map(function (persona) {
+                    return {
+                        label: persona.nombre,
+                        value: persona.id
+                    };
+                });
+
+                $('#personaId').autocomplete({
+                    source: function (request, response) {
+                        var results = $.ui.autocomplete.filter(cities, request.term);
+                        if (!results.length) {
+                            results = [{ label: 'No se encontraron resultados', value: null }];
+                        }
+                        response(results);
+                    },
+                    select: function (event, ui) {
+                        $("#selectedPersonaId").val(ui.item.value);
+                        $("#personaId").val(ui.item.label);
+                        return false; // Evita la actualización del valor del input después de la selección.
+                    }
+                });
+            } else {
+                console.error("No se obtuvo la lista de ciudades.");
+            }
+        },
+        error: function (error) {
+            console.error("Error en la solicitud: ", error);
+        }
+    });
 }

@@ -75,7 +75,7 @@ function loadData(){
                     <td>${item.email}</td>
                     <td>${item.telefono}</td>
                     <td>${item.state === true ? 'activo' : 'inactivo'}</td>
-                    <td><button onclick="findById(${item.id})"><img src="../asset/icon/pencil-square.svg"></button></td>
+                    <td><button data-bs-dismiss="modal" data-bs-target="#exampleModal" onclick="findById(${item.id})"><img src="../asset/icon/pencil-square.svg"></button></td>
                     <td><button onclick="deleteById(${item.id})"><img src="../asset/icon/trash3-fill.svg"></button></td>
                     </tr>`;
                 });
@@ -96,12 +96,12 @@ function findById(id){
         method: "GET",
         dataType: 'json',
         success : function(data){
-            $('#id').val(data.id);
-            $('#nombre').val(data.nombre);
-            $('#direccion').val(data.direccion);
-            $('#email').val(data.email);
-            $('#telefono').val(data.telefono);
-            $('#state').val(data.state === true ? 1 : 0);
+            $('#id').val(data.data.id);
+            $('#nombre').val(data.data.nombre);
+            $('#direccion').val(data.data.direccion);
+            $('#email').val(data.data.email);
+            $('#telefono').val(data.data.telefono);
+            $('#state').val(data.data.state === true ? 1 : 0);
             var btnAgregar = $('button[name="btnAgregar"]');
             btnAgregar.text('Actualizar');
             btnAgregar.attr('onclick', 'update()');

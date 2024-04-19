@@ -182,3 +182,14 @@ function clearData(){
     $('#lectorId').val('');
     $('#state').val('');
 }
+
+//FECHA ACTUAL
+document.addEventListener('DOMContentLoaded', function () {
+    var fechaInput = document.getElementById('fechaInicio');
+    var hoy = new Date();
+    var dia = ('0' + hoy.getDate()).slice(-2); // Añade un cero si es necesario y toma los últimos dos dígitos
+    var mes = ('0' + (hoy.getMonth() + 1)).slice(-2); // Los meses van de 0 a 11, por lo que se suma 1
+    var ano = hoy.getFullYear();
+    var fechaHoy = `${ano}-${mes}-${dia}`; // Formato necesario para inputs de tipo 'date'
+    fechaInput.value = fechaHoy;
+});

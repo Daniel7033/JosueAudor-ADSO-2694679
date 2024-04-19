@@ -1,148 +1,185 @@
-function save(){
-    var data ={
-        'personaId' : { 'id' : parseInt($('#personaId').val()) },
-        'state' : parseInt($('#state').val())
+
+
+function save() {
+    try{
+    var selectedPersonaId = parseInt($("#selectedPersonaId").val());
+    if (isNaN(selectedPersonaId) || selectedPersonaId === null) {
+        console.error("ID de ciudad no válido");
+        return;
+    }
+    var data = {
+        'personaId': { 'id': selectedPersonaId },
+        'state': parseInt($('#state').val())
     };
 
     var jsonData = JSON.stringify(data);
     $.ajax({
-        url : 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario',
-        method : 'POST',
-        dataType : 'json',
-        contentType : 'application/json',
-        data : jsonData,
-        success : function(data){
+        url: 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario',
+        method: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: jsonData,
+        success: function (data) {
             alert("registro guardado.");
             loadData();
             clearData();
         },
-        error : function(error){
-            console.error('Error al guardar: ',error);
+        error: function (error) {
+            console.error('Error al guardar: ', error);
         }
     });
+}catch{
+
+}
 }
 
-function update(){
-    var data ={
-        'personaId' : { 'id' : parseInt($('#personaId').val()) },
-        'state' : parseInt($('#state').val()) 
+function update() {
+    try{var selectedPersonaId = parseInt($("#selectedPersonaId").val());
+    if (isNaN(selectedPersonaId) || selectedPersonaId === null) {
+        console.error("ID de ciudad no válido");
+        return;
+    }
+    var data = {
+        'personaId': { 'id': selectedPersonaId },
+        'state': parseInt($('#state').val())
     };
 
     var id = $('#id').val();
     var jsonData = JSON.stringify(data);
 
     $.ajax({
-        url : 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario/' + id, 
+        url: 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario/' + id,
         method: "PUT",
         dataType: 'json',
         contentType: 'application/json',
         data: jsonData,
-        success : function(result){
+        success: function (result) {
             alert("Actualizado.");
-            loadData(); 
+            loadData();
             clearData();
 
             var btnAgregar = $('button[name="btnAgregar"]');
             btnAgregar.text('Agregar');
             btnAgregar.attr('onclick', 'save()');
         },
-        error : function(error){
+        error: function (error) {
             console.error('Error al actualizar: ', error);
         }
     });
+    }catch{
+
+    }
 }
 
-function loadData(){
+function loadData() {
     $.ajax({
-        url : 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario',
+        url: 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario',
         method: "GET",
         dataType: 'json',
-        success : function(response){
+        success: function (response) {
             var html = '';
             var data = response.data;
 
-            if(Array.isArray(data)){
-                data.forEach(function(item){
+            if (Array.isArray(data)) {
+                data.forEach(function (item) {
                     html += `<tr>
                     <td>${item.personaId.nombre}</td>
                     <td>${item.personaId.email}</td>
                     <td>${item.personaId.telefono}</td>
                     <td>${item.state === true ? "<img src='../asset/icon/icons8-emoji-circulo-verde-48.png'>" : "<img src='../asset/icon/icons8-emoji-circulo-rojo-48.png'>"}</td>
-                    <td><button onclick="findById(${item.id})"><img src="../asset/icon/pencil-square.svg"></button></td>
-                    <td><button onclick="deleteById(${item.id})"><img src="../asset/icon/trash3-fill.svg"></button></td>
+                    <td><button class="btn btn-primary" data-bs-dismiss="modal" data-bs-target="#exampleModal" onclick="findById(${item.id})" ><img src='../asset/icon/pencil-square.svg'></button></td>
+                    <td><button onclick='deleteById(${item.id})'><img src='../asset/icon/trash3-fill.svg'></button></td>
                     </tr>`;
                 });
             } else {
-                console.error('El atributo "data" no es un arreglo: ',data);
+                console.error('El atributo "data" no es un arreglo: ', data);
             }
             $('#resultData').html(html);
         },
-        error : function(error){
-            console.error('Error al cargar: ',error);
+        error: function (error) {
+            console.error('Error al cargar: ', error);
         }
     });
 }
 
-function loadPersona(){
+function findById(id) {
+    var selectedPersonaId = personaId.nombre;
     $.ajax({
-        url : 'http://localhost:9000/biblioteca-backend/v1/api/persona',
+        url: 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario/' + id,
         method: "GET",
         dataType: 'json',
-        success : function(response){
-            var options = '';
-
-            if(response.status && Array.isArray(response.data)){
-                response.data.forEach(function(item){
-                    options += `<option value="${item.id}">${item.nombre}</option>`;
-                });
-                $('#personaId').html(options);
-            } else {
-                console.error('La estructura no es la esperada: ', response);
-            }
-        },
-        error : function(error){
-            console.error('Error al cargar las ciudades: ',error);
-        }
-    });
-}
-
-function findById(id){
-    $.ajax({
-        url : 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario/' + id,
-        method: "GET",
-        dataType: 'json',
-        success : function(data){
-            $('#id').val(data.id);
-            $('#personaId').val(data.personaId.id);
-            $('#state').val(data.state === true ? 1 : 0);
+        success: function (data) {
+            $('#id').val(data.data.id);
+            $('#personaId').val(data.data.selectedPersonaId);
+            $('#state').val(data.data.state === true ? 1 : 0);
             var btnAgregar = $('button[name="btnAgregar"]');
             btnAgregar.text('Actualizar');
             btnAgregar.attr('onclick', 'update()');
 
         },
-        error : function(error){
-            console.error('Error al encontrar: ',error);
+        error: function (error) {
+            console.error('Error al encontrar: ', error);
         }
     });
 }
 
-function deleteById(id){
+function deleteById(id) {
     $.ajax({
-        url : 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario/' + id,
+        url: 'http://localhost:9000/biblioteca-backend/v1/api/bibliotecario/' + id,
         method: "DELETE",
-        headers : {
-            'Content-Type' : 'application/json'
+        headers: {
+            'Content-Type': 'application/json'
         }
-    }).done(function(result){
+    }).done(function (result) {
         alert("bibliotecario eliminado.");
         loadData();
         clearData();
-    }).fail(function(xhr, status, error) {
+    }).fail(function (xhr, status, error) {
         console.error("Error al eliminar el bibliotecario:", error);
     });
 }
 
-function clearData(){
+function clearData() {
     $('#personaId').val('');
     $('#state').val('');
+}
+
+//autocomplete
+function loadPersona() {
+
+    $.ajax({
+        url: 'http://localhost:9000/biblioteca-backend/v1/api/persona',
+        method: "GET",
+        dataType: 'json',
+        success: function (response) {
+            if (response.status && Array.isArray(response.data)) {
+                var cities = response.data.map(function (persona) {
+                    return {
+                        label: persona.nombre,
+                        value: persona.id
+                    };
+                });
+
+                $('#personaId').autocomplete({
+                    source: function (request, response) {
+                        var results = $.ui.autocomplete.filter(cities, request.term);
+                        if (!results.length) {
+                            results = [{ label: 'No se encontraron resultados', value: null }];
+                        }
+                        response(results);
+                    },
+                    select: function (event, ui) {
+                        $("#selectedPersonaId").val(ui.item.value);
+                        $("#personaId").val(ui.item.label);
+                        return false; // Evita la actualización del valor del input después de la selección.
+                    }
+                });
+            } else {
+                console.error("No se obtuvo la lista de ciudades.");
+            }
+        },
+        error: function (error) {
+            console.error("Error en la solicitud: ", error);
+        }
+    });
 }
