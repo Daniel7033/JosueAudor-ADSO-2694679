@@ -6,7 +6,7 @@ function save() {
     }
     var data = {
         'codigo': $('#codigo').val(),
-        'personaId': { 'id' : parseInt($('#personaId').val())},
+        'personaId': { 'id' : selectedPersonaId},
         'state': parseInt($('#state').val())
     };
 
@@ -38,7 +38,7 @@ function update() {
     var data = {
         
         'codigo':$('#codigo').val(),
-        'personaId': { 'id': parseInt($('#personaId').val())},
+        'personaId': { 'id': selectedPersonaId},
         'state': parseInt($('#state').val()),
         
     };
@@ -102,6 +102,7 @@ function loadData(){
 }
 
 function findById(id){
+    var selectedPersonaId = personaId.nombre;
     $.ajax({
         url: 'http://localhost:9000/biblioteca-backend/v1/api/lector/' + id,
         method: 'GET',
@@ -109,7 +110,7 @@ function findById(id){
         success: function (data){
             $('#id').val(data.data.id); 
             $('#codigo').val(data.data.codigo); 
-            $('#personaId').val(data.data.personaId.id);   
+            $('#personaId').val(data.data.selectedPersonaId);   
             $('#state').val(data.data.state === true ? 1 : 0); 
 
             var btnAgregar = $('button[name="btnAgregar"]');

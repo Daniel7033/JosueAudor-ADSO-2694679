@@ -27,5 +27,6 @@ public class LibroService extends ABaseService<Libro> implements ILibroService{
 	@Override
 	public Integer obtenerCantidadTotalDeLibros() {
 		return repository.getTotalLibrosDisponibles();
-	}    
+	}
+
 }

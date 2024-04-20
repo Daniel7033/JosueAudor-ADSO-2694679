@@ -5,4 +5,5 @@ import com.sena.biblioteca.backend.Entity.Libro;
 public interface ILibroService extends IBaseService<Libro> {
 
     public Integer obtenerCantidadTotalDeLibros();
+
 }
