@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro</title>
+    <!-- Librerias -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+    <!-- Script -->
+    <script src='/js/Biblioteca/Libro.js'></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../asset/css/global.css">
+</head>
+
+<body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Cabezera del Modal -->
+                <div class="modal-header">
+                    <!-- Titulo del Modal -->
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Préstramo de libros</h1>
+                    <!-- Boton de cerrar Modal "X" -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Cuerpo del Modal -->
+                <div class="modal-body">
+                    <div id="inputData">
+                        <!-- Formulario -->
+                        <form>
+                            <fieldset>
+                                <div name="legend">
+                                    <legend>Libro</legend>
+                                </div>
+
+                                <div class="form-group row">
+                                    <br>
+                                    <label class="col-sm-2 col-form-label">codigo</label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="hidden" class="form-control" id="id" name="id">
+                                    <input type="text" class="form-control" name="codigo" id="codigo"
+                                        placeholder="Cree un codigo al libro">
+                                </div>
+
+                                <div class="form-group row">
+                                    <br>
+                                    <label class="col-sm-2 col-form-label">titulo</label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="text" class="form-control" name="titulo" id="titulo" value=""
+                                        placeholder="Escribir tírulo de la obra">
+                                </div>
+
+                                <div class="form-group row">
+                                    <br>
+                                    <label class="col-sm-2 col-form-label">Ejemplares disponibles</label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="number" class="form-control" name="ejemplares" id="ejemplares" value=""
+                                        placeholder="Escribir cantidad del libro disponible">
+                                </div>
+
+                                <div class="col-sm-9">
+                                    <label class="col-sm-2 col-form-label" for="autorId">Autor</label>
+                                    <div>
+                                        <input type="hidden" id="selectedAutor" name="selectedAutor" value="">
+                                        <input type="text" list="autorId" class="form-control" name="autorId"
+                                            id="autorId">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <br>
+                                    <label>Estado</label>
+                                    <select class="form-select" id="state">
+                                        <option selected>--Seleccione--</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                                <br>
+                            </fieldset>
+                        </form>
+                        <!-- Final formulario -->
+                    </div>
+                    <div>
+                        <!-- Botones de acciones del Modal -->
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button></div>
+                </div>
+                <!-- Final cuerpo Modal -->
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Final Modal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <div id="outputData">
+        <br>
+        <table class="table table-hover">
+            <thead>
+                <tr class="table-dark">
+                    <th>TÍTULO</th>
+                    <th>CÓDIGO</th>
+                    <th>EJEMPLARES</th>
+                    <th>AUTOR</th>
+                    <th>STATE</th>
+                    <th class="actions" colspan="2">ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody id="resultData">
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <!-- Boton de acceso al Modal de -->
+    <div class="btnNuevo" style="display: flex;">
+        <a type="button" class="btn btn-success" href="../Biblioteca/Registro.html">Volver</a>
+        <button class="btn btn-primary modal-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Nuevo
+            <img src="../asset/icon/plus-circle.svg"></button>
+    </div>
+</body>
+
+<script>
+    loadData();
+    loadAutor();
+</script>
+
+</html>

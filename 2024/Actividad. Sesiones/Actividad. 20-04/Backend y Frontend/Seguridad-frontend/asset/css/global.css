@@ -1,0 +1,8 @@
+* {
+    margin: auto;
+    height: auto;
+}
+
+.ui-autocomplete{
+    z-index: 9999 !important;
+}

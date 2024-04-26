@@ -1,0 +1,52 @@
+package com.sena.seguridad.Entity;
+
+import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+@Table(name = "autor")
+public class Autor extends ABaseEntity{
+
+    @Column(name="fecha_nacimiento", nullable = false)
+	private Date fechaNacimiento;
+	
+	@Column(name = "fecha_muerte", nullable = true)
+	private Date fechaMuerte;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_id", nullable = false, unique = true)
+    private Person personId;
+
+
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Date getFechaMuerte() {
+        return fechaMuerte;
+    }
+
+    public void setFechaMuerte(Date fechaMuerte) {
+        this.fechaMuerte = fechaMuerte;
+    }
+
+    public Person getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Person personId) {
+        this.personId = personId;
+    }
+    
+}

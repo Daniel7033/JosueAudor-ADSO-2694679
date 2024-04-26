@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regitro Biblioteca</title>
+    <!-- Librerias -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+    <!-- Script -->
+    <script src='/js/Biblioteca/Registro.js'></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../asset/css/global.css">
+</head>
+
+<body>
+    <h2>Sistema biblioteca</h2>
+    <div>
+        <a href="../Biblioteca/Libro.html">Guardar un nuevo libro</a><br>
+        <a href="../Biblioteca/Autor.html">Lista de autores</a><br>
+        <a href="../Biblioteca/Lector.html">Lista de lectores registrados</a><br>
+        <!-- <a href=""></a> -->
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Cabezera del Modal -->
+                <div class="modal-header">
+                    <!-- Titulo del Modal -->
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Préstramo de libros</h1>
+                    <!-- Boton de cerrar Modal "X" -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Cuerpo del Modal -->
+                <div class="modal-body">
+                    <div id="inputData">
+                        <!-- Formulario -->
+                        <form>
+                            <h2>Préstamo de libros</h2>
+                            <fieldset>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Fecha: Inicio</label>
+                                    <div class="col-sm-10">
+                                        <input type="hidden" id="id" name="id">
+                                        <input type="date" class="form-control" name="fechaInicio" id="fechaInicio"
+                                            value="" placeholder="Fecha inicio de registro">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Fecha: Finalización</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control" name="fechaFin" id="fechaFin"
+                                            value="" placeholder="Fecha final de regreso validado">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Libro: </label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="hidden" class="form-control" id="selectedLibro" name="selectedLibro">
+                                    <input type="text" class="form-control" list="libroId" id="libroId" name="libroId"
+                                        placeholder="Titulo del libro">
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Lector: </label>
+                                    <div class="col-sm-10"></div>
+                                    <input type="hidden" class="form-control" id="selectedLector" name="selectedLector">
+                                    <input type="text" class="form-control" list="lectorId" id="lectorId" name="lectorId"
+                                        placeholder="Nombre del lector">
+                                </div>
+
+
+                                <div class="col-sm-10">
+                                    <br>
+                                    <label>Estado</label>
+                                    <select class="form-select" id="state">
+                                        <option selected>Seleccione</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Inactivo</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <!-- Final formulario -->
+                    </div>
+                </div>
+                <!-- Final cuerpo Modal -->
+                <div class="modal-footer">
+                    <!-- Botones de acciones del Modal -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Final Modal -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Modal para cargar los datos de la tabla con el conteo de los registros totales de cada lector -->
+    <div class="modal" id="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tabla</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <thead>
+                            <table class="table table-hover">
+                                <tr class="table-dark">
+                                    <th>Nombre</th>
+                                    <th>TOTAL LIBROS</th>
+                                </tr>
+                        </thead>
+                        <tbody id="result">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Final modal tabla -->
+    <div id="outputData">
+        <br>
+        <!-- Boton de acceso al Modal tabla -->
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal">Cantidad</button>
+        
+        <table>
+            <thead>
+                <table class="table table-hover">
+                    <tr class="table-dark">
+                        <th>INICIO</th>
+                        <th>FINAL</th>
+                        <th>LIBRO</th>
+                        <th>LECTOR</th>
+                        <th>ESTADO</th>
+                        <th colspan="2">ACCIONES</th>
+                    </tr>
+            </thead>
+            <tbody id="resultData">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Boton de acceso al Modal de -->
+    <div class="btnNuevo" style="display: flex;">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Nuevo <img
+                src="../asset/icon/plus-circle.svg"></button>
+
+        <button name="btnAgregarLibro" onclick="libroTotal()" class="btn btn-success">Cantidad de libros</button>
+        <input type="text" class="form-control" id="libros" name="libros" style="height: min-content; width: 70px;"
+            readonly>
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    cargarTabla();
+    autocomplete();
+</script>

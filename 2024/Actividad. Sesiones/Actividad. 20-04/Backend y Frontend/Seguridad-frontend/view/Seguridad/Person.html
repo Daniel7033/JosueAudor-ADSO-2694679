@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person</title>
+    <link rel="stylesheet" href="../asset/css/global.css">
+    <!-- librerias -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/litera/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+</head>
+
+<body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Cabezera del Modal -->
+                <div class="modal-header">
+                    <!-- Titulo del Modal -->
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Registro: Person</h1>
+                    <!-- Boton de cerrar Modal "X" -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        onclick="clearData()"></button>
+                </div>
+                <!-- Cuerpo del Modal -->
+                <div class="modal-body">
+                    <div id="inputData">
+                        <!-- Formulario -->
+                        <form>
+                            <fieldset>
+                                <legend>Person Details</legend>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label" for="typeDocument">type
+                                        document</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-select" id="typeDocument" required>
+                                            <option selected disabled value="">--select--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Document</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="document" id="document"
+                                            value="" placeholder="Document">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">First Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="hidden" name="id" id="id" value="">
+                                        <input type="text" class="form-control" name="firstName" id="firstName" value=""
+                                            placeholder="First Name">
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="lastName" id="lastName"
+                                                value="" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" name="email" id="email" value=""
+                                                placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Phone</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="phone" id="phone" value=""
+                                                placeholder="Phone">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Date of Birth</label>
+                                        <div class="col-sm-9">
+                                            <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth"
+                                                value="" placeholder="Date of Birth">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    
+                                    <div class="form-group row">
+                                        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-select" id="gender" name="gender">
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="form-group-row">
+                                        <label class="col-sm-2 col-form-label">address</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" id="address" name="address"></select><br>
+                                            <input type="number" class="form-control row-sm-2" name="numeral" id="numeral"
+                                                value="" required placeholder="Enter #"><p>#</p>
+                                            <input type="text" class="form-control" name="numeral2" id="numeral2"
+                                                value="" required placeholder="Enter #">
+                                            <p>-</p>
+                                            <input type="text" class="form-control" name="description" id="description"
+                                                value="" required placeholder="Enter description">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <label class="col-sm-2 col-form-label" for="city_id">city: </label>
+                                        <input type="hidden" id="selected_city_id" name="selected_city_id" value="">
+                                        <input type="text" list="city_id" class="form-control" name="city_id"
+                                            id="city_id">
+                                    </div>
+                                    <br>
+                                    <div class="col-sm-9">
+                                        <br>
+                                        <label>Estado</label>
+                                        <select class="form-select" id="state">
+                                            <option selected>--Seleccione--</option>
+                                            <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
+                                        </select>
+                                    </div>
+                                    <br>
+                            </fieldset>
+                        </form>
+                        <!-- Final formulario -->
+                    </div>
+                </div>
+                <!-- Final cuerpo Modal -->
+                <div class="modal-footer">
+                    <!-- Botones de acciones del Modal -->
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        onclick="clearData()">Cancelar</button>
+                    <button name="btnAgregar" onclick="save()" class="btn btn-success">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Final Modal -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <div id="outputData">
+        <br>
+        <thead>
+            <table class="table table-hover">
+                <tr class="table-dark">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Type Document</th>
+                    <th>Document</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+        </thead>
+        <tbody id="resultData">
+        </tbody>
+        </table>
+
+        <!-- Boton de acceso al Modal de -->
+        <div class="btnNuevo">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Nuevo <img
+                    src="../asset/icon/plus-circle.svg"></button>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+    <script src="/js/Seguridad/Person.js"></script>
+</body>
+
+<script>
+
+    loadCity();
+    loadData();
+    Enum();
+
+</script>
+
+</html>
