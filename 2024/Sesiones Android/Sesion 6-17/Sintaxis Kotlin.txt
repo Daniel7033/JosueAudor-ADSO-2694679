@@ -1,0 +1,149 @@
+import kotlin.random.Random
+fun main() {
+    println("Hello, world!!!")
+    //Definición: var, val
+    /*
+     * Explicito
+     * 	var nombreVariable:TipoDato
+     * 	val nombreVariable:tipoDato
+     * Implicito
+     * 	var nombreVariable=5 (Se infiere que es entera)
+     * 	val nombreVariable="Carlos" (Se infiere que es string)
+    */
+    var num=50 //Ejemplo Explicito
+    val num2=num+10 //Ejemplo Implicito
+ 	//Las var se utilizan para variables
+ 	//Las val se utilizan para constantes
+    println(num)
+    println(num2)
+    
+    /*
+     * Los tipos de datos primitivos:
+     * Int
+     * Double
+     * Float
+     * String
+     * Boolean
+    */
+   
+   /*
+    * Estructuras de control
+    * Sintaxis:
+    * if:
+    * 	var max = num
+    * 	if (num < num2) max = num
+    * 		With else
+    * 	if (num < num2) {
+    * 		max = num
+    * 	} else { 
+    * 		max = num2
+    * 	}
+    * 		As Expression
+    * 	max = if (num < num2) num else num2
+    * 
+    * when:
+    * 	when (x) {
+    * 		1 -> println("x == 1")
+    * 		2 -> println("x == 2")
+    * 	} else -> {
+    * 		println("x es diferente a 1 y a 2")
+    * 	}
+    *  
+    * for:	
+    * 	for(i in 1..10){
+    * 		println(i) **1 2 3 4 5 6 7 8 9 10**
+    * 	}
+    * 	
+    *	for(i in 6 downTo 0 step 2){
+    		println(i) **6 4 2 0**
+    	}
+        
+    * while:
+    * 	var i = 0
+    * 	while(i < 5){	
+    * 		println(i)
+    * 		i++
+    * 	}
+    * 	
+    * do ..while:
+    *	var i = 0
+    * 	do {
+    * 		println(i)
+    * 		i++
+    * 	}
+    * 	while(i < 5)
+    * 
+    * try.. catch.. finally	
+    *	try {
+    		var i = 10
+            val respuesta = i * 2
+            println("Si duplicamos $i nos da $respuesta")
+    * 	} catch (e: ArithmeticException){
+    * 		println(e)
+    * 	} finally {
+        	println("Finally block is always executed.")
+        }
+        
+    * */
+    
+    //Ejercicio: Hallar el promedio de un número n de notas, 
+    //las notas van a generar del 1 al 10 de manera automatica. 
+    //Mostrar el primedio
+    println("Ejercicio: Nota promedio:")
+    var n = 10 
+    var suma = 0
+    for (i in 1..n) {
+        val nota = Random.nextInt(1, 11)
+        println("Nota $i: $nota")
+        suma += nota
+    }
+    val promedio = suma / n
+    println("El promedio del estudiante de $n notas es $promedio")
+    //Ejercicio: Elaborar una calculadora con las 4 
+    //operaciones básicas con un menú: 1 - suma, 2 - resta, 3 - multiplicacion
+    //4 - division, 5 - salir. La eleccion del menu se eligira aleatoriamente
+    //junto con los valores a operar.
+    println("Ejercicio: Calculadora")
+    do {
+        val operacion = Random.nextInt(1, 6)
+        var resultado = 0.0
+        var num1 = Random.nextDouble(1.0, 11.0)
+ 		var num2 = Random.nextDouble(1.0, 11.0)
+        when (operacion) {
+            1 -> { print("1 - Suma: ") 
+                resultado = num1 + num2
+                println("$num1 + $num2 = $resultado")
+            	}
+            2 -> { print("2 - Resta: ")
+                resultado = num1 - num2
+                println("$num1 - $num2 = $resultado")
+            	}
+            3 ->{ print("3 - Multiplicación: ")
+                resultado = num1 * num2
+                println("$num1 * $num2 = $resultado")
+            	}
+            4 -> { print("4 - División: ")
+                resultado = num1 / num2
+                println("$num1 / $num2 = $resultado")
+            	}
+            5 -> println("5 - Salir")
+        }
+        
+    } while (operacion != 5)
+    
+    //Ejercicio: Mostrar los números primos del 1 al 100
+    println("Ejercicio: Número primos")
+    val numero = 10
+    for (i in 2..numero) { //primer for es para imprimir los número primos
+        var primo = true
+        for (j in 2 until i) { //segundo for es para determinar que impresos son primos
+            if (i % j == 0) {
+                primo = false
+            }
+        }
+        if (primo) {
+            println(i)
+        }
+    }
+    
+}
