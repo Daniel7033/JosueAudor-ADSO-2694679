@@ -14,6 +14,14 @@ namespace Entity.Model.Security
 
         public int lstRole { get; set; }
 
+        public DateTime createdAt { get; set; }
+
+        public DateTime updatedAt { get; set; }
+
+        public DateTime deletedAt { get; set; }
+
+        public Boolean estado { get; set; }
+
         public User userId { get; set; }
 
         public Role roleId { get; set; }

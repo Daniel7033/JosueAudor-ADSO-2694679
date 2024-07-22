@@ -30,5 +30,13 @@ namespace Entity.Model.Security
 
         public DateTime birthDate { get; set; }
 
+        public DateTime createdAt { get; set; }
+
+        public DateTime updatedAt { get; set; }
+
+        public DateTime deletedAt { get; set; }
+
+        public Boolean estado { get; set; }
+
     }
 }

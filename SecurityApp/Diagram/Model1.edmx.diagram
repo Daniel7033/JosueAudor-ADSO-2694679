@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="f03f1a5d0f974c81aff3370c452359d4" Name="Diagram1" ZoomLevel="82" >
-        <EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="1.25" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.View" Width="1.5" PointX="3.5" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.Person" Width="1.875" PointX="8.25" PointY="0.5" />
-        <EntityTypeShape EntityType="Model1.Role" Width="1.5" PointX="5.875" PointY="3.875" />
-        <EntityTypeShape EntityType="Model1.Module" Width="1.5" PointX="6" PointY="0.625" />
-        <EntityTypeShape EntityType="Model1.UserRole" Width="1.5" PointX="1" PointY="4.25" />
-        <EntityTypeShape EntityType="Model1.RoleView" Width="1.5" PointX="3.125" PointY="3.875" />
+        <EntityTypeShape EntityType="Model1.tblUser" Width="1.5" PointX="1.25" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.tblView" Width="1.5" PointX="3.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.tblPerson" Width="1.875" PointX="8.25" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.tblRole" Width="1.5" PointX="5.875" PointY="3.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="Model1.tblModule" Width="1.5" PointX="6" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.tblUserRole" Width="1.5" PointX="1" PointY="4.25" />
+        <EntityTypeShape EntityType="Model1.tblRoleView" Width="1.5" PointX="3.125" PointY="3.875" />
         <AssociationConnector Association="Model1.UserRoleUser" />
         <AssociationConnector Association="Model1.RoleUserRole" />
         <AssociationConnector Association="Model1.RoleRoleView" />

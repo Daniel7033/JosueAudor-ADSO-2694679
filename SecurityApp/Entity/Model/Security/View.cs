@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +20,14 @@ namespace Entity.Model.Security
 
         public int lstView { get; set; }
 
-        public Module moduleId { get; set; }
+        public DateTime createdAt { get; set;  }
+
+        public DateTime updatedAt { get; set; }
+        
+        public DateTime deletedAt { get; set; }
+
+        public Boolean estado { get; set; }
+
+        public Modulo moduleId { get; set; }
     }
 }

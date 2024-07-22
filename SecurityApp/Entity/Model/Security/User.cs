@@ -14,6 +14,14 @@ namespace Entity.Model.Security
 
         public string password { get; set; }
 
+        public DateTime createdAt { get; set; }
+
+        public DateTime updatedAt { get; set; }
+
+        public DateTime deletedAt { get; set; }
+
+        public Boolean estado { get; set; }
+
         public int lstUser { get; set; }
 
         public Person personId { get; set; }
