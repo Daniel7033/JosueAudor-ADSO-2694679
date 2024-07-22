@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{C3A199F4-580B-479A-87BB-872D9F4313FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{C3A199F4-580B-479A-87BB-872D9F4313FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{CA85B376-94C8-49D1-ADEC-5FBB0936C466}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{CA85B376-94C8-49D1-ADEC-5FBB0936C466}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{022FBBA6-099B-4DA2-B04E-6482BEEB5390}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Utilities.csproj", "{022FBBA6-099B-4DA2-B04E-6482BEEB5390}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagram", "Diagram\Diagram.csproj", "{B57CB6A8-482F-4330-8C08-6C02C129CA2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{DAF11456-AB11-48B4-B409-7EB85D10D97E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B57CB6A8-482F-4330-8C08-6C02C129CA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B57CB6A8-482F-4330-8C08-6C02C129CA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B57CB6A8-482F-4330-8C08-6C02C129CA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

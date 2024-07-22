@@ -1,4 +1,5 @@
-﻿using Data.Interface;
+﻿using Business.Interface.Security;
+using Data.Interface;
 using Entity.Dtos;
 using Entity.Dtos.Security;
 using Entity.Model.Security;
