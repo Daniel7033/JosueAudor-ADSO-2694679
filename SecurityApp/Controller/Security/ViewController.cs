@@ -1,5 +1,6 @@
 ﻿using Business.Interface.Security;
 using Entity.Dtos;
+using Entity.Model.Security;
 using Entity.Dtos.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Controller
+namespace Controller.Security
 {
     [Authorize]
     [Route("api/[view]")]
@@ -37,9 +38,21 @@ namespace Controller
         }
         [HttpPost]
 
-        public async Task<ActionResult> Post([FromBody] ViewDto view)
+        public async Task<ActionResult> Post([FromBody] ViewDto viewDto)
         {
+            try
+            {
+                View view = await business.Save(viewDto);
+                var response = new ApiResponse<ViewDto>(null, true, "Registro Guardado Éxitosamente.", null);
 
+                return new CreatedAtRouteResult(new { id = view.id }, response);
+            }
+            catch (Exception ex)
+            {
+                var response = new ApiResponse<IEnumerable<View>>(null, false, ex.Message.ToString(), null);
+
+                return StatusCode(StatusCodes.Status500InternalServerError, response);
+            }
         }
         [HttpPut("{id}")]
 

@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Entity.Dtos;
 using Entity.Dtos.Security;
+using Entity.Model.Security;
 
-namespace Controller
+namespace Controller.Security
 {
     [Authorize]
     [Route("api/[user]")]
@@ -22,7 +23,7 @@ namespace Controller
 
         public UserController(IUserBusiness business)
         {
-            this.business = business;   
+            this.business = business;
         }
         [HttpGet("datatable")]
 
@@ -38,9 +39,21 @@ namespace Controller
         }
         [HttpPost]
 
-        public async Task<ActionResult> Post([FromBody] UserDto user)
+        public async Task<ActionResult> Post([FromBody] UserDto userDto)
         {
+            try
+            {
+                User user = await business.Save(userDto);
+                var response = new ApiResponse<UserDto>(null, true, "Registro Guardado Éxitosamentee.", null);
 
+                return new CreatedAtRouteResult(new { id = user.id }, response);
+            }
+            catch (Exception ex)
+            {
+                var response = new ApiResponse<IEnumerable<User>>(null, false, ex.Message.ToString(), null);
+
+                return new StatusCode(StatusCodes.Status500InternalServerError, response);
+            }
         }
         [HttpPut("{id}")]
 
