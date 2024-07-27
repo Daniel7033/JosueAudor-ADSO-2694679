@@ -12,6 +12,8 @@ namespace Data.Interface
     {
         Task Delete(int id);
 
+        Task<IEnumerable<DataSelectDto>> GetAll();
+
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
 
         Task<View> GetById(int id);

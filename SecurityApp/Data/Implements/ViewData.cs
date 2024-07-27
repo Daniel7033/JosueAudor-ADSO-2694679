@@ -1,4 +1,5 @@
-﻿using Entity.Context;
+﻿using Data.Interface;
+using Entity.Context;
 using Entity.Dtos;
 using Entity.Model.Security;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +31,12 @@ namespace Data.Implements
             }
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
             context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<DataSelectDto>> GetAll()
+        {
+            var sql = @"SELECT * FROM View ORDER BY id ASC";
+            return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()

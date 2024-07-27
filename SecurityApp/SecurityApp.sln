@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilities", "Utilities\Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diagram", "Diagram\Diagram.csproj", "{B57CB6A8-482F-4330-8C08-6C02C129CA2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{DAF11456-AB11-48B4-B409-7EB85D10D97E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{B57CB6A8-482F-4330-8C08-6C02C129CA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B57CB6A8-482F-4330-8C08-6C02C129CA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B57CB6A8-482F-4330-8C08-6C02C129CA2B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAF11456-AB11-48B4-B409-7EB85D10D97E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

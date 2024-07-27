@@ -34,6 +34,11 @@ namespace Data.Implements
             context.Users.Update(entity);
             await context.SaveChangesAsync();
         }
+        public async Task<IEnumerable<DataSelectDto>> GetAll()
+        {
+            var sql = @"SELECT * FROM User ORDER BY id ASC";
+            return await this.context.QueryAsync<DataSelectDto>(sql);
+        }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
@@ -89,6 +94,7 @@ namespace Data.Implements
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await context.SaveChangesAsync();
         }
+
 
         /*partial async Task<User> GetByCode(string code)
         {

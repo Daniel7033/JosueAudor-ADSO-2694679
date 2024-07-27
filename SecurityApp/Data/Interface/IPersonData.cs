@@ -1,4 +1,5 @@
 ﻿using Entity.Dtos;
+using Entity.Dtos.Security;
 using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace Data.Interface
     public interface IPersonData
     {
         Task Delete(int id);
+
+        Task<IEnumerable<PersonDto>> GetAll();
 
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
 

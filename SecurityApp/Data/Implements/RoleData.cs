@@ -1,6 +1,7 @@
 ﻿using Data.Interface;
 using Entity.Context;
 using Entity.Dtos;
+using Entity.Dtos.Security;
 using Entity.Model.Security;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -32,6 +33,12 @@ namespace Data.Implements
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
             context.Roles.Update(entity);
             await context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<RoleDto>> GetAll()
+        {
+            var sql = @"SELECT * FROM Role ORDER BY id ASC";
+            return await this.context.QueryAsync<RoleDto>(sql);
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()

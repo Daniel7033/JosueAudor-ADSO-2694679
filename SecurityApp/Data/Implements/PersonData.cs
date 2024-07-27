@@ -1,6 +1,7 @@
 ﻿using Data.Interface;
 using Entity.Context;
 using Entity.Dtos;
+using Entity.Dtos.Security;
 using Entity.Model.Security;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -30,6 +31,12 @@ namespace Data.Implements
             {
                 throw new Exception("Dato no encontrado");
             }
+        }
+
+        public async Task<IEnumerable<PersonDto>> GetAll()
+        {
+            var sql = @"SELECT * FROM Person ORDER BY id ASC";
+            return await this.context.QueryAsync<PersonDto>(sql);
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()

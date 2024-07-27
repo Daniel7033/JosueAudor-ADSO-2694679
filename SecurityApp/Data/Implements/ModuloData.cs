@@ -36,6 +36,12 @@ namespace Data.Implements
             await context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<ModuloDto>> GetAll()
+        {
+            var sql = @"SELECT * FROM Modulo ORDER BY id ASC";
+            return await this.context.QueryAsync<ModuloDto>(sql);
+        }
+
         public async Task<IEnumerable<ModuloDto>> GetAllSelect()
         {
             var sql = @"SELECT
