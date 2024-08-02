@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.Interface.Security;
 
 namespace Business.Implements.Security
 {
@@ -22,6 +23,11 @@ namespace Business.Implements.Security
         public async Task Delete(int id)
         {
             await this.data.Delete(id);
+        }
+
+        public async Task<IEnumerable<UserDto>> GetAll()
+        {
+            return await this.data.GetAll();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()

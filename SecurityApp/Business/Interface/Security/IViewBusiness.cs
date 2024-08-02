@@ -13,6 +13,8 @@ namespace Business.Interface.Security
     {
         Task Delete(int id);
 
+        Task<IEnumerable<ViewDto>> GetAll();
+
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
 
         Task<ViewDto> GetById(int id);

@@ -25,6 +25,11 @@ namespace Business.Implements.Security
             await this.data.Delete(id);
         }
 
+        public async Task<IEnumerable<ViewDto>> GetAll()
+        {
+            return await this.data.GetAll();
+        }
+
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             return await this.data.GetAllSelect();

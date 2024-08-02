@@ -1,4 +1,5 @@
-﻿using Data.Interface;
+﻿using Business.Interface.Security;
+using Data.Interface;
 using Entity.Dtos;
 using Entity.Dtos.Security;
 using Entity.Model.Security;
@@ -22,6 +23,11 @@ namespace Business.Implements.Security
         public async Task Delete(int id)
         {
             await this.data.Delete(id);
+        }
+
+        public async Task<IEnumerable<PersonDto>> GetAll()
+        {
+            return await this.data.GetAll();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()

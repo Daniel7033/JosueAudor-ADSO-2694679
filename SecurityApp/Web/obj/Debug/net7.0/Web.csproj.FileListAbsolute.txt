@@ -1,0 +1,7 @@
+C:\Users\Stork\Desktop\DANIEL\TECNOLOGO\Repositorios\JosueAudor-ADSO-2694679\SecurityApp\Web\obj\Debug\net7.0\Web.csproj.AssemblyReference.cache
+C:\Users\Stork\Desktop\DANIEL\TECNOLOGO\Repositorios\JosueAudor-ADSO-2694679\SecurityApp\Web\obj\Debug\net7.0\Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stork\Desktop\DANIEL\TECNOLOGO\Repositorios\JosueAudor-ADSO-2694679\SecurityApp\Web\obj\Debug\net7.0\Web.AssemblyInfoInputs.cache
+C:\Users\Stork\Desktop\DANIEL\TECNOLOGO\Repositorios\JosueAudor-ADSO-2694679\SecurityApp\Web\obj\Debug\net7.0\Web.AssemblyInfo.cs
+C:\Users\Stork\Desktop\DANIEL\TECNOLOGO\Repositorios\JosueAudor-ADSO-2694679\SecurityApp\Web\obj\Debug\net7.0\Web.csproj.CoreCompileInputs.cache
+C:\Users\Stork\Desktop\DANIEL\TECNOLOGO\Repositorios\JosueAudor-ADSO-2694679\SecurityApp\Web\obj\Debug\net7.0\Web.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Stork\Desktop\DANIEL\TECNOLOGO\Repositorios\JosueAudor-ADSO-2694679\SecurityApp\Web\obj\Debug\net7.0\Web.sourcelink.json

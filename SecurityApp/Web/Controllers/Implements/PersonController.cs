@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Web.Controllers.Implements
 {
     [Authorize]
-    [Route("api/")]
+    [Route("api/Person")]
+    [ApiController]
     public class PersonController : Controller
     {
         private readonly IPersonBusiness _PersonBusiness;

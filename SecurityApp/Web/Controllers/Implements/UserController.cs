@@ -9,7 +9,7 @@ namespace Web.Controllers.Implements
 {
     [Authorize]
     [Route("api/User")]
-    []
+    [ApiController]
     public class UserController : Controller
     {
         private readonly IUserBusiness _UserBusiness;

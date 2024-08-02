@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj": {}
+    "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj": {
+    "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj",
+        "projectUniqueName": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj",
-        "packagesPath": "C:\\Users\\SENA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\obj\\",
+        "projectPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj",
+        "packagesPath": "C:\\Users\\Stork\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SENA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Stork\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +22,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj"
+              "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj"
               }
             }
           }
@@ -38,6 +39,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -59,21 +65,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj": {
+    "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\SENA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\obj\\",
+        "projectPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\Stork\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SENA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Stork\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,14 +87,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj"
+              "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj"
               }
             }
           }
@@ -97,6 +104,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -118,21 +130,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj": {
+    "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj",
+        "projectUniqueName": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj",
-        "packagesPath": "C:\\Users\\SENA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\obj\\",
+        "projectPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\Stork\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SENA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Stork\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,6 +152,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -152,6 +165,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -199,21 +217,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj": {
+    "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj",
+        "projectUniqueName": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj",
-        "packagesPath": "C:\\Users\\SENA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\obj\\",
+        "projectPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Web.csproj",
+        "packagesPath": "C:\\Users\\Stork\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SENA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Stork\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -221,14 +239,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj": {
-                "projectPath": "C:\\Users\\SENA\\Desktop\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj"
+              "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj": {
+                "projectPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Business.csproj"
               }
             }
           }
@@ -237,6 +256,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -271,7 +295,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
