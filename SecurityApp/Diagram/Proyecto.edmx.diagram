@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="04b08a15e6624d89b719fbb65399c1c7" Name="Diagram1" >
+        <EntityTypeShape EntityType="Proyecto.Usuario" Width="1.5" PointX="4.5" PointY="1" />
+        <EntityTypeShape EntityType="Proyecto.Rol" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Proyecto.UsuarioRol" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="Proyecto.Cliente" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="Proyecto.ModuloVista" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="Proyecto.LicenciaBeats" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="Proyecto.Modulo" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="Proyecto.Vista" Width="1.5" PointX="5.375" PointY="5.75" />
+        <EntityTypeShape EntityType="Proyecto.GenerosMusicales" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Proyecto.HistorialCompra" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Proyecto.Licencia" Width="1.5" PointX="7.375" PointY="2.75" />
+        <EntityTypeShape EntityType="Proyecto.Venta" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Proyecto.BeatsDetalle" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="Proyecto.MetodoPago" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="Proyecto.Beats" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="Proyecto.VentaDetalle" Width="1.5" PointX="0.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

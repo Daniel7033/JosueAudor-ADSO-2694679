@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Data.Interface;
 using Entity.Dtos;
 using Entity.Context;
+using Entity.Dtos.Security;
 
 namespace Data.Implements
 {
@@ -34,10 +35,10 @@ namespace Data.Implements
             context.Users.Update(entity);
             await context.SaveChangesAsync();
         }
-        public async Task<IEnumerable<DataSelectDto>> GetAll()
+        public async Task<IEnumerable<UserDto>> GetAll()
         {
             var sql = @"SELECT * FROM User ORDER BY id ASC";
-            return await this.context.QueryAsync<DataSelectDto>(sql);
+            return await this.context.QueryAsync<UserDto>(sql);
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()

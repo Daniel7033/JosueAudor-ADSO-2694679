@@ -12,7 +12,7 @@ namespace Data.Interface
     {
         Task Delete(int id);
 
-        Task<IEnumerable<DataSelectDto>> GetAll();
+        Task<IEnumerable<UserDto>> GetAll();
 
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
 
