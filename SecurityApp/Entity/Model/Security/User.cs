@@ -10,9 +10,9 @@ namespace Entity.Model.Security
     {
         public int id { get; set; }
 
-        public string username { get; set; }
+        public string username { get; set; } = null;
 
-        public string password { get; set; }
+        public string password { get; set; } 
 
         public DateTime createdAt { get; set; }
 
@@ -20,7 +20,7 @@ namespace Entity.Model.Security
 
         public DateTime deletedAt { get; set; }
 
-        public Boolean estado { get; set; }
+        public Boolean estado { get; set; } = true;
 
         public int lstUser { get; set; }
 

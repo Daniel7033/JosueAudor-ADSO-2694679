@@ -16,7 +16,7 @@ namespace Entity.Model.Security
 
         public DateTime deletedAt { get; set; }
 
-        public Boolean estado { get; set; }
+        public Boolean estado { get; set; } = true;
 
         public int lstRole { get; set; }
 

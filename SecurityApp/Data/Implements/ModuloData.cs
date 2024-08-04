@@ -38,24 +38,24 @@ namespace Data.Implements
 
         public async Task<IEnumerable<ModuloDto>> GetAll()
         {
-            var sql = @"SELECT * FROM Modulo ORDER BY id ASC";
+            var sql = @"SELECT * FROM Modules ORDER BY id ASC";
             return await this.context.QueryAsync<ModuloDto>(sql);
         }
 
-        public async Task<IEnumerable<ModuloDto>> GetAllSelect()
+        public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT
                             id,
-                            name AS Nombre
-                        FROM Modulo
-                        WHERE deletedAt IS NULL AND estado = 1
+                            name AS textoMostrar
+                        FROM Modules
+                        WHERE estado = 1
                         ORDER BY id ASC";
-            return await this.context.QueryAsync<ModuloDto>(sql);
+            return await this.context.QueryAsync<DataSelectDto>(sql);
         } 
 
         public async Task<Modulo> GetById(int id)
         {
-            var sql = @"SELECT * FROM Modulo WHERE id = @Id ORDER BY is ASC";
+            var sql = @"SELECT * FROM Modules WHERE id = @Id ORDER BY id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Modulo>(sql, new { Id = id });
         }
 
@@ -83,6 +83,8 @@ namespace Data.Implements
         public async Task<Modulo> Save(Modulo entity)
         {
             context.Modules.Add(entity);
+            entity.createdAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.estado = true;
             await context.SaveChangesAsync();
             return entity;
         }
@@ -91,6 +93,8 @@ namespace Data.Implements
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             await context.SaveChangesAsync();
+            entity.updatedAt = DateTime.Parse(DateTime.Today.ToString());
         }
+
     }
 }

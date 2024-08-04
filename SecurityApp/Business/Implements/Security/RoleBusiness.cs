@@ -1,4 +1,5 @@
-﻿using Data.Interface;
+﻿using Business.Interface.Security;
+using Data.Interface;
 using Entity.Dtos;
 using Entity.Dtos.Security;
 using Entity.Model.Security;
@@ -22,6 +23,11 @@ namespace Business.Implements.Security
         public async Task Delete(int id)
         {
             await this.data.Delete(id);
+        }
+
+        public async Task<IEnumerable<RoleDto>> GetAll()
+        {
+            return await this.data.GetAll();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
@@ -52,14 +58,14 @@ namespace Business.Implements.Security
 
         public async Task Update(int id, RoleDto entity)
         {
-            RoleDto role = await this.data.GetById(id);
+            Role role = await this.data.GetById(id);
             if(role == null)
             {
                 throw new Exception("Dato no encontrado.");
             }
             role = this.mapearDatos(role, entity);
 
-            await this.data.Update(entity);
+            await this.data.Update(role);
         }
 
         private Role mapearDatos(Role role, RoleDto entity)

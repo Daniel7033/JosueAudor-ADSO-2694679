@@ -1,4 +1,5 @@
 ﻿using Entity.Dtos;
+using Entity.Dtos.Security;
 using Entity.Model.Security;
 using System;
 using System.Collections.Generic;

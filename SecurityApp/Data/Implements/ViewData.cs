@@ -1,6 +1,7 @@
 ﻿using Data.Interface;
 using Entity.Context;
 using Entity.Dtos;
+using Entity.Dtos.Security;
 using Entity.Model.Security;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -33,10 +34,10 @@ namespace Data.Implements
             context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<DataSelectDto>> GetAll()
+        public async Task<IEnumerable<ViewDto>> GetAll()
         {
             var sql = @"SELECT * FROM View ORDER BY id ASC";
-            return await this.context.QueryAsync<DataSelectDto>(sql);
+            return await this.context.QueryAsync<ViewDto>(sql);
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Implements
 {
-    [Authorize]
     [Route("api/Modulo")]
     [ApiController]
     public class ModuloController : Controller

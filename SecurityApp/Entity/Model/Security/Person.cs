@@ -10,25 +10,25 @@ namespace Entity.Model.Security
     {
         public int id { get; set; }
 
-        public string firstName { get; set; }
+        public string firstName { get; set; } = null;
 
-        public string secondName { get; set; }
+        public string secondName { get; set; } = null;
 
-        public string firstSurname { get; set; }
+        public string firstSurname { get; set; } = null;
 
-        public string secondSurname { get; set; }
+        public string secondSurname { get; set; } = null;
 
-        public string email { get; set; }
+        public string email { get; set; } = null;
 
-        public string phone { get; set; }
+        public string phone { get; set; } = null;
 
-        public string gender { get; set; }
+        public string gender { get; set; } = null;
 
-        public string documentType { get; set; }
+        public string documentType { get; set; } = null;
 
-        public int documentNumber { get; set; }
+        public int documentNumber { get; set; } = 0;
 
-        public DateTime birthDate { get; set; }
+        public DateTime birthDate { get; set; } = default;
 
         public DateTime createdAt { get; set; }
 
@@ -36,7 +36,7 @@ namespace Entity.Model.Security
 
         public DateTime deletedAt { get; set; }
 
-        public Boolean estado { get; set; }
+        public Boolean estado { get; set; } = true;
 
     }
 }

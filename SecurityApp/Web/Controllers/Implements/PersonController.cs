@@ -4,10 +4,10 @@ using Entity.Dtos.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Web.Controllers.Interface.Security;
 
 namespace Web.Controllers.Implements
 {
-    [Authorize]
     [Route("api/Person")]
     [ApiController]
     public class PersonController : Controller

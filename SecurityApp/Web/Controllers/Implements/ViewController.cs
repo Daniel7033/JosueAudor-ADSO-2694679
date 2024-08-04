@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Implements
 {
-    [Authorize]
     [Route("api/View")]
     [ApiController]
     public class ViewController : Controller

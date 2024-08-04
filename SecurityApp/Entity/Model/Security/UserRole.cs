@@ -20,7 +20,7 @@ namespace Entity.Model.Security
 
         public DateTime deletedAt { get; set; }
 
-        public Boolean estado { get; set; }
+        public Boolean estado { get; set; } = true;
 
         public User userId { get; set; }
 

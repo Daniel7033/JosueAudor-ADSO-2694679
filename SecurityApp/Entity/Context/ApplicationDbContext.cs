@@ -12,29 +12,29 @@ namespace Entity.Context
     {
         protected readonly IConfiguration _configuration;
 
-        public ApplicationDbContext(/*ApplicationDbContext option, */ IConfiguration configuration) /*: base(option)*/
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration) : base(options)
         {
             _configuration = configuration;
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //    modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
 
+        //<param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultSqlServer"));
+            optionsBuilder.EnableSensitiveDataLogging();
             //optionsBuilder.EnableSensitiveDataLogging();
             //Otras configuraciones...
         }
 
-        //protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
-        //{
-        //    configurationBuilder.Properties<decimal>().HavePrecision(18, 2);
-        //}
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            configurationBuilder.Properties<decimal>().HavePrecision(18, 2);
+        }
 
         public override int SaveChanges()
         {
@@ -69,13 +69,13 @@ namespace Entity.Context
         //Parameter
 
         //Security
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Modulo> Modules { get; set; }
-        public DbSet<Person> Persons { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<View> Views { get; set; }
-        public DbSet<RoleView> RoleViews { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Role> Roles => Set<Role>();
+        public DbSet<Modulo> Modules => Set<Modulo>();
+        public DbSet<Person> Persons => Set<Person>();
+        public DbSet<User> Users => Set<User>();
+        public DbSet<View> Views => Set<View>();
+        public DbSet<RoleView> RoleViews => Set<RoleView>();
+        public DbSet<UserRole> UserRoles => Set<UserRole>();
 
 
         public readonly struct DapperEFCoreCommand : IDisposable
