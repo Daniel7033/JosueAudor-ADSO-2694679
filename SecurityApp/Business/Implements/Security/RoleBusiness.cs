@@ -70,7 +70,10 @@ namespace Business.Implements.Security
 
         private Role mapearDatos(Role role, RoleDto entity)
         {
-            role.id = entity.id;
+            if (role.id == 0)
+            {
+                role.id = entity.id;
+            }
             role.name = entity.Name;
             role.description = entity.Description;
             role.estado = entity.Estado;

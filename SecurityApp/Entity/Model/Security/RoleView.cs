@@ -10,13 +10,13 @@ namespace Entity.Model.Security
     {
         public int id { get; set; }
 
-        public DateTime createdAt { get; set; }
+        public DateTime? createdAt { get; set; }
 
-        public DateTime updatedAt { get; set; }
+        public DateTime? updatedAt { get; set; }
 
-        public DateTime deletedAt { get; set; }
+        public DateTime? deletedAt { get; set; }
 
-        public Boolean estado { get; set; } = true;
+        public Boolean estado { get; set; }
 
         public int lstRole { get; set; }
 

@@ -37,7 +37,7 @@ namespace Data.Implements
 
         public async Task<IEnumerable<RoleDto>> GetAll()
         {
-            var sql = @"SELECT * FROM Role ORDER BY id ASC";
+            var sql = @"SELECT * FROM Roles ORDER BY id ASC";
             return await this.context.QueryAsync<RoleDto>(sql);
         }
 
@@ -45,17 +45,16 @@ namespace Data.Implements
         {
             var sql = @"SELECT
                             id,
-                            name,
-                            description
-                        FROM Role
-                        WHERE deletedAt IS NULL AND estado = 1
+                            name AS TextoMostrar
+                        FROM Roles
+                        WHERE estado = 1
                         ORDER BY id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<Role> GetById(int id)
         {
-            var sql = @"SELECT * FROM Role WHERE id = @Id ORDER BY id ASC";
+            var sql = @"SELECT * FROM Roles WHERE id = @Id ORDER BY id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Role>(sql, new { Id = id });
         }
 
@@ -86,6 +85,8 @@ namespace Data.Implements
         public async Task<Role> Save(Role entity)
         {
             context.Roles.Add(entity);
+            entity.createdAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.estado = true;
             await context.SaveChangesAsync();
             return entity;
         }
@@ -93,6 +94,8 @@ namespace Data.Implements
         public async Task Update(Role entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).Property(i => i.id).IsModified = false;
+            entity.updatedAt = DateTime.Parse(DateTime.Today.ToString());
             await context.SaveChangesAsync();
         }
 

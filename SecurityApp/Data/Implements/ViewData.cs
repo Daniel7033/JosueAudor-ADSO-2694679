@@ -31,12 +31,13 @@ namespace Data.Implements
                 throw new Exception("Dato no encontrado");
             }
             entity.deletedAt = DateTime.Parse(DateTime.Today.ToString());
-            context.SaveChangesAsync();
+            context.Views.Update(entity);
+            await context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<ViewDto>> GetAll()
         {
-            var sql = @"SELECT * FROM View ORDER BY id ASC";
+            var sql = @"SELECT * FROM Views ORDER BY id ASC";
             return await this.context.QueryAsync<ViewDto>(sql);
         }
 
@@ -44,18 +45,16 @@ namespace Data.Implements
         {
             var sql = @"SELECT
                             id,
-                            name,
-                            route,
-                            description
-                        FROM View
-                        WHERE deletedAt IS NULL AND estado = 1
+                            CONCAT(name, ' (/', route, ')' AS TextoMostrar
+                        FROM Views
+                        WHERE estado = 1
                         ORDER BY id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<View> GetById(int id)
         {
-            var sql = @"SELECT * FROM View WHERE id = @Id ORDER BY id ASC";
+            var sql = @"SELECT * FROM Views WHERE id = @Id ORDER BY id ASC";
             return await this.context.QueryFirstOrDefaultAsync<View>(sql, new { Id = id });
         }
 
@@ -84,6 +83,8 @@ namespace Data.Implements
         public async Task<View> Save(View entity)
         {
             context.Views.Add(entity);
+            entity.createdAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.estado = true;
             await context.SaveChangesAsync();
             return entity;
         }
@@ -91,6 +92,8 @@ namespace Data.Implements
         public async Task Update(View entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).Property(i => i.id).IsModified = false;
+            entity.updatedAt = DateTime.Parse(DateTime.Today.ToString());
             await context.SaveChangesAsync();
         }
     }

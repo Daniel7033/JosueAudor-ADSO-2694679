@@ -47,7 +47,7 @@ namespace Business.Implements.Security
             dto.DocumentType = person.documentType;
             dto.DocumentNumber = person.documentNumber;
             dto.Email = person.email;
-            dto.Telefono = person.phone;
+            dto.Phone = person.phone;
             dto.Gender = person.gender;
             dto.BirthDate = person.birthDate;
             dto.Estado = person.estado;
@@ -70,14 +70,20 @@ namespace Business.Implements.Security
             {
                 throw new Exception("Dato no encontrado");
             }
-            person = this.mapearDatos(person, entity);
+            if (person.id != 0)
+            {
+                person = this.mapearDatos(person, entity);
+            }
 
             await this.data.Update(person);
         }
 
         private Person mapearDatos(Person person, PersonDto entity)
         {
-            person.id = entity.id;
+            if (person.id == 0)
+            {
+                person.id = entity.id;
+            }
             person.firstName = entity.FirstName;
             person.secondName = entity.SecondName;
             person.firstSurname = entity.FirstSurname;
@@ -85,7 +91,7 @@ namespace Business.Implements.Security
             person.documentType = entity.DocumentType;
             person.documentNumber = entity.DocumentNumber;
             person.email = entity.Email;
-            person.phone = entity.Telefono;
+            person.phone = entity.Phone;
             person.gender = entity.Gender;
             person.birthDate = entity.BirthDate;
             person.estado = entity.Estado;

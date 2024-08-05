@@ -37,7 +37,7 @@ namespace Data.Implements
         }
         public async Task<IEnumerable<UserDto>> GetAll()
         {
-            var sql = @"SELECT * FROM User ORDER BY id ASC";
+            var sql = @"SELECT * FROM Users ORDER BY id ASC";
             return await this.context.QueryAsync<UserDto>(sql);
         }
 
@@ -46,46 +46,24 @@ namespace Data.Implements
             var sql = @"SELECT
                             id,
                             CONCAT('(@', u.username, ')', ' - ',p.firstName, ' ', p.firstSurname) AS TextoMostrar
-                        FROM 
-                            User AS u
-                        INNER JOIN Person AS p ON u.personId = p.id
-                        WHERE deletedAt IS NULL AND estado = 1
-                        ORDER BY id ASC;";
+                        FROM Users AS u
+                        INNER JOIN Persons AS p ON u.personId = p.id
+                        WHERE estado = 1
+                        ORDER BY id ASC";
             return await this.context.QueryAsync<DataSelectDto>(sql);
         }
 
         public async Task<User> GetById(int id)
         {
-            var sql = @"SELECT * FROM User WHERE id = @Id ORDER BY id ASC;";
+            var sql = @"SELECT * FROM Users WHERE id = @Id ORDER BY id ASC;";
             return await this.context.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
         }
-
-        /* INHABILITADO
-         * public async Task<PageListDto<UserDto>> GetDataTable(QueryFilterDto filter)
-        {
-            int pageNumber = (filter.PageNumber == 0) ? Int32.Parse(configuration["Pagination:DefaultPageNumber"]) : filter.PageNumber;
-            int pageSize = (filter.PageSize = 0) ? Int32.Parse(configuration["Pagination:DefaultPageSize"]) : filter.PageSize;
-
-            var sql = @"SELECT
-                            u.id,
-                            u.username,
-                            CONCAT(p.firstName, ' ', p.firstSurname) AS Nombre,
-                        FROM User AS u
-                            INNER JOIN Person AS p ON u.personId = p.id
-                            WHERE u.deletedAt IS NULL AND
-                            (UPPER(CONCAT(u.username, p.firstName, p.firstSurname)) LIKE UPPER(CONCAT('%', @filter, '%')))
-                            ORDER BY '" + (filter.ColumnOrder ?? "id") + "' " + (filter.DirectionOrder ?? "asc");
-
-            IEnumerable<UserDto> items = await context.QueryAsync<UserDto>(sql, new { Filter = filter.Filter });
-
-            var pageItems = PageListDto<UserDto>.Create(items, pageNumber, pageSize);
-
-            return pageItems;
-        }*/
 
         public async Task<User> Save(User entity)
         {
             context.Users.Add(entity);
+            entity.createdAt = DateTime.Parse(DateTime.Today.ToString());
+            entity.estado = true;
             await context.SaveChangesAsync();
             return entity;
         }
@@ -93,13 +71,9 @@ namespace Data.Implements
         public async Task Update(User entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.Entry(entity).Property(i => i.id).IsModified = false;
+            entity.updatedAt = DateTime.Parse(DateTime.Today.ToString());
             await context.SaveChangesAsync();
         }
-
-
-        /*partial async Task<User> GetByCode(string code)
-        {
-            return await this.context.Users.AsNoTracking().Where(item => item.Codigo == code).FirstOrDefaultAsync();
-        }*/
     }
 }

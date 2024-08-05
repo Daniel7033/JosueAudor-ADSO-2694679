@@ -70,8 +70,11 @@ namespace Business.Implements.Security
         }
 
         private User mapearDatos(User user, UserDto entity)
-        {
-            user.id = entity.id;
+        { 
+            if (user.id == 0)
+            {
+                user.id = entity.id;
+            }
             user.username = entity.Username;
             user.password = entity.Password;
             user.personId = entity.PersonId;

@@ -92,8 +92,9 @@ namespace Data.Implements
         public async Task Update(Modulo entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            await context.SaveChangesAsync();
+            context.Entry(entity).Property(i => i.id).IsModified = false; // Ignora el Id
             entity.updatedAt = DateTime.Parse(DateTime.Today.ToString());
+            await context.SaveChangesAsync();
         }
 
     }

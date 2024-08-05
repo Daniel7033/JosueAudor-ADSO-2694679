@@ -12,21 +12,21 @@ namespace Entity.Model.Security
     {
         public int id { get; set; }
 
-        public string name { get; set; } = null;
+        public string? name { get; set; }
 
-        public string description { get; set; } = null;
+        public string? description { get; set; }
 
-        public string route { get; set; } = null;
+        public string? route { get; set; } 
 
         public int lstView { get; set; }
 
-        public DateTime createdAt { get; set;  }
+        public DateTime? createdAt { get; set;  }
 
-        public DateTime updatedAt { get; set; }
+        public DateTime? updatedAt { get; set; }
         
-        public DateTime deletedAt { get; set; }
+        public DateTime? deletedAt { get; set; }
 
-        public Boolean estado { get; set; } = true;
+        public Boolean estado { get; set; }
 
         public Modulo moduleId { get; set; }
     }

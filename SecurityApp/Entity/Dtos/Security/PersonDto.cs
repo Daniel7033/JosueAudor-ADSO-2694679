@@ -24,7 +24,7 @@ namespace Entity.Dtos.Security
 
         public string SecondSurname { get; set; }
 
-        public string Telefono { get; set; }
+        public string Phone { get; set; }
 
         public string Email { get; set; }
 

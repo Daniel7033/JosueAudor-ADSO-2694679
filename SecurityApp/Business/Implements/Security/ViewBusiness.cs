@@ -71,10 +71,14 @@ namespace Business.Implements.Security
 
         private View mapeoDatos(View view, ViewDto entity)
         {
-            view.id = entity.id;
+            if(view.id == 0)
+            {
+                view.id = entity.id;
+            }
+            view.route = entity.Route;
             view.name = entity.Name;
             view.description = entity.Description;
-            view.moduleId = entity.ModuloId;
+            view.moduleId.id = entity.ModuloId.id;
             view.estado = entity.Estado;
 
             return view;

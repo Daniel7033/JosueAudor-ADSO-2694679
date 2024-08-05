@@ -70,7 +70,10 @@ namespace Business.Implements.Security
 
         private Modulo mapearDatos(Modulo modulo, ModuloDto entity)
         {
-            modulo.id = entity.id;
+            if (modulo.id == 0)
+            {
+                modulo.id = entity.id;
+            }
             modulo.name = entity.Name;
             modulo.description = entity.Description;
             modulo.estado = entity.Estado;
