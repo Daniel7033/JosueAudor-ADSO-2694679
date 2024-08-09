@@ -1,13 +1,13 @@
 ﻿using Entity.Model.Security;
 using Entity.Dtos.Security;
 using Entity.Dtos;
-using Data.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Interface.Security;
+using Data.Interface.Security;
 
 namespace Business.Implements.Security
 {
@@ -67,6 +67,16 @@ namespace Business.Implements.Security
             user = this.mapearDatos(user, entity);
 
             await this.data.Update(user);
+        }
+
+        public async Task<LoginDto> Login(string username, string password)
+        {
+            if (username == null && password == null)
+            {
+                throw new Exception("Valores nulos inaceptbles");
+            }
+
+            return await this.data.Login(username, password);
         }
 
         private User mapearDatos(User user, UserDto entity)

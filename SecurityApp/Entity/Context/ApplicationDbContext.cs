@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Entity.Model.Security;
+using Entity.Model.Ubication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
@@ -77,6 +78,10 @@ namespace Entity.Context
         public DbSet<RoleView> RoleViews => Set<RoleView>();
         public DbSet<UserRole> UserRoles => Set<UserRole>();
 
+        // Ubication
+        public DbSet<Country> Countries => Set<Country>();
+        public DbSet<Department> Departments => Set<Department>();
+        public DbSet<City> Cities => Set<City>();
 
         public readonly struct DapperEFCoreCommand : IDisposable
         {

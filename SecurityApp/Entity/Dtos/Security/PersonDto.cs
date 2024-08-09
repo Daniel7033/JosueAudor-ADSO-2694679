@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.Model.Ubication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,8 @@ namespace Entity.Dtos.Security
 
         public DateTime BirthDate { get; set; }
 
-        public bool Estado { get; set; }
+        public Boolean Estado { get; set; }
+
+        public City City { get; set; }
     }
 }

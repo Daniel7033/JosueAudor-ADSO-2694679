@@ -1,5 +1,5 @@
 ﻿using Business.Interface.Security;
-using Data.Interface;
+using Data.Interface.Security;
 using Entity.Dtos;
 using Entity.Dtos.Security;
 using Entity.Model.Security;
@@ -50,6 +50,7 @@ namespace Business.Implements.Security
             dto.Phone = person.phone;
             dto.Gender = person.gender;
             dto.BirthDate = person.birthDate;
+            dto.City = person.cityId;
             dto.Estado = person.estado;
 
             return dto;
@@ -94,6 +95,7 @@ namespace Business.Implements.Security
             person.phone = entity.Phone;
             person.gender = entity.Gender;
             person.birthDate = entity.BirthDate;
+            person.cityId = entity.City;
             person.estado = entity.Estado;
 
             return person;

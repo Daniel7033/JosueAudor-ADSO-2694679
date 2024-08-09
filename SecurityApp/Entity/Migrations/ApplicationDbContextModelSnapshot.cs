@@ -64,6 +64,9 @@ namespace Entity.Migrations
                     b.Property<DateTime>("birthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("cityIdid")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("createdAt")
                         .HasColumnType("datetime2");
 
@@ -91,6 +94,9 @@ namespace Entity.Migrations
                     b.Property<string>("gender")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("lstCity")
+                        .HasColumnType("int");
+
                     b.Property<string>("phone")
                         .HasColumnType("nvarchar(max)");
 
@@ -104,6 +110,8 @@ namespace Entity.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("id");
+
+                    b.HasIndex("cityIdid");
 
                     b.ToTable("Persons");
                 });
@@ -304,6 +312,126 @@ namespace Entity.Migrations
                     b.ToTable("Views");
                 });
 
+            modelBuilder.Entity("Entity.Model.Ubication.City", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("createdAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("deletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("departmentIdid")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("lstDepartment")
+                        .HasColumnType("int");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("updatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("departmentIdid");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("Entity.Model.Ubication.Country", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("createdAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("deletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("estado")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("updatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("Entity.Model.Ubication.Department", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("countryIdid")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("createdAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("deletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("lstCountry")
+                        .HasColumnType("int");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("updatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("countryIdid");
+
+                    b.ToTable("Departments");
+                });
+
+            modelBuilder.Entity("Entity.Model.Security.Person", b =>
+                {
+                    b.HasOne("Entity.Model.Ubication.City", "cityId")
+                        .WithMany()
+                        .HasForeignKey("cityIdid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("cityId");
+                });
+
             modelBuilder.Entity("Entity.Model.Security.RoleView", b =>
                 {
                     b.HasOne("Entity.Model.Security.Role", "roleId")
@@ -362,6 +490,28 @@ namespace Entity.Migrations
                         .IsRequired();
 
                     b.Navigation("moduleId");
+                });
+
+            modelBuilder.Entity("Entity.Model.Ubication.City", b =>
+                {
+                    b.HasOne("Entity.Model.Ubication.Department", "departmentId")
+                        .WithMany()
+                        .HasForeignKey("departmentIdid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("departmentId");
+                });
+
+            modelBuilder.Entity("Entity.Model.Ubication.Department", b =>
+                {
+                    b.HasOne("Entity.Model.Ubication.Country", "countryId")
+                        .WithMany()
+                        .HasForeignKey("countryIdid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("countryId");
                 });
 #pragma warning restore 612, 618
         }

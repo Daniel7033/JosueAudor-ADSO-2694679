@@ -44,6 +44,21 @@
             <End Role="UserRole" EntitySet="UserRoles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="Countries" EntityType="Model1.Country" />
+          <EntitySet Name="Deparments" EntityType="Model1.Deparment" />
+          <EntitySet Name="Cities" EntityType="Model1.City" />
+          <AssociationSet Name="CountryDeparment" Association="Model1.CountryDeparment">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Deparment" EntitySet="Deparments" />
+          </AssociationSet>
+          <AssociationSet Name="DeparmentCity" Association="Model1.DeparmentCity">
+            <End Role="Deparment" EntitySet="Deparments" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="CityPerson" Association="Model1.CityPerson">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Person" EntitySet="Persons" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Person">
           <Key>
@@ -64,6 +79,8 @@
           <Property Name="updatedAt" Type="DateTime" Nullable="false" />
           <Property Name="deletedAt" Type="DateTime" Nullable="false" />
           <Property Name="estado" Type="Boolean" Nullable="false" DefaultValue="true" />
+          <NavigationProperty Name="lstCity" Relationship="Model1.CityPerson" FromRole="Person" ToRole="City" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -220,6 +237,85 @@
             </Principal>
             <Dependent Role="UserRole">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="true" />
+          <Property Name="name" Type="String" Nullable="true" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="deletedAt" Type="DateTime" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" DefaultValue="true" />
+          <NavigationProperty Name="lstDeparment" Relationship="Model1.CountryDeparment" FromRole="Country" ToRole="Deparment" />
+        </EntityType>
+        <EntityType Name="Deparment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="true" />
+          <Property Name="name" Type="String" Nullable="true" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="deletedAt" Type="DateTime" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" DefaultValue="true" />
+          <NavigationProperty Name="lstCountry" Relationship="Model1.CountryDeparment" FromRole="Deparment" ToRole="Country" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstCity" Relationship="Model1.DeparmentCity" FromRole="Deparment" ToRole="City" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" Nullable="true" />
+          <Property Name="name" Type="String" Nullable="true" />
+          <Property Name="createdAt" Type="DateTime" Nullable="false" />
+          <Property Name="updatedAt" Type="DateTime" Nullable="false" />
+          <Property Name="deletedAt" Type="DateTime" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" DefaultValue="true" />
+          <NavigationProperty Name="lstDeparment" Relationship="Model1.DeparmentCity" FromRole="City" ToRole="Deparment" />
+          <Property Name="DeparmentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstPerson" Relationship="Model1.CityPerson" FromRole="City" ToRole="Person" />
+        </EntityType>
+        <Association Name="CountryDeparment">
+          <End Type="Model1.Country" Role="Country" Multiplicity="1" />
+          <End Type="Model1.Deparment" Role="Deparment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Deparment">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeparmentCity">
+          <End Type="Model1.Deparment" Role="Deparment" Multiplicity="1" />
+          <End Type="Model1.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deparment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="DeparmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CityPerson">
+          <End Type="Model1.City" Role="City" Multiplicity="1" />
+          <End Type="Model1.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

@@ -1,5 +1,4 @@
-﻿using Data.Interface;
-using Business.Interface.Security;
+﻿using Business.Interface.Security;
 using Entity.Dtos;
 using Entity.Dtos.Security;
 using Entity.Model.Security;
@@ -8,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data.Interface.Security;
 
 namespace Business.Implements.Security
 {

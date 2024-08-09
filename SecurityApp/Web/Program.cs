@@ -1,7 +1,7 @@
 ﻿using Business.Implements.Security;
 using Business.Interface.Security;
-using Data.Implements;
-using Data.Interface;
+using Data.Implements.Security;
+using Data.Interface.Security;
 using Entity.Context;
 using Microsoft.EntityFrameworkCore;
 

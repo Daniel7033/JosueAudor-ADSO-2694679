@@ -1,5 +1,6 @@
 ﻿using Entity.Dtos;
 using Entity.Dtos.Security;
+using Entity.Model.Security;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Interface.Security
@@ -17,5 +18,7 @@ namespace Web.Controllers.Interface.Security
         Task<IActionResult> Update(int id, [FromBody] UserDto entity);
 
         Task<IActionResult> Delete(int id);
+
+        Task<ActionResult<LoginDto>> Login(string username, string password);
     }
 }

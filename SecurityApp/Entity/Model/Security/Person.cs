@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.Model.Ubication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,9 @@ namespace Entity.Model.Security
         public DateTime? deletedAt { get; set; }
 
         public Boolean estado { get; set; } 
+
+        public int lstCity { get; set; }
+        public City cityId { get; set; }
 
     }
 }

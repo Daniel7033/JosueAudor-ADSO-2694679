@@ -22,5 +22,7 @@ namespace Business.Interface.Security
         Task<User> Save(UserDto entity);
 
         Task Update(int id, UserDto entity);
+
+        Task<LoginDto> Login(string username, string password);
     }
 }

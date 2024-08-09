@@ -13,119 +13,513 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Proyecto" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="ProyectoContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UsuarioSet" EntityType="Proyecto.Usuario" />
-          <EntitySet Name="RolSet" EntityType="Proyecto.Rol" />
-          <EntitySet Name="UsuarioRolSet" EntityType="Proyecto.UsuarioRol" />
-          <EntitySet Name="ClienteSet" EntityType="Proyecto.Cliente" />
-          <EntitySet Name="ModuloVistaSet" EntityType="Proyecto.ModuloVista" />
-          <EntitySet Name="LicenciaBeatsSet" EntityType="Proyecto.LicenciaBeats" />
-          <EntitySet Name="ModuloSet" EntityType="Proyecto.Modulo" />
-          <EntitySet Name="VistaSet" EntityType="Proyecto.Vista" />
-          <EntitySet Name="GenerosMusicalesSet" EntityType="Proyecto.GenerosMusicales" />
-          <EntitySet Name="HistorialCompraSet" EntityType="Proyecto.HistorialCompra" />
-          <EntitySet Name="LicenciaSet" EntityType="Proyecto.Licencia" />
-          <EntitySet Name="VentaSet" EntityType="Proyecto.Venta" />
           <EntitySet Name="BeatsDetalleSet" EntityType="Proyecto.BeatsDetalle" />
-          <EntitySet Name="MetodoPagoSet" EntityType="Proyecto.MetodoPago" />
-          <EntitySet Name="BeatsSet" EntityType="Proyecto.Beats" />
-          <EntitySet Name="VentaDetalleSet" EntityType="Proyecto.VentaDetalle" />
+          <EntitySet Name="Roles" EntityType="Proyecto.Rol" />
+          <EntitySet Name="Usuarios" EntityType="Proyecto.Usuario" />
+          <EntitySet Name="UsuarioRoles" EntityType="Proyecto.UsuarioRol" />
+          <EntitySet Name="Modulos" EntityType="Proyecto.Modulo" />
+          <EntitySet Name="Vistas" EntityType="Proyecto.Vista" />
+          <EntitySet Name="RolVistas" EntityType="Proyecto.RolVista" />
+          <EntitySet Name="Historiales" EntityType="Proyecto.HistorialCompra" />
+          <EntitySet Name="Licencias" EntityType="Proyecto.Licencia" />
+          <EntitySet Name="Clientes" EntityType="Proyecto.Cliente" />
+          <EntitySet Name="Beats" EntityType="Proyecto.Beat" />
+          <EntitySet Name="LicenciaBeats" EntityType="Proyecto.LicenciaBeats" />
+          <EntitySet Name="Ventas" EntityType="Proyecto.Venta" />
+          <EntitySet Name="Generos" EntityType="Proyecto.GenerosMusicales" />
+          <EntitySet Name="Pagos" EntityType="Proyecto.MetodoPago" />
+          <EntitySet Name="VentaDetalles" EntityType="Proyecto.VentaDetalle" />
+          <EntitySet Name="Productores" EntityType="Proyecto.Productor" />
+          <AssociationSet Name="ModuloVista" Association="Proyecto.ModuloVista">
+            <End Role="Modulo" EntitySet="Modulos" />
+            <End Role="Vista" EntitySet="Vistas" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioUsuarioRol" Association="Proyecto.UsuarioUsuarioRol">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="UsuarioRol" EntitySet="UsuarioRoles" />
+          </AssociationSet>
+          <AssociationSet Name="RolUsuarioRol" Association="Proyecto.RolUsuarioRol">
+            <End Role="Rol" EntitySet="Roles" />
+            <End Role="UsuarioRol" EntitySet="UsuarioRoles" />
+          </AssociationSet>
+          <AssociationSet Name="RolRolVista" Association="Proyecto.RolRolVista">
+            <End Role="Rol" EntitySet="Roles" />
+            <End Role="RolVista" EntitySet="RolVistas" />
+          </AssociationSet>
+          <AssociationSet Name="VistaRolVista" Association="Proyecto.VistaRolVista">
+            <End Role="Vista" EntitySet="Vistas" />
+            <End Role="RolVista" EntitySet="RolVistas" />
+          </AssociationSet>
+          <AssociationSet Name="ClienteUsuario" Association="Proyecto.ClienteUsuario">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="HistorialCompraCliente" Association="Proyecto.HistorialCompraCliente">
+            <End Role="HistorialCompra" EntitySet="Historiales" />
+            <End Role="Cliente" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="GenerosMusicalesBeatsDetalle" Association="Proyecto.GenerosMusicalesBeatsDetalle">
+            <End Role="GenerosMusicales" EntitySet="Generos" />
+            <End Role="BeatsDetalle" EntitySet="BeatsDetalleSet" />
+          </AssociationSet>
+          <AssociationSet Name="LicenciaBeatsDetalle" Association="Proyecto.LicenciaBeatsDetalle">
+            <End Role="Licencia" EntitySet="Licencias" />
+            <End Role="BeatsDetalle" EntitySet="BeatsDetalleSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProductorUsuario" Association="Proyecto.ProductorUsuario">
+            <End Role="Productor" EntitySet="Productores" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="ProductorBeat" Association="Proyecto.ProductorBeat">
+            <End Role="Productor" EntitySet="Productores" />
+            <End Role="Beat" EntitySet="Beats" />
+          </AssociationSet>
+          <AssociationSet Name="GenerosMusicalesBeat" Association="Proyecto.GenerosMusicalesBeat">
+            <End Role="GenerosMusicales" EntitySet="Generos" />
+            <End Role="Beat" EntitySet="Beats" />
+          </AssociationSet>
+          <AssociationSet Name="BeatBeatsDetalle" Association="Proyecto.BeatBeatsDetalle">
+            <End Role="Beat" EntitySet="Beats" />
+            <End Role="BeatsDetalle" EntitySet="BeatsDetalleSet" />
+          </AssociationSet>
+          <AssociationSet Name="BeatLicenciaBeats" Association="Proyecto.BeatLicenciaBeats">
+            <End Role="Beat" EntitySet="Beats" />
+            <End Role="LicenciaBeats" EntitySet="LicenciaBeats" />
+          </AssociationSet>
+          <AssociationSet Name="LicenciaLicenciaBeats" Association="Proyecto.LicenciaLicenciaBeats">
+            <End Role="Licencia" EntitySet="Licencias" />
+            <End Role="LicenciaBeats" EntitySet="LicenciaBeats" />
+          </AssociationSet>
+          <AssociationSet Name="MetodoPagoHistorialCompra" Association="Proyecto.MetodoPagoHistorialCompra">
+            <End Role="MetodoPago" EntitySet="Pagos" />
+            <End Role="HistorialCompra" EntitySet="Historiales" />
+          </AssociationSet>
+          <AssociationSet Name="ClienteVenta" Association="Proyecto.ClienteVenta">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="MetodoPagoVenta" Association="Proyecto.MetodoPagoVenta">
+            <End Role="MetodoPago" EntitySet="Pagos" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="VentaVentaDetalle" Association="Proyecto.VentaVentaDetalle">
+            <End Role="Venta" EntitySet="Ventas" />
+            <End Role="VentaDetalle" EntitySet="VentaDetalles" />
+          </AssociationSet>
+          <AssociationSet Name="BeatVentaDetalle" Association="Proyecto.BeatVentaDetalle">
+            <End Role="Beat" EntitySet="Beats" />
+            <End Role="VentaDetalle" EntitySet="VentaDetalles" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Usuario">
+        <EntityType Name="BeatsDetalle">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="subgenero" Relationship="Proyecto.GenerosMusicalesBeatsDetalle" FromRole="BeatsDetalle" ToRole="GenerosMusicales" />
+          <Property Name="GenerosMusicalesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstLicencia" Relationship="Proyecto.LicenciaBeatsDetalle" FromRole="BeatsDetalle" ToRole="Licencia" />
+          <Property Name="LicenciaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstBeat" Relationship="Proyecto.BeatBeatsDetalle" FromRole="BeatsDetalle" ToRole="Beat" />
+          <Property Name="BeatId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Rol">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstUsuarioRol" Relationship="Proyecto.RolUsuarioRol" FromRole="Rol" ToRole="UsuarioRol" />
+          <NavigationProperty Name="lstRolVista" Relationship="Proyecto.RolRolVista" FromRole="Rol" ToRole="RolVista" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="apellido" Type="String" Nullable="false" />
+          <Property Name="fecha_nac" Type="DateTime" Nullable="false" />
+          <Property Name="email" Type="String" Nullable="false" />
+          <Property Name="telefono" Type="String" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" />
+          <Property Name="contrasena" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstUsuarioRol" Relationship="Proyecto.UsuarioUsuarioRol" FromRole="Usuario" ToRole="UsuarioRol" />
+          <NavigationProperty Name="lstCliente" Relationship="Proyecto.ClienteUsuario" FromRole="Usuario" ToRole="Cliente" />
+          <NavigationProperty Name="lstProductor" Relationship="Proyecto.ProductorUsuario" FromRole="Usuario" ToRole="Productor" />
         </EntityType>
         <EntityType Name="UsuarioRol">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="Cliente">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="ModuloVista">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="LicenciaBeats">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstUsuario" Relationship="Proyecto.UsuarioUsuarioRol" FromRole="UsuarioRol" ToRole="Usuario" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstRol" Relationship="Proyecto.RolUsuarioRol" FromRole="UsuarioRol" ToRole="Rol" />
+          <Property Name="RolId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Modulo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstVista" Relationship="Proyecto.ModuloVista" FromRole="Modulo" ToRole="Vista" />
         </EntityType>
         <EntityType Name="Vista">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <Property Name="ruta" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstModulo" Relationship="Proyecto.ModuloVista" FromRole="Vista" ToRole="Modulo" />
+          <Property Name="ModuloId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstRolVista" Relationship="Proyecto.VistaRolVista" FromRole="Vista" ToRole="RolVista" />
         </EntityType>
-        <EntityType Name="GenerosMusicales">
+        <EntityType Name="RolVista">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstRol" Relationship="Proyecto.RolRolVista" FromRole="RolVista" ToRole="Rol" />
+          <Property Name="RolId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstVista" Relationship="Proyecto.VistaRolVista" FromRole="RolVista" ToRole="Vista" />
+          <Property Name="VistaId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="HistorialCompra">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <Property Name="fecha_compra" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="lstCliente" Relationship="Proyecto.HistorialCompraCliente" FromRole="HistorialCompra" ToRole="Cliente" />
+          <NavigationProperty Name="lstMetodoPago" Relationship="Proyecto.MetodoPagoHistorialCompra" FromRole="HistorialCompra" ToRole="MetodoPago" />
+          <Property Name="MetodoPagoId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Licencia">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstBeatsDetalle" Relationship="Proyecto.LicenciaBeatsDetalle" FromRole="Licencia" ToRole="BeatsDetalle" />
+          <NavigationProperty Name="lstLicenciaBeats" Relationship="Proyecto.LicenciaLicenciaBeats" FromRole="Licencia" ToRole="LicenciaBeats" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstUsuario" Relationship="Proyecto.ClienteUsuario" FromRole="Cliente" ToRole="Usuario" />
+          <Property Name="UsuarioId" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstHistorialCompra" Relationship="Proyecto.HistorialCompraCliente" FromRole="Cliente" ToRole="HistorialCompra" />
+          <Property Name="HistorialCompraId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstVenta" Relationship="Proyecto.ClienteVenta" FromRole="Cliente" ToRole="Venta" />
+        </EntityType>
+        <EntityType Name="Beat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <Property Name="tiempo" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstProductor" Relationship="Proyecto.ProductorBeat" FromRole="Beat" ToRole="Productor" />
+          <Property Name="ProductorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstGenerosMusicales" Relationship="Proyecto.GenerosMusicalesBeat" FromRole="Beat" ToRole="GenerosMusicales" />
+          <Property Name="GenerosMusicalesId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstBeatsDetalle" Relationship="Proyecto.BeatBeatsDetalle" FromRole="Beat" ToRole="BeatsDetalle" />
+          <NavigationProperty Name="lstLicenciaBeats" Relationship="Proyecto.BeatLicenciaBeats" FromRole="Beat" ToRole="LicenciaBeats" />
+          <NavigationProperty Name="lstVentaDetalle" Relationship="Proyecto.BeatVentaDetalle" FromRole="Beat" ToRole="VentaDetalle" />
+        </EntityType>
+        <EntityType Name="LicenciaBeats">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstBeat" Relationship="Proyecto.BeatLicenciaBeats" FromRole="LicenciaBeats" ToRole="Beat" />
+          <Property Name="BeatId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstLicencia" Relationship="Proyecto.LicenciaLicenciaBeats" FromRole="LicenciaBeats" ToRole="Licencia" />
+          <Property Name="LicenciaId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Venta">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo" Type="String" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="subtotal" Type="Double" Nullable="false" />
+          <Property Name="descuento" Type="Int16" Nullable="false" />
+          <Property Name="total" Type="Double" Nullable="false" />
+          <NavigationProperty Name="lstCliente" Relationship="Proyecto.ClienteVenta" FromRole="Venta" ToRole="Cliente" />
+          <Property Name="ClienteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstMetodoPago" Relationship="Proyecto.MetodoPagoVenta" FromRole="Venta" ToRole="MetodoPago" />
+          <Property Name="MetodoPagoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstVentaDetalle" Relationship="Proyecto.VentaVentaDetalle" FromRole="Venta" ToRole="VentaDetalle" />
+          <Property Name="VentaDetalleId" Type="String" Nullable="false" />
         </EntityType>
-        <EntityType Name="BeatsDetalle">
+        <EntityType Name="GenerosMusicales">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstBeatsDetalle" Relationship="Proyecto.GenerosMusicalesBeatsDetalle" FromRole="GenerosMusicales" ToRole="BeatsDetalle" />
+          <NavigationProperty Name="lstBeat" Relationship="Proyecto.GenerosMusicalesBeat" FromRole="GenerosMusicales" ToRole="Beat" />
         </EntityType>
         <EntityType Name="MetodoPago">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="Beats">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstHistorialCompra" Relationship="Proyecto.MetodoPagoHistorialCompra" FromRole="MetodoPago" ToRole="HistorialCompra" />
+          <NavigationProperty Name="lstVenta" Relationship="Proyecto.MetodoPagoVenta" FromRole="MetodoPago" ToRole="Venta" />
         </EntityType>
         <EntityType Name="VentaDetalle">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstVenta" Relationship="Proyecto.VentaVentaDetalle" FromRole="VentaDetalle" ToRole="Venta" />
+          <NavigationProperty Name="lstBeat" Relationship="Proyecto.BeatVentaDetalle" FromRole="VentaDetalle" ToRole="Beat" />
+          <Property Name="BeatId" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Productor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="biografia" Type="String" Nullable="false" />
+          <Property Name="UsuarioId" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstUsuario" Relationship="Proyecto.ProductorUsuario" FromRole="Productor" ToRole="Usuario" />
+          <NavigationProperty Name="lstBeat" Relationship="Proyecto.ProductorBeat" FromRole="Productor" ToRole="Beat" />
+        </EntityType>
+        <Association Name="ModuloVista">
+          <End Type="Proyecto.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="Proyecto.Vista" Role="Vista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vista">
+              <PropertyRef Name="ModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioUsuarioRol">
+          <End Type="Proyecto.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="Proyecto.UsuarioRol" Role="UsuarioRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioRol">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RolUsuarioRol">
+          <End Type="Proyecto.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="Proyecto.UsuarioRol" Role="UsuarioRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioRol">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RolRolVista">
+          <End Type="Proyecto.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="Proyecto.RolVista" Role="RolVista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolVista">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VistaRolVista">
+          <End Type="Proyecto.Vista" Role="Vista" Multiplicity="1" />
+          <End Type="Proyecto.RolVista" Role="RolVista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vista">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolVista">
+              <PropertyRef Name="VistaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClienteUsuario">
+          <End Type="Proyecto.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="Proyecto.Usuario" Role="Usuario" Multiplicity="1" />
+        </Association>
+        <Association Name="HistorialCompraCliente">
+          <End Type="Proyecto.HistorialCompra" Role="HistorialCompra" Multiplicity="1" />
+          <End Type="Proyecto.Cliente" Role="Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HistorialCompra">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="HistorialCompraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GenerosMusicalesBeatsDetalle">
+          <End Type="Proyecto.GenerosMusicales" Role="GenerosMusicales" Multiplicity="1" />
+          <End Type="Proyecto.BeatsDetalle" Role="BeatsDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenerosMusicales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BeatsDetalle">
+              <PropertyRef Name="GenerosMusicalesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LicenciaBeatsDetalle">
+          <End Type="Proyecto.Licencia" Role="Licencia" Multiplicity="1" />
+          <End Type="Proyecto.BeatsDetalle" Role="BeatsDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Licencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BeatsDetalle">
+              <PropertyRef Name="LicenciaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductorUsuario">
+          <End Type="Proyecto.Productor" Role="Productor" Multiplicity="1" />
+          <End Type="Proyecto.Usuario" Role="Usuario" Multiplicity="1" />
+        </Association>
+        <Association Name="ProductorBeat">
+          <End Type="Proyecto.Productor" Role="Productor" Multiplicity="1" />
+          <End Type="Proyecto.Beat" Role="Beat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Beat">
+              <PropertyRef Name="ProductorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GenerosMusicalesBeat">
+          <End Type="Proyecto.GenerosMusicales" Role="GenerosMusicales" Multiplicity="1" />
+          <End Type="Proyecto.Beat" Role="Beat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenerosMusicales">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Beat">
+              <PropertyRef Name="GenerosMusicalesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BeatBeatsDetalle">
+          <End Type="Proyecto.Beat" Role="Beat" Multiplicity="1" />
+          <End Type="Proyecto.BeatsDetalle" Role="BeatsDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BeatsDetalle">
+              <PropertyRef Name="BeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BeatLicenciaBeats">
+          <End Type="Proyecto.Beat" Role="Beat" Multiplicity="1" />
+          <End Type="Proyecto.LicenciaBeats" Role="LicenciaBeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LicenciaBeats">
+              <PropertyRef Name="BeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LicenciaLicenciaBeats">
+          <End Type="Proyecto.Licencia" Role="Licencia" Multiplicity="1" />
+          <End Type="Proyecto.LicenciaBeats" Role="LicenciaBeats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Licencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LicenciaBeats">
+              <PropertyRef Name="LicenciaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MetodoPagoHistorialCompra">
+          <End Type="Proyecto.MetodoPago" Role="MetodoPago" Multiplicity="1" />
+          <End Type="Proyecto.HistorialCompra" Role="HistorialCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetodoPago">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="HistorialCompra">
+              <PropertyRef Name="MetodoPagoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClienteVenta">
+          <End Type="Proyecto.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="Proyecto.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MetodoPagoVenta">
+          <End Type="Proyecto.MetodoPago" Role="MetodoPago" Multiplicity="1" />
+          <End Type="Proyecto.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetodoPago">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="MetodoPagoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VentaVentaDetalle">
+          <End Type="Proyecto.Venta" Role="Venta" Multiplicity="1" />
+          <End Type="Proyecto.VentaDetalle" Role="VentaDetalle" Multiplicity="*" />
+        </Association>
+        <Association Name="BeatVentaDetalle">
+          <End Type="Proyecto.Beat" Role="Beat" Multiplicity="1" />
+          <End Type="Proyecto.VentaDetalle" Role="VentaDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VentaDetalle">
+              <PropertyRef Name="BeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
