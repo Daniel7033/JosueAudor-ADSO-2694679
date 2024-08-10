@@ -76,7 +76,7 @@ namespace Data.Implements.Security
             await context.SaveChangesAsync();
         }
 
-        public async Task<LoginDto> Login(string username, string password)
+        public async Task<IEnumerable<LoginDto>> Login(string username, string password)
         {
             var sql = @"SELECT
                             u.username AS Username,
@@ -91,7 +91,7 @@ namespace Data.Implements.Security
                         WHERE (u.username = @Username)
                             AND (u.password = @Password)
 						GROUP BY u.username, m.name, v.name, r.name";
-            return await context.QueryFirstOrDefaultAsync<LoginDto>(sql, new { Username = username, Password = password });
+            return await context.QueryAsync<LoginDto>(sql, new { Username = username, Password = password });
         }
     }
 }

@@ -9,31 +9,31 @@ namespace Web.Controllers.Implements.Ubication
     [ApiController]
     public class CountryController : Controller
     {
-        private readonly ICountryBusiness business;
+        private readonly ICountryBusiness _countryBusiness;
 
         public CountryController(ICountryBusiness countryBusiness)
         {
-            business = countryBusiness;
+           _countryBusiness = countryBusiness;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CountryDto>>> GetAll()
         {
-            var result = await business.GetAll();
+            var result = await _countryBusiness.GetAll();
             return Ok(result);
         }
 
         [HttpGet("SELECT")]
         public async Task<ActionResult<IEnumerable<DataSelectDto>>> GetAllSelect()
         {
-            var result = await business.GetAllSelect();
+            var result = await _countryBusiness.GetAllSelect();
             return Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<CountryDto>> GetById(int id)
         {
-            var result = business.GetById(id);
+            var result = _countryBusiness.GetById(id);
             if (result == null)
             {
                 return NotFound();
@@ -46,10 +46,11 @@ namespace Web.Controllers.Implements.Ubication
         {
             if (entity == null)
             {
+
                 return BadRequest("ENTITY IS NULL");
             }
 
-            var result = await business.Save(entity);
+            var result = await _countryBusiness.Save(entity);
             return CreatedAtAction(nameof(GetById), new { result.id }, result);
         }
 
@@ -61,14 +62,14 @@ namespace Web.Controllers.Implements.Ubication
                 return BadRequest();
             }
 
-            await business.Update(id, entity);
+            await _countryBusiness.Update(id, entity);
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await business.Delete(id);
+            await _countryBusiness.Delete(id);
             return NoContent();
         }
     }

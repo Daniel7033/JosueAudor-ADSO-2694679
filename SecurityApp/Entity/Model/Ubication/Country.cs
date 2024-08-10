@@ -14,12 +14,14 @@ namespace Entity.Model.Ubication
 
         public string? name { get; set; }
 
-        public DateTime? createdAt { get; set; }
+        public DateTime createdAt { get; set; }
 
-        public DateTime? updatedAt { get; set; }
+        public DateTime updatedAt { get; set; }
 
-        public DateTime? deletedAt { get; set; }
+        public DateTime deletedAt { get; set; }
 
         public Boolean estado { get; set; }
+
+        public ICollection<Department> Departments { get; set; }
     }
 }

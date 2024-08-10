@@ -26,6 +26,6 @@ namespace Data.Interface.Security
 
         Task Update(User entity);
 
-        Task<LoginDto> Login(string username, string password);
+        Task<IEnumerable<LoginDto>> Login(string username, string password);
     }
 }

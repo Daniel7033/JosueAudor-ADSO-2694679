@@ -23,6 +23,6 @@ namespace Business.Interface.Security
 
         Task Update(int id, UserDto entity);
 
-        Task<LoginDto> Login(string username, string password);
+        Task<IEnumerable<LoginDto>> Login(string username, string password);
     }
 }

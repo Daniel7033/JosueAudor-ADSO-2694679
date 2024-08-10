@@ -69,13 +69,15 @@ namespace Business.Implements.Security
             await this.data.Update(user);
         }
 
-        public async Task<LoginDto> Login(string username, string password)
+        public async Task<IEnumerable<LoginDto>> Login(string username, string password)
         {
-            if (username == null && password == null)
+            User user = new User();
+            if (username != user.username && password != user.password)
             {
-                throw new Exception("Valores nulos inaceptbles");
+                throw new Exception("Nombre de usuario o contraseña incorrectos.");
             }
 
+            
             return await this.data.Login(username, password);
         }
 

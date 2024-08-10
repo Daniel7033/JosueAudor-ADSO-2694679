@@ -1,7 +1,11 @@
 ﻿using Business.Implements.Security;
+using Business.Implements.Ubication;
 using Business.Interface.Security;
+using Business.Interface.Ubication;
 using Data.Implements.Security;
+using Data.Implements.Ubication;
 using Data.Interface.Security;
+using Data.Interface.Ubication;
 using Entity.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +29,8 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
+
+//Security
 
 //Person
 // Registra IPersonaData y su implementación
@@ -56,6 +62,21 @@ builder.Services.AddScoped<IViewData, ViewData>();
 // Registra IViewBusiness y su implementación
 builder.Services.AddScoped<IViewBusiness, ViewBusiness>();
 // ------------------------------------------------------------------------------------
+
+//Ubication
+
+//Country
+builder.Services.AddScoped<ICountryData, CountryData>();
+builder.Services.AddScoped<ICountryBusiness, CountryBusiness>();
+
+//Department
+builder.Services.AddScoped<IDepartmentData, DepartmentData>();
+builder.Services.AddScoped<IDepartmentBusiness, DepartmentBusiness>();
+
+//City
+builder.Services.AddScoped<ICityData, CityData>();
+builder.Services.AddScoped<ICityBusiness, CityBusiness>();
+//-----------------------------------------------------------------------------------
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
