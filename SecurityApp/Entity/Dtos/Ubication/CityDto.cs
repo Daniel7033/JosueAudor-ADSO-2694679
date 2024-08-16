@@ -15,7 +15,7 @@ namespace Entity.Dtos.Ubication
 
         public string Name { get; set; }
 
-        public Department Department { get; set; }
+        public int Department { get; set; }
 
         public Boolean Estado { get; set; }
     }

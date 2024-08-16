@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C3A199F4-580B-479A-87BB-872D9F4313FD}|Entity\\Entity.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\entity\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3A199F4-580B-479A-87BB-872D9F4313FD}|Entity\\Entity.csproj|solutionrelative:entity\\context\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\web\\controllers\\implements\\security\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|solutionrelative:web\\controllers\\implements\\security\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3A199F4-580B-479A-87BB-872D9F4313FD}|Entity\\Entity.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\entity\\model\\ubication\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3A199F4-580B-479A-87BB-872D9F4313FD}|Entity\\Entity.csproj|solutionrelative:entity\\model\\ubication\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\business\\implements\\ubication\\departmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|solutionrelative:business\\implements\\ubication\\departmentbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\web\\controllers\\implements\\ubication\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|solutionrelative:web\\controllers\\implements\\ubication\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|solutionrelative:web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\business\\interface\\ubication\\icountrybusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|solutionrelative:business\\interface\\ubication\\icountrybusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|solutionrelative:business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Context\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Entity\\Context\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Context\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Entity\\Context\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwB0AAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T22:58:24.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Country.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Model\\Ubication\\Country.cs",
-              "RelativeDocumentMoniker": "Entity\\Model\\Ubication\\Country.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Entity\\Model\\Ubication\\Country.cs",
-              "RelativeToolTip": "Entity\\Model\\Ubication\\Country.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAYwBgAAAA+AAAA",
+              "Title": "UserBusiness.cs",
+              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Implements\\Security\\UserBusiness.cs",
+              "RelativeDocumentMoniker": "Business\\Implements\\Security\\UserBusiness.cs",
+              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Implements\\Security\\UserBusiness.cs",
+              "RelativeToolTip": "Business\\Implements\\Security\\UserBusiness.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAA4wEwAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T22:57:02.118Z",
+              "WhenOpened": "2024-08-16T21:41:59.403Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DepartmentBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Implements\\Ubication\\DepartmentBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Ubication\\DepartmentBusiness.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Implements\\Ubication\\DepartmentBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Ubication\\DepartmentBusiness.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAA9wC0AAAApAAAA",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Controllers\\Implements\\Security\\UserController.cs",
+              "RelativeDocumentMoniker": "Web\\Controllers\\Implements\\Security\\UserController.cs",
+              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Controllers\\Implements\\Security\\UserController.cs",
+              "RelativeToolTip": "Web\\Controllers\\Implements\\Security\\UserController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADsAAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T22:48:43.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Program.cs",
-              "RelativeDocumentMoniker": "Web\\Program.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Program.cs",
-              "RelativeToolTip": "Web\\Program.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAQwE4AAABVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T22:17:51.474Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CountryController.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Controllers\\Implements\\Ubication\\CountryController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\Implements\\Ubication\\CountryController.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Controllers\\Implements\\Ubication\\CountryController.cs",
-              "RelativeToolTip": "Web\\Controllers\\Implements\\Ubication\\CountryController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T21:05:57.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ICountryBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Interface\\Ubication\\ICountryBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Interface\\Ubication\\ICountryBusiness.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Interface\\Ubication\\ICountryBusiness.cs",
-              "RelativeToolTip": "Business\\Interface\\Ubication\\ICountryBusiness.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAkwA0AAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T21:00:06.565Z",
+              "WhenOpened": "2024-08-16T21:36:42.689Z",
               "EditorCaption": ""
             }
           ]

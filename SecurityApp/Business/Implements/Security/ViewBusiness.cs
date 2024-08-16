@@ -44,7 +44,7 @@ namespace Business.Implements.Security
             dto.Name = view.name;
             dto.Route = view.route;
             dto.Description = view.description;
-            dto.ModuloId = view.moduleId;
+            dto.ModuloId = view.lstView;
             dto.Estado = view.estado;
 
             return dto;
@@ -78,7 +78,7 @@ namespace Business.Implements.Security
             view.route = entity.Route;
             view.name = entity.Name;
             view.description = entity.Description;
-            view.moduleId.id = entity.ModuloId.id;
+            view.lstView = entity.ModuloId;
             view.estado = entity.Estado;
 
             return view;

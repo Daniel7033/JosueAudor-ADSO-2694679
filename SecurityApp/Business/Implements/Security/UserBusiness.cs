@@ -43,7 +43,7 @@ namespace Business.Implements.Security
             dto.id = user.id;
             dto.Username = user.username;
             dto.Password = user.password;
-            dto.PersonId = user.personId;
+            dto.PersonId = user.lstUser;
             dto.Estado = user.estado;
 
             return dto;
@@ -71,8 +71,11 @@ namespace Business.Implements.Security
 
         public async Task<IEnumerable<LoginDto>> Login(string username, string password)
         {
-            User user = new User();
-            if (username != user.username && password != user.password)
+            LoginDto login = new LoginDto();
+
+            login.Username = username;
+            login.Password = password;
+            if (username != login.Username && password != login.Password)
             {
                 throw new Exception("Nombre de usuario o contraseña incorrectos.");
             }
@@ -89,7 +92,7 @@ namespace Business.Implements.Security
             }
             user.username = entity.Username;
             user.password = entity.Password;
-            user.personId = entity.PersonId;
+            user.lstUser = entity.PersonId;
             user.estado = entity.Estado;
 
             return user;

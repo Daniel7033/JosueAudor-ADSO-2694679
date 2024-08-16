@@ -10,6 +10,7 @@ namespace Entity.Dtos.Security
     {
         public string Username { get; set; }
 
+        public string Password { get; set; }
         public string Modulo { get; set; }
         public string Formulario { get; set; }
     }

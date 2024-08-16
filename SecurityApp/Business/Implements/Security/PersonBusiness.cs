@@ -50,7 +50,7 @@ namespace Business.Implements.Security
             dto.Phone = person.phone;
             dto.Gender = person.gender;
             dto.BirthDate = person.birthDate;
-            dto.City = person.cityId;
+            dto.City = person.lstCity;
             dto.Estado = person.estado;
 
             return dto;
@@ -95,7 +95,7 @@ namespace Business.Implements.Security
             person.phone = entity.Phone;
             person.gender = entity.Gender;
             person.birthDate = entity.BirthDate;
-            person.cityId = entity.City;
+            person.lstCity = entity.City;
             person.estado = entity.Estado;
 
             return person;

@@ -22,6 +22,5 @@ namespace Entity.Model.Ubication
 
         public Boolean estado { get; set; }
 
-        public ICollection<Department> Departments { get; set; }
     }
 }

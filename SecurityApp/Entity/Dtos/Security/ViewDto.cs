@@ -17,7 +17,7 @@ namespace Entity.Dtos.Security
 
         public string Description { get; set; }
 
-        public Modulo ModuloId { get; set; }
+        public int ModuloId { get; set; }
 
         public Boolean Estado { get; set; }
     }

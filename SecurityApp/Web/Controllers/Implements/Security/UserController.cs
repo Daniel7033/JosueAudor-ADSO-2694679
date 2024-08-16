@@ -54,6 +54,11 @@ namespace Web.Controllers.Implements.Security
             {
                 return NotFound();
             }
+            LoginDto login = new LoginDto();
+            if (username != login.Username && password != login.Password)
+            {
+                return BadRequest("Nombre de usuario o contraseña incorrecta.");
+            }
             return Ok(result);
         }
 

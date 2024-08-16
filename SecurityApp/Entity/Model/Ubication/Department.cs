@@ -14,7 +14,7 @@ namespace Entity.Model.Ubication
 
         public string? name { get; set; }
 
-        public int? lstCountry { get; set; }
+        public int lstCountry { get; set; }
 
         public Country countryId { get; set; }
 

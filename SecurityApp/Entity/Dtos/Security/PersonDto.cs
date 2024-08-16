@@ -37,8 +37,9 @@ namespace Entity.Dtos.Security
 
         public DateTime BirthDate { get; set; }
 
+        public int City { get; set; }
+
         public Boolean Estado { get; set; }
 
-        public City City { get; set; }
     }
 }

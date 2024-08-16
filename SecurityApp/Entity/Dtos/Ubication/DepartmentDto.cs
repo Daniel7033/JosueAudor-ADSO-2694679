@@ -15,7 +15,7 @@ namespace Entity.Dtos.Ubication
 
         public string Name { get; set; }
 
-        public Country Country { get; set; } 
+        public int Country { get; set; } 
 
         public Boolean Estado { get; set; }
     }

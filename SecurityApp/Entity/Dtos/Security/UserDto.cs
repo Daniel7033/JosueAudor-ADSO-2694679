@@ -15,7 +15,7 @@ namespace Entity.Dtos.Security
 
         public string Password { get; set; }
 
-        public Person PersonId { get; set; }
+        public int PersonId { get; set; }
 
         public Boolean Estado { get; set; }
     }

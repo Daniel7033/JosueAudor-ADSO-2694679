@@ -30,6 +30,10 @@ namespace Entity.Model.Security
         public int documentNumber { get; set; } 
 
         public DateTime birthDate { get; set; } 
+        
+        public int lstCity { get; set; }
+
+        public City cityId { get; set; }
 
         public DateTime? createdAt { get; set; }
 
@@ -39,8 +43,6 @@ namespace Entity.Model.Security
 
         public Boolean estado { get; set; } 
 
-        public int lstCity { get; set; }
-        public City cityId { get; set; }
 
     }
 }

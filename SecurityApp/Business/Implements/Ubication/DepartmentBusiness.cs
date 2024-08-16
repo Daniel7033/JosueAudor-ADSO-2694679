@@ -43,7 +43,7 @@ namespace Business.Implements.Ubication
             dto.id = depa.id;
             dto.Code = depa.code;
             dto.Name = depa.name;
-            dto.Country = depa.countryId;
+            dto.Country = depa.lstCountry;
             dto.Estado = depa.estado;
 
             return dto;
@@ -77,7 +77,7 @@ namespace Business.Implements.Ubication
             }
             depa.code = entity.Code;
             depa.name = entity.Name;
-            depa.countryId = entity.Country;
+            depa.lstCountry = entity.Country;
             depa.estado = entity.Estado;
 
             return depa;

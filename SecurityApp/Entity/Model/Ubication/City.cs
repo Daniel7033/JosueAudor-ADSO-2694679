@@ -14,7 +14,7 @@ namespace Entity.Model.Ubication
 
         public string? name { get; set; }
 
-        public int? lstDepartment { get; set; }
+        public int lstDepartment { get; set; }
 
         public Department departmentId { get; set; }
 

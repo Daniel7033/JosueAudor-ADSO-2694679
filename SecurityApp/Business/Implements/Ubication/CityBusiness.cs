@@ -43,7 +43,7 @@ namespace Business.Implements.Ubication
             dto.id = city.id;
             dto.Code = city.code;
             dto.Name = city.name;
-            dto.Department = city.departmentId;
+            dto.Department = city.lstDepartment;
             dto.Estado = city.estado;
 
             return dto;
@@ -77,7 +77,7 @@ namespace Business.Implements.Ubication
             }
             city.code = entity.Code;
             city.name = entity.Name;
-            city.departmentId = entity.Department;
+            city.lstDepartment = entity.Department;
             city.estado = entity.Estado;
 
             return city;

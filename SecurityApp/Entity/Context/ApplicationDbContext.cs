@@ -23,11 +23,7 @@ namespace Entity.Context
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            //Relacion de 'Department' con 'Country'
-            modelBuilder.Entity<Department>()
-                .HasOne(d => d.countryId)
-                .WithMany(c => c.Departments)
-                .HasForeignKey(d => d.lstCountry);
+            
         }
 
         //<param name="optionsBuilder"></param>
