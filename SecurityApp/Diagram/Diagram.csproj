@@ -49,17 +49,12 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proyecto.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Proyecto.edmx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Proyecto.edmx">
+    <EntityDeploy Include="..\..\..\Proyecto.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Proyecto.Designer.cs</LastGenOutput>
+      <Link>Proyecto.edmx</Link>
     </EntityDeploy>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -68,8 +63,9 @@
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
-    <None Include="Proyecto.edmx.diagram">
+    <None Include="..\..\..\Proyecto.edmx.diagram">
       <DependentUpon>Proyecto.edmx</DependentUpon>
+      <Link>Proyecto.edmx.diagram</Link>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
