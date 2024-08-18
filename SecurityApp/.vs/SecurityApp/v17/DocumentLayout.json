@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\web\\controllers\\implements\\security\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C63223B8-AA3B-4388-A2E3-E82CE38CBBC9}|Web\\Web.csproj|solutionrelative:web\\controllers\\implements\\security\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1D676AD0-7EB1-4D25-B2A2-1E5FEA8D655E}|Business\\Business.csproj|solutionrelative:business\\implements\\security\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B57CB6A8-482F-4330-8C08-6C02C129CA2B}|Diagram\\Diagram.csproj|c:\\users\\stork\\desktop\\daniel\\tecnologo\\repositorios\\josueaudor-adso-2694679\\securityapp\\diagram\\proyectotiendabeats.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{B57CB6A8-482F-4330-8C08-6C02C129CA2B}|Diagram\\Diagram.csproj|solutionrelative:diagram\\proyectotiendabeats.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserBusiness.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Implements\\Security\\UserBusiness.cs",
-              "RelativeDocumentMoniker": "Business\\Implements\\Security\\UserBusiness.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Business\\Implements\\Security\\UserBusiness.cs",
-              "RelativeToolTip": "Business\\Implements\\Security\\UserBusiness.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAA4wEwAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T21:41:59.403Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Controllers\\Implements\\Security\\UserController.cs",
-              "RelativeDocumentMoniker": "Web\\Controllers\\Implements\\Security\\UserController.cs",
-              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Web\\Controllers\\Implements\\Security\\UserController.cs",
-              "RelativeToolTip": "Web\\Controllers\\Implements\\Security\\UserController.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADsAAABQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T21:36:42.689Z",
-              "EditorCaption": ""
+              "Title": "ProyectoTiendaBeats.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Diagram\\ProyectoTiendaBeats.edmx",
+              "RelativeDocumentMoniker": "Diagram\\ProyectoTiendaBeats.edmx",
+              "ToolTip": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Diagram\\ProyectoTiendaBeats.edmx [Diagram1]",
+              "RelativeToolTip": "Diagram\\ProyectoTiendaBeats.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-08-18T01:13:08.176Z",
+              "EditorCaption": " [Diagram1]"
             }
           ]
         }

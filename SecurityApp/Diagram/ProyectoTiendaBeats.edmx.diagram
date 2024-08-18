@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="680cb1333dae4c3ca528014339ac44b6" Name="Diagram1" >
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Usuario" Width="1.5" PointX="6.375" PointY="0.875" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Rol" Width="1.5" PointX="4.25" PointY="2.625" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.UsuarioRol" Width="1.5" PointX="1.625" PointY="0.625" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.RolVista" Width="1.5" PointX="0.875" PointY="4" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Vista" Width="1.5" PointX="3.875" PointY="5" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Modulo" Width="1.5" PointX="1.75" PointY="6.625" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Productor" Width="1.5" PointX="12.5" PointY="1.5" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Licencia" Width="1.5" PointX="12.125" PointY="8.75" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Beat" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.LicenciaBeat" Width="1.5" PointX="14.25" PointY="5.875" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.GeneroMusical" Width="1.5" PointX="8.625" PointY="4.75" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.BeatGeneroMusical" Width="1.5" PointX="8.875" PointY="7.125" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.VentaDetalle" Width="1.5" PointX="18.25" PointY="4.625" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.Venta" Width="1.5" PointX="17.875" PointY="0.625" />
+        <EntityTypeShape EntityType="ProyectoTiendaBeats.MetodoPago" Width="1.5" PointX="21" PointY="2" />
+        <AssociationConnector Association="ProyectoTiendaBeats.UsuarioUsuarioRol" />
+        <AssociationConnector Association="ProyectoTiendaBeats.RolUsuarioRol" />
+        <AssociationConnector Association="ProyectoTiendaBeats.RolRolVista" />
+        <AssociationConnector Association="ProyectoTiendaBeats.VistaRolVista" />
+        <AssociationConnector Association="ProyectoTiendaBeats.LicenciaLicenciaBeat" />
+        <AssociationConnector Association="ProyectoTiendaBeats.BeatLicenciaBeat" />
+        <AssociationConnector Association="ProyectoTiendaBeats.ModuloVista" />
+        <AssociationConnector Association="ProyectoTiendaBeats.UsuarioProductor" />
+        <AssociationConnector Association="ProyectoTiendaBeats.ProductorBeat" />
+        <AssociationConnector Association="ProyectoTiendaBeats.GeneroMusicalBeatGeneroMusical" />
+        <AssociationConnector Association="ProyectoTiendaBeats.BeatBeatGeneroMusical" />
+        <AssociationConnector Association="ProyectoTiendaBeats.MetodoPagoVenta" />
+        <AssociationConnector Association="ProyectoTiendaBeats.UsuarioVenta" />
+        <AssociationConnector Association="ProyectoTiendaBeats.VentaDetalleVenta" />
+        <AssociationConnector ManuallyRouted="false" Association="ProyectoTiendaBeats.ProductorVentaDetalle">
+        </AssociationConnector>
+        <AssociationConnector Association="ProyectoTiendaBeats.BeatVentaDetalle" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

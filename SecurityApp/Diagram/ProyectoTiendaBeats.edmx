@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ProyectoTiendaBeats.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ProyectoTiendaBeatsTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ProyectoTiendaBeats" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ProyectoTiendaBeatsContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Usuarios" EntityType="ProyectoTiendaBeats.Usuario" />
+          <EntitySet Name="Roles" EntityType="ProyectoTiendaBeats.Rol" />
+          <EntitySet Name="UsuarioRoles" EntityType="ProyectoTiendaBeats.UsuarioRol" />
+          <EntitySet Name="RolVistas" EntityType="ProyectoTiendaBeats.RolVista" />
+          <EntitySet Name="Vistas" EntityType="ProyectoTiendaBeats.Vista" />
+          <EntitySet Name="Modulos" EntityType="ProyectoTiendaBeats.Modulo" />
+          <EntitySet Name="Productores" EntityType="ProyectoTiendaBeats.Productor" />
+          <EntitySet Name="Licencias" EntityType="ProyectoTiendaBeats.Licencia" />
+          <EntitySet Name="Beats" EntityType="ProyectoTiendaBeats.Beat" />
+          <EntitySet Name="LicenciaBeats" EntityType="ProyectoTiendaBeats.LicenciaBeat" />
+          <EntitySet Name="GenerosMusicales" EntityType="ProyectoTiendaBeats.GeneroMusical" />
+          <EntitySet Name="BeatGenerosMusicales" EntityType="ProyectoTiendaBeats.BeatGeneroMusical" />
+          <EntitySet Name="VentaDetalles" EntityType="ProyectoTiendaBeats.VentaDetalle" />
+          <EntitySet Name="Ventas" EntityType="ProyectoTiendaBeats.Venta" />
+          <EntitySet Name="MetodosPagos" EntityType="ProyectoTiendaBeats.MetodoPago" />
+          <AssociationSet Name="UsuarioUsuarioRol" Association="ProyectoTiendaBeats.UsuarioUsuarioRol">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="UsuarioRol" EntitySet="UsuarioRoles" />
+          </AssociationSet>
+          <AssociationSet Name="RolUsuarioRol" Association="ProyectoTiendaBeats.RolUsuarioRol">
+            <End Role="Rol" EntitySet="Roles" />
+            <End Role="UsuarioRol" EntitySet="UsuarioRoles" />
+          </AssociationSet>
+          <AssociationSet Name="RolRolVista" Association="ProyectoTiendaBeats.RolRolVista">
+            <End Role="Rol" EntitySet="Roles" />
+            <End Role="RolVista" EntitySet="RolVistas" />
+          </AssociationSet>
+          <AssociationSet Name="VistaRolVista" Association="ProyectoTiendaBeats.VistaRolVista">
+            <End Role="Vista" EntitySet="Vistas" />
+            <End Role="RolVista" EntitySet="RolVistas" />
+          </AssociationSet>
+          <AssociationSet Name="LicenciaLicenciaBeat" Association="ProyectoTiendaBeats.LicenciaLicenciaBeat">
+            <End Role="Licencia" EntitySet="Licencias" />
+            <End Role="LicenciaBeat" EntitySet="LicenciaBeats" />
+          </AssociationSet>
+          <AssociationSet Name="BeatLicenciaBeat" Association="ProyectoTiendaBeats.BeatLicenciaBeat">
+            <End Role="Beat" EntitySet="Beats" />
+            <End Role="LicenciaBeat" EntitySet="LicenciaBeats" />
+          </AssociationSet>
+          <AssociationSet Name="ModuloVista" Association="ProyectoTiendaBeats.ModuloVista">
+            <End Role="Modulo" EntitySet="Modulos" />
+            <End Role="Vista" EntitySet="Vistas" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioProductor" Association="ProyectoTiendaBeats.UsuarioProductor">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Productor" EntitySet="Productores" />
+          </AssociationSet>
+          <AssociationSet Name="ProductorBeat" Association="ProyectoTiendaBeats.ProductorBeat">
+            <End Role="Productor" EntitySet="Productores" />
+            <End Role="Beat" EntitySet="Beats" />
+          </AssociationSet>
+          <AssociationSet Name="GeneroMusicalBeatGeneroMusical" Association="ProyectoTiendaBeats.GeneroMusicalBeatGeneroMusical">
+            <End Role="GeneroMusical" EntitySet="GenerosMusicales" />
+            <End Role="BeatGeneroMusical" EntitySet="BeatGenerosMusicales" />
+          </AssociationSet>
+          <AssociationSet Name="BeatBeatGeneroMusical" Association="ProyectoTiendaBeats.BeatBeatGeneroMusical">
+            <End Role="Beat" EntitySet="Beats" />
+            <End Role="BeatGeneroMusical" EntitySet="BeatGenerosMusicales" />
+          </AssociationSet>
+          <AssociationSet Name="MetodoPagoVenta" Association="ProyectoTiendaBeats.MetodoPagoVenta">
+            <End Role="MetodoPago" EntitySet="MetodosPagos" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioVenta" Association="ProyectoTiendaBeats.UsuarioVenta">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="VentaDetalleVenta" Association="ProyectoTiendaBeats.VentaDetalleVenta">
+            <End Role="VentaDetalle" EntitySet="VentaDetalles" />
+            <End Role="Venta" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="ProductorVentaDetalle" Association="ProyectoTiendaBeats.ProductorVentaDetalle">
+            <End EntitySet="Productores" Role="Productor" />
+            <End EntitySet="VentaDetalles" Role="VentaDetalle" />
+          </AssociationSet>
+          <AssociationSet Name="BeatVentaDetalle" Association="ProyectoTiendaBeats.BeatVentaDetalle">
+            <End Role="Beat" EntitySet="Beats" />
+            <End Role="VentaDetalle" EntitySet="VentaDetalles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstUsuarioRol" Relationship="ProyectoTiendaBeats.UsuarioUsuarioRol" FromRole="Usuario" ToRole="UsuarioRol" />
+          <Property Name="Nombre" Type="String" Nullable="true" />
+          <Property Name="Apellido" Type="String" Nullable="true" />
+          <Property Name="FechaNac" Type="DateTime" Nullable="true" />
+          <Property Name="Email" Type="String" Nullable="true" />
+          <Property Name="Telefono" Type="String" Nullable="true" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstProductor" Relationship="ProyectoTiendaBeats.UsuarioProductor" FromRole="Usuario" ToRole="Productor" />
+          <NavigationProperty Name="lstVenta" Relationship="ProyectoTiendaBeats.UsuarioVenta" FromRole="Usuario" ToRole="Venta" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstUsuarioRol" Relationship="ProyectoTiendaBeats.RolUsuarioRol" FromRole="Rol" ToRole="UsuarioRol" />
+          <NavigationProperty Name="lstRolVista" Relationship="ProyectoTiendaBeats.RolRolVista" FromRole="Rol" ToRole="RolVista" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="UsuarioRol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstUsuario" Relationship="ProyectoTiendaBeats.UsuarioUsuarioRol" FromRole="UsuarioRol" ToRole="Usuario" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstRol" Relationship="ProyectoTiendaBeats.RolUsuarioRol" FromRole="UsuarioRol" ToRole="Rol" />
+          <Property Name="RolId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolVista">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstRol" Relationship="ProyectoTiendaBeats.RolRolVista" FromRole="RolVista" ToRole="Rol" />
+          <Property Name="RolId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstVista" Relationship="ProyectoTiendaBeats.VistaRolVista" FromRole="RolVista" ToRole="Vista" />
+          <Property Name="VistaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vista">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstRolVista" Relationship="ProyectoTiendaBeats.VistaRolVista" FromRole="Vista" ToRole="RolVista" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="true" />
+          <Property Name="Ruta" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstModulo" Relationship="ProyectoTiendaBeats.ModuloVista" FromRole="Vista" ToRole="Modulo" />
+          <Property Name="ModuloId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstVista" Relationship="ProyectoTiendaBeats.ModuloVista" FromRole="Modulo" ToRole="Vista" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Productor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Biografia" Type="String" Nullable="true" />
+          <NavigationProperty Name="lstUsuario" Relationship="ProyectoTiendaBeats.UsuarioProductor" FromRole="Productor" ToRole="Usuario" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstBeat" Relationship="ProyectoTiendaBeats.ProductorBeat" FromRole="Productor" ToRole="Beat" />
+          <NavigationProperty Name="lstVentaDetalle" Relationship="ProyectoTiendaBeats.ProductorVentaDetalle" FromRole="Productor" ToRole="VentaDetalle" />
+        </EntityType>
+        <EntityType Name="Licencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstLicenciaBeat" Relationship="ProyectoTiendaBeats.LicenciaLicenciaBeat" FromRole="Licencia" ToRole="LicenciaBeat" />
+          <Property Name="Tipo" Type="String" Nullable="false" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Beat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstLicenciaBeat" Relationship="ProyectoTiendaBeats.BeatLicenciaBeat" FromRole="Beat" ToRole="LicenciaBeat" />
+          <Property Name="Titulo" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="true" />
+          <Property Name="Reproduccion" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstProductor" Relationship="ProyectoTiendaBeats.ProductorBeat" FromRole="Beat" ToRole="Productor" />
+          <Property Name="ProductorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstBeatGeneroMusical" Relationship="ProyectoTiendaBeats.BeatBeatGeneroMusical" FromRole="Beat" ToRole="BeatGeneroMusical" />
+          <NavigationProperty Name="lstVentaDetalle" Relationship="ProyectoTiendaBeats.BeatVentaDetalle" FromRole="Beat" ToRole="VentaDetalle" />
+        </EntityType>
+        <EntityType Name="LicenciaBeat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstLicencia" Relationship="ProyectoTiendaBeats.LicenciaLicenciaBeat" FromRole="LicenciaBeat" ToRole="Licencia" />
+          <Property Name="LicenciaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstBeat" Relationship="ProyectoTiendaBeats.BeatLicenciaBeat" FromRole="LicenciaBeat" ToRole="Beat" />
+          <Property Name="BeatId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GeneroMusical">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstBeatGeneroMusical" Relationship="ProyectoTiendaBeats.GeneroMusicalBeatGeneroMusical" FromRole="GeneroMusical" ToRole="BeatGeneroMusical" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BeatGeneroMusical">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstGeneroMusical" Relationship="ProyectoTiendaBeats.GeneroMusicalBeatGeneroMusical" FromRole="BeatGeneroMusical" ToRole="GeneroMusical" />
+          <Property Name="GeneroMusicalId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstBeat" Relationship="ProyectoTiendaBeats.BeatBeatGeneroMusical" FromRole="BeatGeneroMusical" ToRole="Beat" />
+          <Property Name="BeatId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VentaDetalle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="lstVenta" Relationship="ProyectoTiendaBeats.VentaDetalleVenta" FromRole="VentaDetalle" ToRole="Venta" />
+          <Property Name="Precio" Type="Double" Nullable="false" />
+          <NavigationProperty Name="lstProductor" Relationship="ProyectoTiendaBeats.ProductorVentaDetalle" FromRole="VentaDetalle" ToRole="Productor" />
+          <Property Name="ProductorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstBeat" Relationship="ProyectoTiendaBeats.BeatVentaDetalle" FromRole="VentaDetalle" ToRole="Beat" />
+          <Property Name="BeatId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
+          <Property Name="Subtotal" Type="Double" Nullable="false" />
+          <Property Name="Descuento" Type="Double" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <NavigationProperty Name="lstMetodoPago" Relationship="ProyectoTiendaBeats.MetodoPagoVenta" FromRole="Venta" ToRole="MetodoPago" />
+          <Property Name="MetodoPagoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstUsuario" Relationship="ProyectoTiendaBeats.UsuarioVenta" FromRole="Venta" ToRole="Usuario" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lstVentaDetalle" Relationship="ProyectoTiendaBeats.VentaDetalleVenta" FromRole="Venta" ToRole="VentaDetalle" />
+          <Property Name="VentaDetalleId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MetodoPago">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Metodo" Type="String" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" />
+          <NavigationProperty Name="lstVenta" Relationship="ProyectoTiendaBeats.MetodoPagoVenta" FromRole="MetodoPago" ToRole="Venta" />
+        </EntityType>
+        <Association Name="UsuarioUsuarioRol">
+          <End Type="ProyectoTiendaBeats.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.UsuarioRol" Role="UsuarioRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioRol">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RolUsuarioRol">
+          <End Type="ProyectoTiendaBeats.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.UsuarioRol" Role="UsuarioRol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsuarioRol">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RolRolVista">
+          <End Type="ProyectoTiendaBeats.Rol" Role="Rol" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.RolVista" Role="RolVista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolVista">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VistaRolVista">
+          <End Type="ProyectoTiendaBeats.Vista" Role="Vista" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.RolVista" Role="RolVista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vista">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RolVista">
+              <PropertyRef Name="VistaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LicenciaLicenciaBeat">
+          <End Type="ProyectoTiendaBeats.Licencia" Role="Licencia" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.LicenciaBeat" Role="LicenciaBeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Licencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LicenciaBeat">
+              <PropertyRef Name="LicenciaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BeatLicenciaBeat">
+          <End Type="ProyectoTiendaBeats.Beat" Role="Beat" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.LicenciaBeat" Role="LicenciaBeat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LicenciaBeat">
+              <PropertyRef Name="BeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ModuloVista">
+          <End Type="ProyectoTiendaBeats.Modulo" Role="Modulo" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.Vista" Role="Vista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vista">
+              <PropertyRef Name="ModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioProductor">
+          <End Type="ProyectoTiendaBeats.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.Productor" Role="Productor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productor">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductorBeat">
+          <End Type="ProyectoTiendaBeats.Productor" Role="Productor" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.Beat" Role="Beat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Beat">
+              <PropertyRef Name="ProductorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GeneroMusicalBeatGeneroMusical">
+          <End Type="ProyectoTiendaBeats.GeneroMusical" Role="GeneroMusical" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.BeatGeneroMusical" Role="BeatGeneroMusical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GeneroMusical">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BeatGeneroMusical">
+              <PropertyRef Name="GeneroMusicalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BeatBeatGeneroMusical">
+          <End Type="ProyectoTiendaBeats.Beat" Role="Beat" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.BeatGeneroMusical" Role="BeatGeneroMusical" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BeatGeneroMusical">
+              <PropertyRef Name="BeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MetodoPagoVenta">
+          <End Type="ProyectoTiendaBeats.MetodoPago" Role="MetodoPago" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetodoPago">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="MetodoPagoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioVenta">
+          <End Type="ProyectoTiendaBeats.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VentaDetalleVenta">
+          <End Type="ProyectoTiendaBeats.VentaDetalle" Role="VentaDetalle" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.Venta" Role="Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VentaDetalle">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Venta">
+              <PropertyRef Name="VentaDetalleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductorVentaDetalle">
+          <End Type="ProyectoTiendaBeats.Productor" Multiplicity="1" Role="Productor" />
+          <End Type="ProyectoTiendaBeats.VentaDetalle" Multiplicity="*" Role="VentaDetalle" />
+          <ReferentialConstraint>
+            <Principal Role="Productor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VentaDetalle">
+              <PropertyRef Name="ProductorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BeatVentaDetalle">
+          <End Type="ProyectoTiendaBeats.Beat" Role="Beat" Multiplicity="1" />
+          <End Type="ProyectoTiendaBeats.VentaDetalle" Role="VentaDetalle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VentaDetalle">
+              <PropertyRef Name="BeatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ProyectoTiendaBeats" />
+        <Alias Key="Target" Value="ProyectoTiendaBeats.Store" />
+        <EntityContainerMapping CdmEntityContainer="ProyectoTiendaBeatsContainer" StorageEntityContainer="ProyectoTiendaBeatsTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
