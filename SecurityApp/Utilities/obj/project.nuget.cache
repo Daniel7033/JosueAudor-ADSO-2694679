@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "HeIBmOcBYj4=",
+  "dgSpecHash": "6HFVywJVzxo=",
   "success": true,
   "projectFilePath": "C:\\Users\\Stork\\Desktop\\DANIEL\\TECNOLOGO\\Repositorios\\JosueAudor-ADSO-2694679\\SecurityApp\\Utilities\\Utilities.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Stork\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Stork\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\Stork\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
